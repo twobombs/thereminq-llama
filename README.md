@@ -1,2 +1,2 @@
 # thereminq-llama - baking a quantum layer caek
-This repo is meant for training LLama with QC data
+This repo is alpha and dedicated to training LLama with QC data
