@@ -1,8 +1,13 @@
 #!/bin/bash
 # fetch bins from huggingface
-# 216 GB - might take a while
+# 120 GB - might take a while
 # source https://huggingface.co/decapoda-research
 
-for i in {1..18}; do
+# llama-65b-hf
+for i in {1..9}; do
   wget https://huggingface.co/decapoda-research/llama-65b-hf/resolve/main/pytorch_model-0000"$i"-of-00081.bin
 done
+for i in {10..81}; do
+  wget https://huggingface.co/decapoda-research/llama-65b-hf/resolve/main/pytorch_model-000"$i"-of-00081.bin
+done
+
