@@ -15,6 +15,6 @@ done
 for i in {1..9}; do
   wget https://huggingface.co/decapoda-research/llama-7b-hf/resolve/main/pytorch_model-0000"$i"-of-00033.bin
 done
-for i in {10..81}; do
+for i in {10..33}; do
   wget https://huggingface.co/decapoda-research/llama-7b-hf/resolve/main/pytorch_model-000"$i"-of-00033.bin
 done
