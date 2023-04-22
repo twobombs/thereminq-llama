@@ -4,6 +4,7 @@
 # source https://huggingface.co/decapoda-research
 
 # llama-65b-hf
+mkdir llama-65b-hf && cd llama-65b-hf
 for i in {1..9}; do
   wget https://huggingface.co/decapoda-research/llama-65b-hf/resolve/main/pytorch_model-0000"$i"-of-00081.bin
 done
@@ -12,6 +13,7 @@ for i in {10..81}; do
 done
 
 # llama-7b-hf
+cd .. && mkdir llama-7b-hf && cd llama-7b-hf
 for i in {1..9}; do
   wget https://huggingface.co/decapoda-research/llama-7b-hf/resolve/main/pytorch_model-0000"$i"-of-00033.bin
 done
