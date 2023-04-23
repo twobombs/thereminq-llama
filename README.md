@@ -4,7 +4,7 @@ This repo is alpha and dedicated to training LLama's with QC data
 Download bin files through fetch-bins.sh and start container with nvdia-docker support
 --------
 
-start the container with default settings has ggml-alpaca-7b-q4 included in the image with llama.cpp as the driver
+start the container image with default settings it has ggml-alpaca-7b-q4 included in the image with llama.cpp as the driver
 
 docker run -v /[dowloadpath][model]/:/llama.cpp/models -it --rm twobombs/thereminq-llama
 
