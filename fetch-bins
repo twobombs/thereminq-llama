@@ -1,7 +1,7 @@
 #!/bin/bash
 # fetch bins from huggingface
 # 430 GB - might take a while
-# source https://huggingface.co/decapoda-research
+# sources - https://huggingface.co/decapoda-research https://huggingface.co/TheBloke
 
 # llama-65b-hf
 mkdir llama-65b-hf && cd llama-65b-hf
