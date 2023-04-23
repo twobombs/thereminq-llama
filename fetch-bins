@@ -27,3 +27,7 @@ wget https://huggingface.co/TheBloke/alpaca-lora-65B-GGML/resolve/main/alpaca-lo
 wget https://huggingface.co/TheBloke/alpaca-lora-65B-GGML/resolve/main/alpaca-lora-65B.GGML.q4_0.bin
 wget https://huggingface.co/TheBloke/alpaca-lora-65B-GGML/resolve/main/alpaca-lora-65B.GGML.q4_2.bin
 wget https://huggingface.co/TheBloke/alpaca-lora-65B-GGML/resolve/main/alpaca-lora-65B.GGML.q4_3.bin
+
+
+# ggml-alpaca-7b-q4
+wget https://huggingface.co/Sosaka/Alpaca-native-4bit-ggml/resolve/main/ggml-alpaca-7b-q4.bin
