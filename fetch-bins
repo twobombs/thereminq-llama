@@ -21,6 +21,15 @@ for i in {10..33}; do
   wget https://huggingface.co/decapoda-research/llama-7b-hf/resolve/main/pytorch_model-000"$i"-of-00033.bin
 done
 
+# llama-30b-hf
+cd .. && mkdir llama-30b-hf && cd llama-30b-hf
+for i in {1..9}; do
+  wget https://huggingface.co/decapoda-research/llama-30b-hf/resolve/main/pytorch_model-0000"$i"-of-00061.bin
+done
+for i in {10..61}; do
+  wget https://huggingface.co/decapoda-research/llama-30b-hf/resolve/main/pytorch_model-000"$i"-of-00061.bin
+done
+
 # alpaca-lora-65B GGML
 cd .. && mkdir alpaca-lora-65B-GGML && cd alpaca-lora-65B-GGML
 wget https://huggingface.co/TheBloke/alpaca-lora-65B-GGML/resolve/main/alpaca-lora-65B.GGML.q2_0.bin
