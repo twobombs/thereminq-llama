@@ -1,7 +1,7 @@
 #!/bin/bash
 # fetch bins from huggingface
 # 430 GB - might take a while
-# sources - https://huggingface.co/decapoda-research https://huggingface.co/TheBloke
+# sources - https://huggingface.co/decapoda-research & https://huggingface.co/TheBloke
 
 # llama-65b-hf
 mkdir llama-65b-hf && cd llama-65b-hf
@@ -11,6 +11,9 @@ done
 for i in {10..81}; do
   wget https://huggingface.co/decapoda-research/llama-65b-hf/resolve/main/pytorch_model-000"$i"-of-00081.bin
 done
+wget https://huggingface.co/decapoda-research/llama-65b-hf/raw/main/pytorch_model.bin.index.json
+wget https://huggingface.co/decapoda-research/llama-65b-hf/resolve/main/tokenizer.model
+wget https://huggingface.co/decapoda-research/llama-65b-hf/raw/main/tokenizer_config.json
 
 # llama-7b-hf
 cd .. && mkdir llama-7b-hf && cd llama-7b-hf
@@ -20,6 +23,9 @@ done
 for i in {10..33}; do
   wget https://huggingface.co/decapoda-research/llama-7b-hf/resolve/main/pytorch_model-000"$i"-of-00033.bin
 done
+wget https://huggingface.co/decapoda-research/llama-7b-hf/raw/main/pytorch_model.bin.index.json
+wget https://huggingface.co/decapoda-research/llama-7b-hf/resolve/main/tokenizer.model
+wget https://huggingface.co/decapoda-research/llama-7b-hf/raw/main/tokenizer_config.json
 
 # llama-30b-hf
 cd .. && mkdir llama-30b-hf && cd llama-30b-hf
@@ -29,6 +35,9 @@ done
 for i in {10..61}; do
   wget https://huggingface.co/decapoda-research/llama-30b-hf/resolve/main/pytorch_model-000"$i"-of-00061.bin
 done
+wget https://huggingface.co/decapoda-research/llama-30b-hf/raw/main/pytorch_model.bin.index.json
+wget https://huggingface.co/decapoda-research/llama-30b-hf/resolve/main/tokenizer.model
+wget https://huggingface.co/decapoda-research/llama-30b-hf/raw/main/tokenizer_config.json
 
 # alpaca-lora-65B GGML
 cd .. && mkdir alpaca-lora-65B-GGML && cd alpaca-lora-65B-GGML
@@ -36,7 +45,6 @@ wget https://huggingface.co/TheBloke/alpaca-lora-65B-GGML/resolve/main/alpaca-lo
 wget https://huggingface.co/TheBloke/alpaca-lora-65B-GGML/resolve/main/alpaca-lora-65B.GGML.q4_0.bin
 wget https://huggingface.co/TheBloke/alpaca-lora-65B-GGML/resolve/main/alpaca-lora-65B.GGML.q4_2.bin
 wget https://huggingface.co/TheBloke/alpaca-lora-65B-GGML/resolve/main/alpaca-lora-65B.GGML.q4_3.bin
-
 
 # ggml-alpaca-7b-q4
 wget https://huggingface.co/Sosaka/Alpaca-native-4bit-ggml/resolve/main/ggml-alpaca-7b-q4.bin
