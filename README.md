@@ -4,7 +4,7 @@ This repo is alpha and dedicated to training LLama's with QC data
 Download bin files through fetch-bins.sh and start container with nvdia-docker support
 --------
 
-CPU llama.cpp
+CPU - llama.cpp
 
 - has ggml-alpaca-7b-q4 included in the image with llama.cpp as the driver
 
