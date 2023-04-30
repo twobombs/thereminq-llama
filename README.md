@@ -6,7 +6,7 @@ Download bin files through fetch-bins.sh and start container with nvdia-docker s
 
 CPU - llama.cpp
 
-- has ggml-alpaca-7b-q4 included in the image with llama.cpp as the driver
+- ggml-alpaca-7b-q4 is included in the image, otherwise mount the model with -v
 
 docker run -v /[dowloadpath][model]/:/llama.cpp/models -it --rm twobombs/thereminq-llama
 
