@@ -1,4 +1,5 @@
-# thereminq-llama : baking a quantum layer caek
+# Thereminq-LLaMa : baking a quantum layer caek
+
 This repo is alpha and dedicated to training LLama's with QC data
 
 Download bin files through fetch-bins.sh and start container with nvdia-docker support
