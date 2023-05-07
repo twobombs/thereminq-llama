@@ -11,6 +11,9 @@ RUN cd llama && pip install -e .
 RUN git clone https://github.com/Lightning-AI/lit-llama
 RUN cd lit-llama && pip install -r requirements.txt 
 
+COPY run /root/run
+RUN chmod 744 /root/run*
+
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
 ENTRYPOINT /root/run
