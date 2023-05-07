@@ -3,6 +3,8 @@
 # 430 GB - might take a while
 # sources - https://huggingface.co/decapoda-research & https://huggingface.co/TheBloke
 
+apt install -y git-lfs
+
 # llama-65b-hf
 mkdir llama-65b-hf && cd llama-65b-hf
 for i in {1..9}; do
