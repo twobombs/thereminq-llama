@@ -14,7 +14,7 @@ docker run -v /[downloadpath][model]/:/llama.cpp/models -it --rm twobombs/therem
 
 GPU - LLaMA-lit
 
-docker run --gpus all -v /[downloadpath][checkpoints]/:/lit-llama/checkpoints -it --rm twobombs/thereminq-llama:gpu
+docker run --gpus all -v /[downloadpath][checkpoints]/:/workspace/lit-llama/checkpoints -it --rm twobombs/thereminq-llama:gpu
 
 --------
 - Download bin files through fetch-bins.sh and start container with nvdia-docker support
