@@ -8,10 +8,15 @@ CPU - llama.cpp
 
 - ggml-alpaca-7b-q4 is included in the image, otherwise mount the model with -v
 
-docker run -v /[dowloadpath][model]/:/llama.cpp/models -it --rm twobombs/thereminq-llama
+docker run -v /[dowloadpath][model]/:/llama.cpp/models -it --rm twobombs/thereminq-llama:cpu
 
 --------
 
+GPU - LLaMA-lit
+
+docker run --gpus all  -v /[dowloadpath][model]/:/llama.cpp/models -it --rm twobombs/thereminq-llama:gpu
+
+--------
 - Download bin files through fetch-bins.sh and start container with nvdia-docker support
 
 --------
