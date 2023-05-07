@@ -1,0 +1,3 @@
+nvidia-smi
+
+tail -f /dev/null
