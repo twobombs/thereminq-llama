@@ -2,6 +2,6 @@
 # NV runtime GPU container run file
 # 
 
-nvidia-smi
+watch -n1 nvidia-smi
 
 tail -f /dev/null
