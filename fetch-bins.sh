@@ -18,6 +18,9 @@ git clone https://huggingface.co/openlm-research/open_llama_7b_preview_300bt &
 git clone https://huggingface.co/TheBloke/alpaca-lora-65B-GGML &
 git clone https://huggingface.co/Sosaka/Alpaca-native-4bit-ggml &
 
+# test for new ggml @llama.cpp
+wget https://huggingface.co/Pi3141/alpaca-native-13B-ggml/resolve/main/ggml-model-q8_0.bin
+
 # https://www.together.xyz/blog/redpajama
 # this one will take 3TB > 8TB extracted
 mkdir Redpajama-LLaMa-1T && cd Redpajama-LLaMa-1T
