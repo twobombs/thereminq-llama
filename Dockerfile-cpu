@@ -1,9 +1,15 @@
-FROM twobombs/qrackmin:pocl
+FROM nvidia/cuda:11.4.3-runtime-ubuntu20.04
+
+RUN apt update && apt install -y git wget make build-essential
 
 RUN git clone https://github.com/ggerganov/llama.cpp 
-RUN cd llama.cpp/models && wget https://huggingface.co/Sosaka/Alpaca-native-4bit-ggml/resolve/main/ggml-alpaca-7b-q4.bin 
-RUN cd llama.cpp && make -j && ./main -m ./models/ggml-alpaca-7b-q4.bin -p "explain the negative energy spike when teleporting a qubit according to ER=EPR" -n 512
+RUN cd llama.cpp/models && wget https://huggingface.co/Pi3141/alpaca-native-13B-ggml/resolve/main/ggml-model-q8_0.bin 
+RUN cd llama.cpp && make -j && ./main -m ./models/ggml-model-q8_0.bin -p "explain the negative energy spike when teleporting a qubit according to ER=EPR" -n 512
+
+COPY run /root/run
+RUN chmod 744 /root/run*
 
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
+
 ENTRYPOINT /root/run
