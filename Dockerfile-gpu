@@ -1,6 +1,6 @@
 FROM pytorch/pytorch:latest
 
-RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y git python3-pip mc
+RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y git python3-pip mc wget
 
 # install nod-ia llama
 RUN git clone https://github.com/nod-ai/llama.git
