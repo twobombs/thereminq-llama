@@ -4,7 +4,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y git py
 
 #install llama.cpp gpu versions
 RUN git clone https://github.com/ggerganov/llama.cpp
-RUN cp llama.cpp llama-cublas
+RUN cp -r llama.cpp llama-cublas
 
 RUN cd llama.cpp && make LLAMA_OPENBLAS=1
 RUN cd llama-cublas && make LLAMA_CUBLAS=1
