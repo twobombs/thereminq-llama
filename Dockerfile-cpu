@@ -3,7 +3,7 @@ FROM nvidia/cuda:11.4.3-runtime-ubuntu20.04
 RUN apt update && apt install -y git wget make build-essential
 
 RUN git clone https://github.com/ggerganov/llama.cpp 
-RUN cd llama.cpp/models && wget https://huggingface.co/openlm-research/open_llama_7b_preview_300bt/resolve/main/open_llama_7b_preview_300bt_easylm
+RUN cd llama.cpp/models && wget https://huggingface.co/Pi3141/alpaca-native-13B-ggml/resolve/main/ggml-model-q8_0.bin
 RUN cd llama.cpp && make -j && ./main -m ./models/ggml-model-q8_0.bin -p "explain the negative energy spike when teleporting a qubit according to ER=EPR" -n 512
 
 COPY run /root/run
