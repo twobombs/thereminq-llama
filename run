@@ -1,7 +1,0 @@
-#!/bin/bash
-# NV runtime GPU container run file
-# 
-
-watch -n1 nvidia-smi
-
-tail -f /dev/null
