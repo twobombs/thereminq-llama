@@ -1,20 +1,20 @@
 # ThereminQ-LLaMa : baking a quantum layer caek
 
-This repo is alpha and dedicated to training LLama's with QC data
+This repo is alpha and dedicated to training Lggml Lama's with QC data
+
+- ggml-model-q8_0.bin included in the image, otherwise mount the model with -v
+ 
+--------
+
+CPU - llama.cpp OpenBLAS
+
+docker run -it --rm twobombs/thereminq-llama:cpu
 
 --------
 
-CPU - llama.cpp
+GPU - llama.cpp OpenBLAS & cuBLAS
 
-- ggml-alpaca-7b-q4 is included in the image, otherwise mount the model with -v
-
-docker run -v /[downloadpath][model]/:/llama.cpp/models -it --rm twobombs/thereminq-llama:cpu
-
---------
-
-GPU - LLaMA-lit
-
-docker run --gpus all -v /[downloadpath][checkpoints]/:/workspace/lit-llama/checkpoints -it --rm twobombs/thereminq-llama:gpu
+docker run --gpus all -it --rm twobombs/thereminq-llama:gpu
 
 --------
 - Download bin files through fetch-bins.sh and start container with nvdia-docker support
