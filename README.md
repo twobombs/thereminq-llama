@@ -10,7 +10,7 @@ docker run [--privileged --gpus all] -it --rm twobombs/thereminq-llama
 
 --------
 
-- Download bin files through fetch-bins.sh and start container with nvdia-docker support
+- Download bin files through fetch-bins.sh and start container with or without nvdia-docker support
 
 --------
 
