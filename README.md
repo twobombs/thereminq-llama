@@ -16,8 +16,10 @@ docker run [--privileged --gpus all] -it --rm twobombs/thereminq-llama
 
 Credits for Qrack and LLaMa.cpp go to
 
-Dan Strano https://github.com/unitaryfund/qrack 
+Dan Strano https://github.com/unitaryfund/qrack
+
 Georgi Gerganov https://github.com/ggerganov/llama.cpp
+
 ... and their respective contributers
 
 --------
