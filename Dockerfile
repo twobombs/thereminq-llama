@@ -1,9 +1,17 @@
 FROM twobombs/qrackmin:pocl
 
-# fetch nod-ai, lit-llama & llama.cpp
-RUN git clone https://github.com/ggerganov/llama.cpp 
-RUN git clone https://github.com/nod-ai/llama.git
-RUN git clone https://github.com/Lightning-AI/lit-llama
+# fetch dependancies
+RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y git python3-pip mc wget libopenblas-dev libclblast-dev
+
+#fetch llama.cpp
+RUN git clone https://github.com/ggerganov/llama.cpp
+RUN cp -r llama.cpp llama-cublas
+RUN cp -r llama.cpp llama-clblast
+
+# build all versions
+RUN cd llama.cpp && make LLAMA_OPENBLAS=1
+RUN cd llama-cublas && make LLAMA_CUBLAS=1
+RUN cd llama-clblast && make LLAMA_CLBLAST=1
 
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
