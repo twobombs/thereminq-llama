@@ -1,7 +1,8 @@
 #!/bin/bash
 # fetch bins from huggingface
 # 450 GB - might take a while
-# sources - 
+
+# sources
 # https://huggingface.co/decapoda-research
 # https://huggingface.co/Sosaka
 # https://huggingface.co/TheBloke
