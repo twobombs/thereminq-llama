@@ -1,16 +1,21 @@
-FROM nvidia/cuda:12.1.1-devel-ubuntu20.04
+FROM nvidia/cuda:12.1.1-devel-ubuntu22.04
 
-RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y git python3-pip mc wget libopenblas-dev
+RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y git python3-pip mc wget libopenblas-dev libclblast-dev
 
-#install llama.cpp gpu versions
+#fetch llama.cpp
 RUN git clone https://github.com/ggerganov/llama.cpp
 RUN cp -r llama.cpp llama-cublas
+RUN cp -r llama.cpp llama-clblast
 
+# build all versions
 RUN cd llama.cpp && make LLAMA_OPENBLAS=1
 RUN cd llama-cublas && make LLAMA_CUBLAS=1
+RUN cd llama-clblast && make LLAMA_CLBLAST=1
 
-#load default model
+#load default model and symlink
 RUN cd llama.cpp/models && wget https://huggingface.co/Pi3141/alpaca-native-13B-ggml/resolve/main/ggml-model-q8_0.bin
+RUN ln -s /llama.cpp/models/ggml-model-q8_0.bin /llama-cublas/models/ggml-model-q8_0.bin
+RUN ln -s /llama.cpp/models/ggml-model-q8_0.bin /llama-clblast/models/ggml-model-q8_0.bin
 
 COPY run /root/run
 RUN chmod 744 /root/run*
