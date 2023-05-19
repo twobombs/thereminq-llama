@@ -4,7 +4,8 @@
 # sources - 
 # https://huggingface.co/decapoda-research
 # https://huggingface.co/Sosaka
-# https://huggingface.co/TheBloke 
+# https://huggingface.co/TheBloke
+# https://huggingface.co/Pi3141
 
 apt install -y git git-lfs
 
