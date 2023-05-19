@@ -13,6 +13,11 @@ RUN cd llama.cpp && make LLAMA_OPENBLAS=1
 RUN cd llama-cublas && make LLAMA_CUBLAS=1
 RUN cd llama-clblast && make LLAMA_CLBLAST=1
 
+#load default model and symlink
+RUN cd llama.cpp/models && wget https://huggingface.co/Pi3141/alpaca-native-13B-ggml/resolve/main/ggml-model-q8_0.bin
+RUN ln -s /llama.cpp/models/ggml-model-q8_0.bin /llama-cublas/models/ggml-model-q8_0.bin
+RUN ln -s /llama.cpp/models/ggml-model-q8_0.bin /llama-clblast/models/ggml-model-q8_0.bin
+
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
 ENTRYPOINT /root/run
