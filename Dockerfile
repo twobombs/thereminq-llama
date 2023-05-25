@@ -9,9 +9,9 @@ RUN cp -r llama.cpp llama-cublas
 RUN cp -r llama.cpp llama-clblast
 
 # build all versions
-RUN cd llama.cpp && make LLAMA_OPENBLAS=1
-RUN cd llama-cublas && make LLAMA_CUBLAS=1
-RUN cd llama-clblast && make LLAMA_CLBLAST=1
+RUN cd llama.cpp && make LLAMA_OPENBLAS=1 all
+RUN cd llama-cublas && make LLAMA_CUBLAS=1 all
+RUN cd llama-clblast && make LLAMA_CLBLAST=1 all
 
 #load default model and symlink
 RUN cd llama.cpp/models && wget https://huggingface.co/Pi3141/alpaca-native-13B-ggml/resolve/main/ggml-model-q8_0.bin
