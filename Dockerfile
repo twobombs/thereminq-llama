@@ -21,7 +21,7 @@ RUN ln -s /llama.cpp/models/ggml-model-q8_0.bin /llama-cublas/models/ggml-model-
 RUN ln -s /llama.cpp/models/ggml-model-q8_0.bin /llama-clblast/models/ggml-model-q8_0.bin
 
 # test build
-RUN cd llama.cpp/bin && ./main -m ../models/ggml-model-q8_0.bin -p "explain the negative energy spike when teleporting a qubit according to ER=EPR" -n 512
+RUN cd llama.cpp && ./main -m ../models/ggml-model-q8_0.bin -p "explain the negative energy spike when teleporting a qubit according to ER=EPR" -n 512
 
 #copy run file
 COPY run-tensor /root/*
