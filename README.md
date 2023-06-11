@@ -8,7 +8,7 @@ This repo is alpha and dedicated to training ggml LLaMa's with QC data
 
 Qrackmin:POCL + LLaMa.cpp integrated container image
 
-docker run --privileged --gpus all -it --rm twobombs/thereminq-llama
+docker run --privileged --gpus all -d twobombs/thereminq-llama
 
 --------
 
