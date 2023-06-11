@@ -24,7 +24,7 @@ RUN ln -s /llama.cpp/models/ggml-model-q8_0.bin /llama-clblast/models/ggml-model
 # RUN cd llama.cpp && ./main -m ../models/ggml-model-q8_0.bin -p "explain the negative energy spike when teleporting a qubit according to ER=EPR" -n 512
 
 #copy run file
-COPY run-tensor /root/*
+COPY run-tensor /root/run-tensor
 RUN chmod 744 /root/run*
 
 ENV NVIDIA_VISIBLE_DEVICES all
