@@ -16,7 +16,8 @@ RUN cd llama-cublas && cmake -DGGML_CUBLAS=ON . && make LLAMA_CUBLAS=1 all
 RUN cd llama-clblast && cmake -DGGML_CLBLAST=ON . && make LLAMA_CLBLAST=1 all
 
 #load default model and symlink
-RUN cd llama.cpp/models && wget https://huggingface.co/Pi3141/alpaca-native-13B-ggml/resolve/main/ggml-model-q8_0.bin
+RUN cd llama.cpp/models && wget https://huggingface.co/TheBloke/orca_mini_v2_13b-GGML/resolve/main/orca_mini_v2_13b.ggmlv3.q2_K.bin
+# https://huggingface.co/Pi3141/alpaca-native-13B-ggml/resolve/main/ggml-model-q8_0.bin
 RUN ln -s /llama.cpp/models/ggml-model-q8_0.bin /llama-cublas/models/ggml-model-q8_0.bin
 RUN ln -s /llama.cpp/models/ggml-model-q8_0.bin /llama-clblast/models/ggml-model-q8_0.bin
 RUN ln -s /llama.cpp/models/ggml-model-q8_0.bin /llama-openblas/models/ggml-model-q8_0.bin
