@@ -12,7 +12,7 @@ docker run --privileged --gpus all -d twobombs/thereminq-llama[:tag]
 - latest includes a LLama2 2bit model + source compiled 
 - cl for additional pip llama.cpp opencl support
 - cuda for additional pip llama.cpp cuda support
-- add spark for llama-cpp-python and spark services to opencl image
+- adds llama-cpp-python and spark services to opencl image
 
 --------
 
