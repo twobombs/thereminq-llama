@@ -1,0 +1,20 @@
+#!/bin/bash
+
+python -m llama_cpp.server --model /llama.cpp/models/orca_mini_v2_13b.ggmlv3.q2_K.bin &
+
+# start sparky
+
+export SPARK_HOME=/opt/spark
+export PATH=$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin
+
+./opt/spark/sbin/start-master.sh &
+
+sleep 10
+
+./opt/spark/sbin/start-slave.sh spark://ubuntu:7077 &
+
+sleep 10
+
+./opt/spark/bin/spark-shell 
+
+tail -f /dev/null
