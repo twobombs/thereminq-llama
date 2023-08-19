@@ -17,7 +17,7 @@ docker run --privileged --gpus all -d twobombs/thereminq-llama[:tag]
 --------
 
 Optional
-- Download a ton of hugging face bin files through fetch-bins.sh and start container with or without nvdia-docker support
+- Download a ton of hugging face bin files through fetch-bins.sh
 
 --------
 
