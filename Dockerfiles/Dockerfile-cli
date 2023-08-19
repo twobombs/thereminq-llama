@@ -12,10 +12,10 @@ RUN cd llama-openblas && cmake . && make LLAMA_OPENBLAS=1 all
 RUN cd llama-cublas && cmake -DGGML_CUBLAS=ON . && make LLAMA_CUBLAS=1 all
 RUN cd llama-clblast && cmake -DGGML_CLBLAST=ON . && make LLAMA_CLBLAST=1 all
 
-RUN ln -s orca_mini_v2_13b.ggmlv3.q2_K.bin /llama-cpp/models/orca_mini_v2_13b.ggmlv3.q2_K.bin
-RUN ln -s orca_mini_v2_13b.ggmlv3.q2_K.bin /llama-cublas/models/orca_mini_v2_13b.ggmlv3.q2_K.bin
-RUN ln -s orca_mini_v2_13b.ggmlv3.q2_K.bin /llama-clblast/models/orca_mini_v2_13b.ggmlv3.q2_K.bin
-RUN ln -s orca_mini_v2_13b.ggmlv3.q2_K.bin /llama-openblas/models/orca_mini_v2_13b.ggmlv3.q2_K.bin
+# RUN ln -s orca_mini_v2_13b.ggmlv3.q2_K.bin /llama-cpp/models/orca_mini_v2_13b.ggmlv3.q2_K.bin
+# RUN ln -s orca_mini_v2_13b.ggmlv3.q2_K.bin /llama-cublas/models/orca_mini_v2_13b.ggmlv3.q2_K.bin
+# RUN ln -s orca_mini_v2_13b.ggmlv3.q2_K.bin /llama-clblast/models/orca_mini_v2_13b.ggmlv3.q2_K.bin
+# RUN ln -s orca_mini_v2_13b.ggmlv3.q2_K.bin /llama-openblas/models/orca_mini_v2_13b.ggmlv3.q2_K.bin
 
 # test build
 RUN cd llama.cpp && ./main -m /orca_mini_v2_13b.ggmlv3.q2_K.bin -p "explain the negative energy spike when teleporting a qubit according to ER=EPR" -n 512
