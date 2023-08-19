@@ -3,3 +3,5 @@
 # this is a test to look for runtime visuals in thereminq-bonsai and processing in thereminq-llama
 #
 cd qrack128/_build && ./benchmarks -optimal --single --max-qubits=30 --benchmark-depth=30 test_circuit_t_nn_generate_and_load --measure-output=/var/log/qrack/"test_circuit_t_nn_$(date +%F_%R_%S).log"
+
+tail -f /dev/null
