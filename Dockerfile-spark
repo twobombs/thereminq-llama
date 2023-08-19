@@ -1,6 +1,6 @@
 FROM twobombs/thereminq-llama:opencl
 
-# do llama things
+# do llama server things
 RUN pip install llama-cpp-python[server]
 
 # do spark things
