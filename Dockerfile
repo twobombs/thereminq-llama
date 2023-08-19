@@ -4,7 +4,7 @@ FROM twobombs/qrackmin
 RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y git python3-pip mc wget libopenblas-dev libclblast-dev
 
 # fetch llama-cpp-python
-RUN git clone git clone --recursive -j8 https://github.com/abetlen/llama-cpp-python.git
+RUN git clone git clone --recursive https://github.com/abetlen/llama-cpp-python.git
 
 #load default model
 RUN wget https://huggingface.co/TheBloke/orca_mini_v2_13b-GGML/resolve/main/orca_mini_v2_13b.ggmlv3.q2_K.bin
