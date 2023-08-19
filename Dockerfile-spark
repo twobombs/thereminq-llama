@@ -1,8 +1,6 @@
-FROM twobombs/thereminq-llama
+FROM twobombs/thereminq-llama:opencl
 
 # do llama things
-RUN pip install llama-cpp-python
-RUN CMAKE_ARGS="-DLLAMA_CLBLAST=on" FORCE_CMAKE=1 pip install llama-cpp-python --force-reinstall --upgrade --no-cache-dir
 RUN pip install llama-cpp-python[server]
 
 # do spark things
