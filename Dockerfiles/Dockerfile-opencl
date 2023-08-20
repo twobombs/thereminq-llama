@@ -2,6 +2,8 @@ FROM twobombs/thereminq-llama
 
 RUN CMAKE_ARGS="-DLLAMA_CLBLAST=on" FORCE_CMAKE=1 pip install llama-cpp-python --force-reinstall --upgrade --no-cache-dir
 
+RUN pip3 install uvicorn anyio starlette fastapi fydantic_settings pydantic_settings sse_starlette 
+
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
 ENTRYPOINT /root/run
