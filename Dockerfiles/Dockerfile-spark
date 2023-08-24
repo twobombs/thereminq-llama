@@ -1,11 +1,7 @@
 FROM twobombs/thereminq-llama:opencl
 
-# do llama server things
-RUN pip install llama-cpp-python[server]
-
 # do spark things
 RUN wget https://dlcdn.apache.org/spark/spark-3.4.1/spark-3.4.1-bin-hadoop3.tgz && tar xvf spark-3.4.1-bin-hadoop3.tgz && mv spark-3.4.1-bin-hadoop3/ /opt/spark && rm spark-3.4.1-bin-hadoop3.tgz
-
 
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
