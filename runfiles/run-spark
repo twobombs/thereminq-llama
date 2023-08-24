@@ -12,9 +12,7 @@ export PATH=$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin
 
 sleep 10
 
-# start 3 worker nodes
-./opt/spark/sbin/start-slave.sh spark://$HOSTNAME:7077 &
-./opt/spark/sbin/start-slave.sh spark://$HOSTNAME:7077 &
+# start worker node
 ./opt/spark/sbin/start-slave.sh spark://$HOSTNAME:7077 &
 
 sleep 10
