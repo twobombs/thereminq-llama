@@ -7,11 +7,15 @@ python -m llama_cpp.server --model /orca_mini_v2_13b.ggmlv3.q2_K.bin &
 export SPARK_HOME=/opt/spark
 export PATH=$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin
 
+# spark start
 ./opt/spark/sbin/start-master.sh &
 
 sleep 10
 
-./opt/spark/sbin/start-slave.sh spark://ubuntu:7077 &
+# start 3 worker nodes
+./opt/spark/sbin/start-slave.sh spark://$HOSTNAME:7077 &
+./opt/spark/sbin/start-slave.sh spark://$HOSTNAME:7077 &
+./opt/spark/sbin/start-slave.sh spark://$HOSTNAME:7077 &
 
 sleep 10
 
