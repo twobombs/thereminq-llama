@@ -1,13 +1,15 @@
 #!/bin/bash
 
+# show system config in logs
 nvidia-smi
-
 ifconfig
 
+# start OpenAI API simulator
 python3 -m llama_cpp.server --model /orca_mini_v2_13b.ggmlv3.q2_K.bin &
 
 sleep 10
 
+# precompile qrack kernels
 ./qrack/_build/qrack_cl_precompile
 
 tail -f /dev/null
