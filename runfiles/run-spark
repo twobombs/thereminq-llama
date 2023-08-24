@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# start OpenAI API simulator
 python -m llama_cpp.server --model /orca_mini_v2_13b.ggmlv3.q2_K.bin &
 
 # start sparky
