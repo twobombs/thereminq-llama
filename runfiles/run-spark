@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# qrack_cl_precompile
+/qrack/_build/qrack_cl_precompile
+
 # start OpenAI API simulator
 python3 -m llama_cpp.server --model /orca_mini_v2_13b.ggmlv3.q2_K.bin &
 
