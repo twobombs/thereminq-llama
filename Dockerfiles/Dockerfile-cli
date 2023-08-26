@@ -18,7 +18,7 @@ RUN ln -s orca_mini_v2_13b.ggmlv3.q2_K.bin /llama-clblast/models/orca_mini_v2_13
 RUN ln -s orca_mini_v2_13b.ggmlv3.q2_K.bin /llama-openblas/models/orca_mini_v2_13b.ggmlv3.q2_K.bin
 
 # test build
-RUN cd llama.cpp && ./main -m ../orca_mini_v2_13b.ggmlv3.q2_K.bin -p "explain the negative energy spike when teleporting a qubit according to ER=EPR" -n 512
+RUN cd llama.cpp && ./main -m /llama.cpp/models/orca_mini_v2_13b.ggmlv3.q2_K.bin -p "explain the negative energy spike when teleporting a qubit according to ER=EPR" -n 512
 
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
