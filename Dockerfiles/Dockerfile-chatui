@@ -1,0 +1,17 @@
+FROM twobombs/thereminq-llama:spark
+
+#install mongodb + reqs
+RUN echo "deb http://security.ubuntu.com/ubuntu impish-security main" | tee /etc/apt/sources.list.d/impish-security.list
+RUN apt update && apt install -y gnupg libssl1.1 && apt clean
+RUN wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | apt-key add -
+RUN echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-5.0.list
+RUN apt update && apt install -y mongodb-org
+
+# fetch chat-ui
+RUN git clone https://github.com/huggingface/chat-ui
+RUN cd chat-ui && touch env.local && echo "MONGODB_URL=MONGODB_URL=mongodb://$HOSTNAME:27017" && npm install 
+# && npm run dev
+
+ENV NVIDIA_VISIBLE_DEVICES all
+ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
+ENTRYPOINT /root/run-spark
