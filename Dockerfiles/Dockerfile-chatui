@@ -1,10 +1,11 @@
 FROM twobombs/thereminq-llama:spark
 
-#install npm, mongodb + reqs
+# install npm, mongodb + reqs
 RUN echo "deb http://security.ubuntu.com/ubuntu jammy-security main" | tee /etc/apt/sources.list.d/jammy-security.list
 # RUN curl -fsSL https://deb.nodesource.com/setup_current.x | bash -
+
 RUN curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash 
-RUN source ~/.profile && nvm install 20 && node --version 
+RUN source /root/.profile && nvm install 20 && node --version 
 RUN apt update && apt install -y gnupg && apt clean
 
 RUN wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc |  gpg --dearmor | tee /usr/share/keyrings/mongodb.gpg > /dev/null
