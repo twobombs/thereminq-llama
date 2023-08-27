@@ -14,6 +14,7 @@ docker run --privileged --gpus all -d twobombs/thereminq-llama[:tag]
 - cuda for python llama.cpp cuda support
 - cli for LLama.cpp compiled versions
 - spark adds spark services to opencl image
+- chatui for web based LLM interface 
 
 --------
 
