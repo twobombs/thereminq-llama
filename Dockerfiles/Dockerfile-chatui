@@ -2,7 +2,7 @@ FROM twobombs/thereminq-llama:spark
 
 #install mongodb + reqs
 RUN echo "deb http://security.ubuntu.com/ubuntu jammy-security main" | tee /etc/apt/sources.list.d/jammy-security.list
-RUN apt update && apt install -y gnupg nodejs && apt clean
+RUN apt update && apt install -y gnupg npm nodejs && apt clean
 RUN wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc |  gpg --dearmor | tee /usr/share/keyrings/mongodb.gpg > /dev/null
 RUN echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-6.0.list
 RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y mongodb-org && apt clean
