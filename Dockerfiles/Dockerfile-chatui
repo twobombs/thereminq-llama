@@ -5,7 +5,7 @@ RUN echo "deb http://security.ubuntu.com/ubuntu jammy-security main" | tee /etc/
 # RUN curl -fsSL https://deb.nodesource.com/setup_current.x | bash -
 
 RUN curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash 
-RUN /root/.nvm/nvm.sh install 20 && node --version 
+RUN bash ./root/.nvm/nvm.sh install 20 && node --version 
 RUN apt update && apt install -y gnupg && apt clean
 
 RUN wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc |  gpg --dearmor | tee /usr/share/keyrings/mongodb.gpg > /dev/null
