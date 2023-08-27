@@ -21,14 +21,8 @@ git clone https://huggingface.co/TheBloke/alpaca-lora-65B-GGML &
 git clone https://huggingface.co/Sosaka/Alpaca-native-4bit-ggml &
 
 # test for new ggml @llama.cpp
-wget https://huggingface.co/Pi3141/alpaca-native-13B-ggml/resolve/main/ggml-model-q8_0.bin
+wget https://huggingface.co/Pi3141/alpaca-native-13B-ggml/resolve/main/ggml-model-q8_0.bin &
 
-# https://www.together.xyz/blog/redpajama
-# this one will take 3TB > 8TB extracted
-mkdir Redpajama-LLaMa-1T && cd Redpajama-LLaMa-1T
-wget 'https://data.together.xyz/redpajama-data-1T/v1.0.0/urls.txt'
-while read line; do
-    dload_loc=${line#https://data.together.xyz/redpajama-data-1T/v1.0.0/}
-    mkdir -p $(dirname $dload_loc)
-    wget "$line" -O "$dload_loc"
-done < urls.txt
+# wizard llm 
+wget https://huggingface.co/TheBloke/WizardLM-13B-V1.2-GGML/resolve/main/wizardlm-13b-v1.2.ggmlv3.q2_K.bin
+
