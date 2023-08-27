@@ -10,6 +10,7 @@
 
 apt install -y git git-lfs
 
+# a zoo of old(er) LLaMa's
 git clone https://huggingface.co/decapoda-research/llama-65b-hf &
 git clone https://huggingface.co/decapoda-research/llama-7b-hf &
 git clone https://huggingface.co/decapoda-research/llama-30b-hf &
@@ -20,9 +21,9 @@ git clone https://huggingface.co/openlm-research/open_llama_7b_preview_300bt &
 git clone https://huggingface.co/TheBloke/alpaca-lora-65B-GGML &
 git clone https://huggingface.co/Sosaka/Alpaca-native-4bit-ggml &
 
-# test for new ggml @llama.cpp
+# test for newer ggml @llama.cpp
 wget https://huggingface.co/Pi3141/alpaca-native-13B-ggml/resolve/main/ggml-model-q8_0.bin &
 
-# wizard llm 
+# quantized wizard llm 
 wget https://huggingface.co/TheBloke/WizardLM-13B-V1.2-GGML/resolve/main/wizardlm-13b-v1.2.ggmlv3.q2_K.bin
 
