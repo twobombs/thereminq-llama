@@ -24,6 +24,8 @@ docker run --privileged --gpus all -d twobombs/thereminq-llama[:tag]
 Optional
 - Download a ton of hugging face bin files through fetch-bins.sh
 
+  https://github.com/twobombs/thereminq-llama/blob/main/misc/fetch-bins.sh
+
 --------
 
 Credits for Qrack and LLaMa.cpp go to
