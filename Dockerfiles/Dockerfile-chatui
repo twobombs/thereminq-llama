@@ -1,6 +1,6 @@
 FROM twobombs/thereminq-llama:spark
 
-# install npm, mongodb + reqs
+# install npm, reqs
 RUN echo "deb http://security.ubuntu.com/ubuntu jammy-security main" | tee /etc/apt/sources.list.d/jammy-security.list
 # RUN curl -fsSL https://deb.nodesource.com/setup_current.x | bash -
 
@@ -8,9 +8,10 @@ RUN curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | ba
 RUN chmod 744 ./root/.nvm/nvm.sh && cd /root/.nvm && nvm install 20 && node --version 
 RUN apt update && apt install -y gnupg && apt clean
 
+# install mongodb
 RUN wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc |  gpg --dearmor | tee /usr/share/keyrings/mongodb.gpg > /dev/null
 RUN echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-6.0.list
-RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y mongodb-org && apt clean
+RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y mongodb-org && apt clean && mkdir /data && mkdir /data/db
 
 # fetch chat-ui
 RUN git clone https://github.com/huggingface/chat-ui
