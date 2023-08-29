@@ -7,7 +7,8 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y git py
 RUN git clone --recursive -j8 https://github.com/abetlen/llama-cpp-python.git
 
 #load default model
-RUN wget https://huggingface.co/TheBloke/orca_mini_v2_13b-GGML/resolve/main/orca_mini_v2_13b.ggmlv3.q2_K.bin
+RUN wget https://huggingface.co/TheBloke/WizardLM-13B-V1.2-GGML/resolve/main/wizardlm-13b-v1.2.ggmlv3.q2_K.bin
+# RUN wget https://huggingface.co/TheBloke/orca_mini_v2_13b-GGML/resolve/main/orca_mini_v2_13b.ggmlv3.q2_K.bin
 
 #copy run file
 COPY /runfiles/run-* /root
