@@ -16,4 +16,6 @@ RUN chmod 744 /root/run*
 
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
+
+EXPOSE 80 7680
 ENTRYPOINT /root/run-llama
