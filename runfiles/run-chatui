@@ -3,5 +3,8 @@
 # qrack_cl_precompile
 /qrack/_build/qrack_cl_precompile
 
+# start mongod
+mongod &
+
 # start chatui
 cd  /text-generation-webui && python3 server.py --listen --share --model wizardlm-13b-v1.2.ggmlv3.q2_K.bin
