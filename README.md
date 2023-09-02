@@ -16,7 +16,9 @@ docker run --privileged --gpus all -d twobombs/thereminq-llama[:tag]
 - spark adds spark services to opencl image
 - chatui for web based LLM interface 
 
-![QCAI-chat drawio](https://github.com/twobombs/thereminq-llama/assets/12692227/75c587e7-93d1-4d80-8649-59644598caad)
+Work in progress 
+
+![QCAI-chat drawio](https://github.com/twobombs/thereminq-llama/assets/12692227/1421f71c-b1cc-4562-a59c-c0d9448be562)
 
 
 --------
