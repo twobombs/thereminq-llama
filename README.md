@@ -14,7 +14,7 @@ docker run --privileged --gpus all [-v /path-to-/models/:/models] -d twobombs/th
 - cuda for python llama.cpp cuda support
 - cli for LLama.cpp compiled versions
 - spark adds spark services to opencl image
-- chatui for web based LLM interface 
+- chatui for web based LLM interface & huggingface URL tunnel
 
 Work in progress 
 
