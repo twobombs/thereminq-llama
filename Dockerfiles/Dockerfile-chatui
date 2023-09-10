@@ -22,7 +22,7 @@ RUN cd chat-ui && touch env.local && echo "MONGODB_URL=mongodb://localhost:27017
 # fetch build & setup webui
 RUN git clone https://github.com/oobabooga/text-generation-webui.git
 RUN cd text-generation-webui && pip3 install -r requirements.txt
-RUN ln -s wizardlm-13b-v1.2.ggmlv3.q2_K.bin /text-generation-webui/models/wizardlm-13b-v1.2.ggmlv3.q2_K.bin
+# RUN ln -s wizardlm-13b-v1.2.ggmlv3.q2_K.bin /text-generation-webui/models/wizardlm-13b-v1.2.ggmlv3.q2_K.bin
 
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
