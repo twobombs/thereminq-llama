@@ -10,7 +10,7 @@ mongod &
 cd /chat-ui && npm run dev &
 
 # start webui
-cd  /text-generation-webui && python3 server.py --listen --share --model wizardlm-13b-v1.2.ggmlv3.q2_K.bin
+cd  /text-generation-webui && python3 server.py --listen --share
 
 # when fail do not stop container ( debug )
 tail -f /dev/null
