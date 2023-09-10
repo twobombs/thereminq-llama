@@ -27,3 +27,6 @@ wget https://huggingface.co/Pi3141/alpaca-native-13B-ggml/resolve/main/ggml-mode
 # quantized wizard llm 
 wget https://huggingface.co/TheBloke/WizardLM-13B-V1.2-GGML/resolve/main/wizardlm-13b-v1.2.ggmlv3.q2_K.bin
 
+# new gguf format wizard llm
+wget https://huggingface.co/TheBloke/WizardLM-1.0-Uncensored-CodeLlama-34B-GGUF/resolve/main/wizardlm-1.0-uncensored-codellama-34b.Q2_K.gguf &
+wget https://huggingface.co/TheBloke/WizardLM-1.0-Uncensored-CodeLlama-34B-GGUF/resolve/main/wizardlm-1.0-uncensored-codellama-34b.Q8_0.gguf
