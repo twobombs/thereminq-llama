@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# qrack_cl_precompile
+/qrack/_build/qrack_cl_precompile
+
+# start OpenAI API simulator
+python3 -m llama_cpp.server --model /orca_mini_v2_13b.ggmlv3.q2_K.bin &
+
+# start opensearch
+docker run -d -p 9200:9200 -p 9600:9600 -e "discovery.type=single-node" opensearchproject/opensearch:2
+docker run -d opensearchproject/opensearch-dashboards:2
+
+sleep 10
+
+curl -XPOST https://localhost:9200/_plugins/_performanceanalyzer/cluster/config -H 
+'Content-Type: application/json' -d '{"enabled": true}' -u 'admin:admin' -k
+
+curl -XPOST https://localhost:9200/_plugins/_performanceanalyzer/rca/cluster/config -H 
+Content-Type: application/json' -d '{"enabled": true}' -u 'admin:admin' -k
+
+
+
+curl -X GET https://localhost:9200 -u 'admin:admin' --insecure
+
+tail -f /dev/null
