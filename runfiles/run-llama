@@ -5,7 +5,7 @@ nvidia-smi
 ifconfig
 
 # start OpenAI API simulator
-python3 -m llama_cpp.server --model /orca_mini_v2_13b.ggmlv3.q2_K.bin &
+python3 -m llama_cpp.server --model /wizardmath-7b-v1.0.Q2_K.gguf &
 
 sleep 10
 
