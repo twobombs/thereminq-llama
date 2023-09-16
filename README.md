@@ -23,6 +23,10 @@ Work in progress
 
 --------
 
+- orchestrate for orchestration of several container images through docker socket link
+
+--------
+
 Optional
 - Download a ton of hugging face bin files through fetch-bins.sh
 
