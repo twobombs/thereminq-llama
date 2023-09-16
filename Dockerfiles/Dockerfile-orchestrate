@@ -2,7 +2,10 @@ FROM twobombs/thereminq-llama:opencl
 
 # RUN apt install -y default-jre && apt clean
 
-# orchestate placeholder
+# install nvidia-docker bins for orchestration
+RUN curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey |  apt-key add - 
+RUN curl -s -L https://nvidia.github.io/nvidia-docker/ubuntu20.04/nvidia-docker.list | tee /etc/apt/sources.list.d/nvidia-docker.list
+RUN apt-get update && apt-get install -y nvidia-docker2 docker.io && apt-get clean all
 
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
