@@ -12,13 +12,13 @@ RUN cd llama-openblas && cmake . && make LLAMA_OPENBLAS=1 all
 RUN cd llama-cublas && cmake -DGGML_CUBLAS=ON . && make LLAMA_CUBLAS=1 all
 RUN cd llama-clblast && cmake -DGGML_CLBLAST=ON . && make LLAMA_CLBLAST=1 all
 
-RUN ln -s wizardlm-13b-v1.2.ggmlv3.q2_K.bin /llama.cpp/models/wizardlm-13b-v1.2.ggmlv3.q2_K.bin
-RUN ln -s wizardlm-13b-v1.2.ggmlv3.q2_K.bin /llama-cublas/models/wizardlm-13b-v1.2.ggmlv3.q2_K.bin
-RUN ln -s wizardlm-13b-v1.2.ggmlv3.q2_K.bin /llama-clblast/models/wizardlm-13b-v1.2.ggmlv3.q2_K.bin
-RUN ln -s wizardlm-13b-v1.2.ggmlv3.q2_K.bin /llama-openblas/models/wizardlm-13b-v1.2.ggmlv3.q2_K.bin
+RUN ln -s wizardmath-7b-v1.0.Q2_K.gguf /llama.cpp/models/wizardmath-7b-v1.0.Q2_K.gguf
+RUN ln -s wizardmath-7b-v1.0.Q2_K.gguf /llama-cublas/models/wizardmath-7b-v1.0.Q2_K.gguf
+RUN ln -s wizardmath-7b-v1.0.Q2_K.gguf /llama-clblast/models/wizardmath-7b-v1.0.Q2_K.gguf
+RUN ln -s wizardmath-7b-v1.0.Q2_K.gguf /llama-openblas/models/wizardmath-7b-v1.0.Q2_K.gguf
 
 # test build
-# RUN cd llama.cpp && ./main -m /llama.cpp/models/wizardlm-13b-v1.2.ggmlv3.q2_K.bin -p "explain the negative energy spike when teleporting a qubit according to ER=EPR" -n 512
+# RUN cd llama.cpp && ./main -m /llama.cpp/models/wizardmath-7b-v1.0.Q2_K.gguf -p "explain the negative energy spike when teleporting a qubit according to ER=EPR" -n 512
 
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
