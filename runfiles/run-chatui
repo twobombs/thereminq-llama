@@ -25,5 +25,8 @@ sleep 10
 # start worker node
 ./opt/spark/sbin/start-slave.sh spark://$HOSTNAME:7077 &
 
+# start hugginface chat-ui
+cd /chat-ui && nvm install 20 && npm run dev
+
 # when fail do not stop container ( debug )
 tail -f /dev/null
