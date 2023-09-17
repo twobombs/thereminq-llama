@@ -10,6 +10,9 @@ python3 -m llama_cpp.server --model /orca_mini_v2_13b.ggmlv3.q2_K.bin &
 docker run -d -p 9200:9200 -p 9600:9600 -e "discovery.type=single-node" opensearchproject/opensearch:2
 docker run -d opensearchproject/opensearch-dashboards:2
 
+# start QC & LLama UI
+docker run --gpus all -d -p 7860:7860 twobombs/thereminq-llama:chatui
+
 sleep 10
 
 curl -XPOST https://localhost:9200/_plugins/_performanceanalyzer/cluster/config -H 
