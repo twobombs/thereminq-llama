@@ -9,6 +9,9 @@ RUN git clone --recursive -j8 https://github.com/abetlen/llama-cpp-python.git
 #load default model
 RUN wget https://huggingface.co/TheBloke/WizardMath-7B-V1.0-GGUF/resolve/main/wizardmath-7b-v1.0.Q2_K.gguf
 
+# fetch Qrack/Sycamore measured results and SDRP/fidelity scores
+RUN git clone https://github.com/twobombs/thereminq-bonsai
+
 #copy run file
 COPY /runfiles/run-* /root
 RUN chmod 744 /root/run*
