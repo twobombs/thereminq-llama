@@ -1,6 +1,6 @@
 # ThereminQ-LLaMa : baking a quantum layer caek
 
-This repo is alpha and dedicated to training GGUF LLaMa's with QC data on AI steriods
+This repo is alpha and dedicated to training GGUF LLaMa's with QC data on ML steriods
 
 ![2a40063099465fee941a701289810666](https://github.com/twobombs/thereminq-llama/assets/12692227/6097d5e2-92fa-4bff-9297-c26d98f31d84)
 
