@@ -10,7 +10,7 @@ mongod &
 cd /chat-ui && npm run dev &
 
 # start webui
-cd  /text-generation-webui && python3 server.py --listen --share
+cd  /text-generation-webui && python3 server.py --listen --share &
 
 # start sparky
 
