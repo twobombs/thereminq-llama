@@ -1,4 +1,5 @@
 #!/bin/bash
+# source from https://gist.github.com/hvva/7b39caaa3fc27fa4d28a
 # A script to convert a CSV (excel export) file into JSON
 # Usage ./csv2json input.csv > output.json
 # Slightly modified version of SECAGUY's: 
