@@ -1,7 +1,7 @@
 FROM twobombs/qrackmin
 
 # fetch dependancies
-RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y git python3-pip mc wget libopenblas-dev libclblast-dev && apt clean all
+RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y git python3-pip mc sudo wget libopenblas-dev libclblast-dev && apt clean all
 
 # fetch llama-cpp-python
 RUN git clone --recursive -j8 https://github.com/abetlen/llama-cpp-python.git
