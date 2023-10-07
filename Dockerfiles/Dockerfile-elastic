@@ -1,0 +1,12 @@
+FROM twobombs/thereminq-llama:opencl
+
+RUN apt update && apt install -y default-jre && apt clean
+
+# do elastic thingies
+RUN curl -fsSL https://artifacts.elastic.co/GPG-KEY-elasticsearch | gpg --dearmor -o /usr/share/keyrings/elastic.gpg
+RUN echo "deb [signed-by=/usr/share/keyrings/elastic.gpg] https://artifacts.elastic.co/packages/7.x/apt stable main" | tee -a /etc/apt/sources.list.d/elastic-8.x.list
+RUN apt update && apt install elasticsearch kibana && apt clean all
+
+ENV NVIDIA_VISIBLE_DEVICES all
+ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
+ENTRYPOINT /root/run-elastic
