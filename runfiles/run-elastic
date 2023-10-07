@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# qrack_cl_precompile
+/qrack/_build/qrack_cl_precompile
+
+# elastic
+sudo -u elasticsearch /usr/share/elasticsearch/bin/elasticsearch &
+sleep 10
+cd /usr/share/kibana && kibana --allow-root &
+
+tail -f /dev/null
