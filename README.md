@@ -14,6 +14,7 @@ docker run --gpus all [-v /path-to-/models:/text-generation-webui/models] [-p 78
 - cuda for python llama.cpp cuda support
 - cli for LLama.cpp compiled versions
 - spark adds spark services to opencl image
+- elastic adds elasticsearch and kibana to opencl image
 - chatui for web based LLM interfaces & huggingface URL tunnel
 
 Work in progress 
