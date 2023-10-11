@@ -1,0 +1,3 @@
+mlflow ui
+
+tail -f /dev/null
