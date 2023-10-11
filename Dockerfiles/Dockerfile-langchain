@@ -1,0 +1,8 @@
+FROM twobombs/thereminq-llama
+
+RUN python3 -m pip install --upgrade langchain
+
+ENV NVIDIA_VISIBLE_DEVICES all
+ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
+
+ENTRYPOINT /root/run
