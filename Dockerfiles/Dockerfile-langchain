@@ -5,4 +5,4 @@ RUN python3 -m pip install --upgrade langchain mlflow
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
 
-ENTRYPOINT /root/run
+ENTRYPOINT /root/run-mlflow
