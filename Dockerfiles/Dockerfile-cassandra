@@ -10,4 +10,4 @@ RUN apt-get update && apt-get install cassandra -y
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
 
-ENTRYPOINT /root/run-mlflow
+ENTRYPOINT /root/run-cassandra
