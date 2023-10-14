@@ -6,6 +6,6 @@
 # elastic
 sudo -u elasticsearch /usr/share/elasticsearch/bin/elasticsearch &
 sleep 10
-cd /usr/share/kibana && kibana --allow-root &
+cd /usr/share/kibana/bin && ./kibana --allow-root &
 
 tail -f /dev/null
