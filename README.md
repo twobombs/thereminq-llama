@@ -8,7 +8,7 @@ This repo is alpha and dedicated to training GGUF LLaMa's with QC data on ML ste
 
 Qrackmin:POCL + LLaMa.cpp integrated container image
 
-docker run --gpus all [-v /path-to-/models:/text-generation-webui/models] [-p 7860:7860] [-p 5173:5173] [-p 9200:9200] -d twobombs/thereminq-llama[:tag] 
+docker run --gpus all [-v /path-to-/models:/text-generation-webui/models] [-p 7860:7860] [-p 5173:5173] [-p 5601:5601] [-p 9200:9200] -d twobombs/thereminq-llama[:tag] 
 - latest includes dependancies and a LLama2 2bit model 
 - opencl for python llama.cpp opencl support
 - cuda for python llama.cpp cuda support
