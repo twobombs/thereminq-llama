@@ -5,7 +5,8 @@ RUN apt update && apt install -y default-jre && apt clean
 RUN echo "deb https://debian.cassandra.apache.org 41x main" | tee -a /etc/apt/sources.list.d/cassandra.sources.list
 RUN curl https://downloads.apache.org/cassandra/KEYS | apt-key add -
 
-RUN apt-get update && apt-get install cassandra -y
+RUN apt-get update && apt-get install cassandra ruby rube-dev -y
+RUN gem install cassandra-web
 
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
