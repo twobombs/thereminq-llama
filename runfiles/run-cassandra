@@ -2,4 +2,6 @@
 
 cassandra
 
+cassandra-web
+
 tail -f /dev/null
