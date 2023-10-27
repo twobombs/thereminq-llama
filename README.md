@@ -1,21 +1,24 @@
 # ThereminQ-LLaMa : baking a quantum layer caek
 
-This repo is alpha and dedicated to training GGUF LLaMa's with QC data on ML steriods
+This repo is alpha and dedicated to training `GGUF` LLaMa's with QC data on ML steriods
 
 ![2a40063099465fee941a701289810666](https://github.com/twobombs/thereminq-llama/assets/12692227/6097d5e2-92fa-4bff-9297-c26d98f31d84)
 
 --------
 
-Qrackmin:POCL + LLaMa.cpp integrated container image
+`Qrackmin:POCL` + `LLaMa.cpp` integrated container image
 
+```bash
 docker run --gpus all [-v /path-to-/models:/text-generation-webui/models] [-p 7860:7860] [-p 5173:5173] [-p 5601:5601] [-p 9200:9200] -d twobombs/thereminq-llama[:tag] 
-- latest includes dependancies and a LLama2 2bit model 
-- opencl for python llama.cpp opencl support
-- cuda for python llama.cpp cuda support
-- cli for LLama.cpp compiled versions
-- spark adds spark services to opencl image
-- elastic adds elasticsearch and kibana to opencl image
-- chatui for web based LLM interfaces & huggingface URL tunnel
+````
+
+- `latest` includes dependancies and a LLama2 4bit model 
+- `opencl` for python llama.cpp opencl support
+- `cuda` for python llama.cpp cuda support
+- `cli` for LLama.cpp compiled versions
+- `spark` adds spark services to opencl image
+- `elastic` adds elasticsearch and kibana to opencl image
+- `chatui` for web based LLM interfaces & huggingface URL tunnel
 
 Work in progress 
 
@@ -31,9 +34,7 @@ Look ma, no K8s
 --------
 
 Optional
-- Download a ton of hugging face bin files through fetch-bins.sh
-
-  https://github.com/twobombs/thereminq-llama/blob/main/misc/fetch-bins.sh
+- Download a ton of hugging face bin files through [fetch-bins.sh](https://github.com/twobombs/thereminq-llama/blob/main/misc/fetch-bins.sh)
 
 --------
 
