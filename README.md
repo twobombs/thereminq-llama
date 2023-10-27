@@ -29,7 +29,7 @@ Work in progress
 
 Look ma, no K8s
 
-- orchestrate for orchestration of several container images through docker socket link
+- `orchestrate` for orchestration of several container images through docker socket link ( todos )
 
 --------
 
