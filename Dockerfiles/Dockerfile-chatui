@@ -15,12 +15,12 @@ RUN echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb.gpg ] htt
 RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y mongodb-org && apt clean && mkdir /data && mkdir /data/db
 
 # fetch chat-ui
-RUN git clone https://github.com/huggingface/chat-ui
+RUN git clone --depth=1 https://github.com/huggingface/chat-ui
 RUN cd chat-ui && touch env.local && echo "MONGODB_URL=mongodb://localhost:27017" > .env.local 
 # && npm install
 
 # fetch build & setup webui
-RUN git clone --branch v1.7 https://github.com/oobabooga/text-generation-webui.git
+RUN git clone --depth=1 --branch v1.7 https://github.com/oobabooga/text-generation-webui.git
 RUN cd text-generation-webui && pip3 install -r requirements.txt
 # RUN ln -s wizardmath-7b-v1.0.Q2_K.gguf /text-generation-webui/models/wizardmath-7b-v1.0.Q2_K.gguf
 
