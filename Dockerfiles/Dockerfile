@@ -4,13 +4,13 @@ FROM twobombs/qrackmin
 RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y git python3-pip mc sudo wget libopenblas-dev libclblast-dev && apt clean all
 
 # fetch llama-cpp-python
-RUN git clone --recursive -j8 https://github.com/abetlen/llama-cpp-python.git
+RUN git clone --depth=1 --recursive -j8 https://github.com/abetlen/llama-cpp-python.git
 
 #load default model
 RUN wget https://huggingface.co/TheBloke/WizardMath-7B-V1.0-GGUF/resolve/main/wizardmath-7b-v1.0.Q2_K.gguf
 
 # fetch Qrack/Sycamore measured results and SDRP/fidelity scores
-RUN git clone https://github.com/twobombs/thereminq-bonsai
+RUN git clone --depth=1 https://github.com/twobombs/thereminq-bonsai
 
 #copy run file
 COPY /runfiles/run-* /root
