@@ -1,7 +1,7 @@
 FROM twobombs/thereminq-llama
 
 #fetch llama.cpp
-RUN git clone https://github.com/ggerganov/llama.cpp
+RUN git clone --depth=1 https://github.com/ggerganov/llama.cpp
 RUN cp -r llama.cpp llama-openblas
 RUN cp -r llama.cpp llama-cublas
 RUN cp -r llama.cpp llama-clblast
