@@ -1,4 +1,4 @@
-FROM twobombs/qrackmin
+FROM twobombs/qrackmin:2204
 
 # fetch dependancies
 RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y git python3-pip mc sudo wget libopenblas-dev libclblast-dev && apt clean all
