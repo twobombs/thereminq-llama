@@ -10,6 +10,7 @@ RUN git clone --depth=1 --recursive -j8 https://github.com/abetlen/llama-cpp-pyt
 RUN wget https://huggingface.co/TheBloke/WizardMath-7B-V1.1-GGUF/resolve/main/wizardmath-7b-v1.1.Q2_K.gguf
 
 # fetch Qrack/Sycamore measured results and SDRP/fidelity scores
+RUN git clone --depth=1 https://github.com/twobombs/thereminq
 RUN git clone --depth=1 https://github.com/twobombs/thereminq-bonsai
 
 #copy run file
