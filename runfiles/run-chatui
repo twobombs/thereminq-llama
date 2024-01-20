@@ -10,23 +10,7 @@ mongod &
 cd /chat-ui && npm run dev &
 
 # start webui
-cd  /text-generation-webui && python3 server.py --listen --share --gradio-auth thereminq:00000000 &
-
-# start sparky
-
-export SPARK_HOME=/opt/spark
-export PATH=$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin
-
-# spark start
-./opt/spark/sbin/start-master.sh &
-
-sleep 10
-
-# start worker node
-./opt/spark/sbin/start-slave.sh spark://$HOSTNAME:7077 &
-
-# start hugginface chat-ui
-cd /chat-ui && nvm install 20 && npm install && npm run dev -- -- host
+cd  /text-generation-webui && python3 server.py --listen --share --trust-remote-code --gradio-auth thereminq:00000000 &
 
 # when fail do not stop container ( debug )
 tail -f /dev/null
