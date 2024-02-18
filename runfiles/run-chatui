@@ -6,9 +6,6 @@
 # start mongod
 mongod &
 
-# start chatui
-cd /chat-ui && npm run dev &
-
 # start webui
 cd  /text-generation-webui && python3 server.py --listen --share --trust-remote-code --gradio-auth thereminq:00000000 &
 
