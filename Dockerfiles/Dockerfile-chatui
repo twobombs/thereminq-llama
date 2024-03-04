@@ -1,4 +1,4 @@
-FROM twobombs/thereminq-llama:spark
+FROM twobombs/thereminq-llama:opencl
 
 # install npm, reqs
 RUN echo "deb http://security.ubuntu.com/ubuntu jammy-security main" | tee /etc/apt/sources.list.d/jammy-security.list
