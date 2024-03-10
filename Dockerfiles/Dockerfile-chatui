@@ -23,8 +23,8 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y mongod
 # RUN git clone --depth=1 --branch v1.7 https://github.com/oobabooga/text-generation-webui.git
 RUN git clone --depth=1 https://github.com/oobabooga/text-generation-webui.git
 RUN cp -r /text-generation-webui /text-generation-webui-cpu
-RUN cd text-generation-webui && pip3 install -r requirements.txt
-RUN cd text-generation-webui-cpu && pip3 install -r requirements_cpu_only.txt
+RUN cd text-generation-webui && pip3 install --ignore-installed -r requirements.txt
+RUN cd text-generation-webui-cpu && pip3 install --ignore-installed -r requirements_cpu_only.txt
 
 
 ENV NVIDIA_VISIBLE_DEVICES all
