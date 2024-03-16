@@ -7,7 +7,7 @@ RUN echo "deb http://security.ubuntu.com/ubuntu jammy-security main" | tee /etc/
 RUN curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash 
 RUN chmod 744 /root/.nvm/nvm.sh && cd /root/.nvm && ./nvm.sh install 20 
 # && node --version 
-RUN apt update && apt install -y gnupg && apt clean
+RUN apt update && apt install -y gnupg git-lfs && apt clean
 
 # install mongodb
 RUN wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc |  gpg --dearmor | tee /usr/share/keyrings/mongodb.gpg > /dev/null
