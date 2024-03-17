@@ -18,7 +18,7 @@ RUN ln -s wizardmath-7b-v1.1.Q2_K.gguf /llama-clblast/models/wizardmath-7b-v1.1.
 RUN ln -s wizardmath-7b-v1.1.Q2_K.gguf /llama-openblas/models/wizardmath-7b-v1.1.Q2_K.gguf
 
 # test build
-# RUN cd llama.cpp && ./main -m /llama.cpp/models/wizardmath-7b-v1.1.Q2_K.gguf -p "explain the negative energy spike when teleporting a qubit according to ER=EPR" -n 512
+# RUN cd llama.cpp && ./main -m /llama.cpp/models/wizardmath-7b-v1.1.Q2_K.gguf -p "explain the negative energy spike when teleporting a qubit according to ER=EPR and devise a strategy to prove this thesis on a quantum computer" -n 512
 
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
