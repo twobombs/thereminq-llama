@@ -1,5 +1,10 @@
 FROM twobombs/thereminq-llama:opencl
 
+# HF pip dependancies
+RUN apt install -y python3-pip 
+RUN pip3 install --upgrade pip
+RUN pip3 install huggingface_hub[hf_transfer]
+
 # install npm, reqs
 RUN echo "deb http://security.ubuntu.com/ubuntu jammy-security main" | tee /etc/apt/sources.list.d/jammy-security.list
 # RUN curl -fsSL https://deb.nodesource.com/setup_current.x | bash -
@@ -10,9 +15,9 @@ RUN chmod 744 /root/.nvm/nvm.sh && cd /root/.nvm && ./nvm.sh install 20
 RUN apt update && apt install -y gnupg git-lfs && apt clean
 
 # install mongodb
-RUN wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc |  gpg --dearmor | tee /usr/share/keyrings/mongodb.gpg > /dev/null
-RUN echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-6.0.list
-RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y mongodb-org && apt clean && mkdir /data && mkdir /data/db
+# RUN wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc |  gpg --dearmor | tee /usr/share/keyrings/mongodb.gpg > /dev/null
+# RUN echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+# RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y mongodb-org && apt clean && mkdir /data && mkdir /data/db
 
 # fetch chat-ui
 # RUN git clone --depth=1 https://github.com/huggingface/chat-ui
