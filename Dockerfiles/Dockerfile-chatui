@@ -1,4 +1,4 @@
-FROM twobombs/thereminq-llama:opencl
+FROM twobombs/thereminq-llama
 
 # HF pip dependancies
 RUN apt install -y python3-pip 
