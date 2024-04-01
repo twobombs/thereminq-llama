@@ -1,4 +1,4 @@
-FROM twobombs/thereminq-llama
+FROM twobombs/thereminq-llama:1804
 
 # HF pip dependancies
 RUN apt install -y python3-pip 
