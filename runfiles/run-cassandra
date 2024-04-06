@@ -1,7 +1,0 @@
-#!/bin/bash
-
-cassandra
-
-# cassandra-web --hosts '127.0.0.1' --port '9042' --username 'cassandra' --password 'cassandra'
-
-tail -f /dev/null
