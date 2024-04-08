@@ -7,7 +7,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y git py
 RUN git clone --depth=1 --recursive -j8 https://github.com/abetlen/llama-cpp-python.git
 
 # fetch autogenstudio
-RUN pip3 install autogenstudio
+RUN pip3 install autogenstudio crewai[tools]
 
 #load default model
 RUN wget https://huggingface.co/TheBloke/WizardMath-7B-V1.1-GGUF/resolve/main/wizardmath-7b-v1.1.Q2_K.gguf
