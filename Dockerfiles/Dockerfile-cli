@@ -6,6 +6,14 @@ RUN cp -r llama.cpp llama-openblas
 RUN cp -r llama.cpp llama-cublas
 RUN cp -r llama.cpp llama-clblast
 
+#OpenCL integration 
+#RUN CMAKE_ARGS="-DLLAMA_CLBLAST=on" FORCE_CMAKE=1 pip install llama-cpp-python --force-reinstall --upgrade --no-cache-dir
+$RUN python3 -m pip install --upgrade pip pytest cmake scikit-build setuptools fastapi uvicorn sse-starlette pydantic-settings
+
+#CUDA integration default
+RUN CMAKE_ARGS="-DLLAMA_CUBLAS=on" FORCE_CMAKE=1 pip install llama-cpp-python --force-reinstall --upgrade --no-cache-dir
+RUN python3 -m pip install --upgrade pip pytest cmake scikit-build setuptools fastapi uvicorn sse-starlette pydantic-settings 
+
 # build all versions
 RUN cd llama.cpp && make -j
 RUN cd llama-openblas && cmake . && make LLAMA_OPENBLAS=1 all
