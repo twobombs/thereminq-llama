@@ -6,7 +6,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y git py
 # fetch llama-cpp-python
 RUN git clone --depth=1 --recursive -j8 https://github.com/abetlen/llama-cpp-python.git
 
-# fetch autogenstudio
+# fetch autogenstudio, crewai
 RUN pip3 install autogenstudio crewai[tools]
 
 #load default model
