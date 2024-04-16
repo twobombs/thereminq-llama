@@ -12,9 +12,7 @@ This repo is alpha and dedicated to extending `GGUF` LLaMa LLMs with QC data on 
 docker run --gpus all [-v /path-to-/models:/text-generation-webui/models] [-p 7860:7860] [-p 5173:5173] [-p 5601:5601] [-p 9200:9200] -d twobombs/thereminq-llama[:tag] 
 ````
 
-- `latest` includes dependancies and a LLama2 4bit model 
-- `opencl` for python llama.cpp opencl support
-- `cuda` for python llama.cpp cuda support
+- `latest` includes dependancies and a LLama2 4bit model including mlflow, autogenstudio and crewai
 - `cli` for LLama.cpp compiled versions
 - `chatui` for web based LLM interfaces & huggingface URL tunnel
 
