@@ -1,7 +1,7 @@
 FROM twobombs/thereminq-llama
 
 # HF pip dependancies
-RUN apt install -y python3-pip 
+RUN apt install -y python3-pip mongodb npm
 RUN pip3 install --upgrade pip
 RUN pip3 install huggingface_hub[hf_transfer]
 
@@ -18,6 +18,9 @@ RUN git clone --depth=1 https://github.com/oobabooga/text-generation-webui.git
 RUN cp -r /text-generation-webui /text-generation-webui-cpu
 RUN cd text-generation-webui && pip3 install --ignore-installed -r requirements.txt
 RUN cd text-generation-webui-cpu && pip3 install --ignore-installed -r requirements_cpu_only.txt
+
+# install CopperAI
+RUN git clone https://github.com/athrael-soju/CopperAI.git && cd CopperAI && npm install
 
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
