@@ -20,6 +20,7 @@ RUN cd text-generation-webui && pip3 install --ignore-installed -r requirements.
 RUN cd text-generation-webui-cpu && pip3 install --ignore-installed -r requirements_cpu_only.txt
 
 # install CopperAI
+COPY /misc/copperai.env copperai.env
 RUN git clone https://github.com/athrael-soju/CopperAI.git && cd CopperAI && npm install
 
 ENV NVIDIA_VISIBLE_DEVICES all
