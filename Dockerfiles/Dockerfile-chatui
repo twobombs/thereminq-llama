@@ -1,7 +1,11 @@
 FROM twobombs/thereminq-llama
+# get mongodb
+RUN wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc |  gpg --dearmor | tee /usr/share/keyrings/mongodb.gpg > /dev/null
+RUN echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y mongodb-org && apt clean
 
 # HF pip dependancies
-RUN apt install -y python3-pip mongodb npm
+RUN apt install -y python3-pip npm && apt clean
 RUN pip3 install --upgrade pip
 RUN pip3 install huggingface_hub[hf_transfer]
 
