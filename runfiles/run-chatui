@@ -6,5 +6,8 @@
 # start webui
 cd  /text-generation-webui && python3 server.py --listen --share --trust-remote-code --gradio-auth thereminq:00000000 &
 
+# start mongod
+mongod &
+
 # when fail do not stop container ( debug )
 tail -f /dev/null
