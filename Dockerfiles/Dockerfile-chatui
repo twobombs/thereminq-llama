@@ -6,7 +6,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y mongod
 RUN mkdir data && mkdir data/db
 
 # HF pip dependancies
-RUN apt install -y python3-pip npm ipython3 ffmpeg && apt clean
+RUN apt install -y python3-pip npm ipython3 ffmpeg python3-venv libgl1 libglib2.0-0 && apt clean
 RUN pip3 install --upgrade pip
 RUN pip3 install huggingface_hub[hf_transfer]
 
