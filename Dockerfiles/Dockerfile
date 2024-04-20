@@ -10,7 +10,7 @@ RUN git clone --depth=1 --recursive -j8 https://github.com/abetlen/llama-cpp-pyt
 RUN python3 -m pip install --upgrade langchain mlflow
 
 # fetch and unpack qrack QFT/QNN patterns
-RUN https://github.com/twobombs/thereminq-bonsai.git && cd miscfiles && tar xfz *.tar.gz
+RUN git clone https://github.com/twobombs/thereminq-bonsai.git && cd miscfiles && tar xfz *.tar.gz
 
 # fetch autogenstudio, crewai
 RUN pip3 install autogenstudio crewai[tools]
