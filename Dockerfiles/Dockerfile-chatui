@@ -34,7 +34,10 @@ RUN cd text-generation-webui-cpu && pip3 install --ignore-installed -r requireme
 # RUN git clone https://github.com/athrael-soju/CopperAI.git
 # COPY /misc/copperai.env /CopperAI/.env
 # RUN cd CopperAI && npm install
- 
+
+# install AUTOMATIC1111
+# RUN mkdir AUTOMATIC1111 && cd AUTOMATIC1111 && wget -q https://raw.githubusercontent.com/AUTOMATIC1111/stable-diffusion-webui/master/webui.sh && chmod 755 webui.sh
+
 # install personal llm assistant
 RUN git clone https://github.com/amirarsalan90/personal_llm_assistant && cd personal_llm_assistant && chmod install.sh 755 && ./install.sh
 RUN cd personal_llm_assistant && mkdir .models && ln -s /Llama-3-DARE-8B.IQ3_M.gguf /personal_llm_assistant/.models/Llama-3-DARE-8B.IQ3_M.gguf && npm install
