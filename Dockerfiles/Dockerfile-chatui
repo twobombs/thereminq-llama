@@ -26,6 +26,7 @@ RUN cd text-generation-webui && pip3 install --ignore-installed -r requirements.
 RUN cd text-generation-webui/extensions/ && git clone https://github.com/minemo/text-generation-webui-barktts bark_tts/ && pip3 install -r bark_tts/requirements.txt
 RUN cd text-generation-webui/extensions/ && git clone https://github.com/Anglebrackets/web_rag.git && pip3 install -r web_rag/requirements.txt
 RUN cd text-generation-webui/extensions/coqui_tts && pip3 install -r requirements.txt
+RUN cd text-generation-webui/extensions/whisper_stt && pip3 install -r requirements.txt
 # cpu only
 RUN cd text-generation-webui-cpu && pip3 install --ignore-installed -r requirements_cpu_only.txt
 
