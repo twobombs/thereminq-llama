@@ -26,11 +26,13 @@ RUN cd text-generation-webui && pip3 install --ignore-installed -r requirements.
 RUN cd text-generation-webui-cpu && pip3 install --ignore-installed -r requirements_cpu_only.txt
 
 # install CopperAI
+RUN git clone https://github.com/athrael-soju/CopperAI.git
 COPY /misc/copperai.env /CopperAI/.env
-RUN git clone https://github.com/athrael-soju/CopperAI.git && cd CopperAI && npm install
+RUN cd CopperAI && npm install
 
 # install personal llm assistant
 RUN git clone https://github.com/amirarsalan90/personal_llm_assistant && cd personal_llm_assistant && chmod install.sh 755 && ./install.sh
+RUN cd personal_llm_assistant && mkdir .models && ln -s /Llama-3-DARE-8B.IQ3_M.gguf /personal_llm_assistant/.models/Llama-3-DARE-8B.IQ3_M.gguf && npm install
 
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
