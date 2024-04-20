@@ -6,7 +6,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y mongod
 RUN mkdir data && mkdir data/db
 
 # HF pip dependancies
-RUN apt install -y python3-pip npm && apt clean
+RUN apt install -y python3-pip npm ipython3 && apt clean
 RUN pip3 install --upgrade pip
 RUN pip3 install huggingface_hub[hf_transfer]
 
@@ -28,6 +28,9 @@ RUN cd text-generation-webui-cpu && pip3 install --ignore-installed -r requireme
 # install CopperAI
 COPY /misc/copperai.env /CopperAI/.env
 RUN git clone https://github.com/athrael-soju/CopperAI.git && cd CopperAI && npm install
+
+# install personal llm assistant
+RUN git clone https://github.com/amirarsalan90/personal_llm_assistant && cd personal_llm_assistant && chmod install.sh 755 && ./install.sh
 
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
