@@ -10,7 +10,8 @@ cd  /text-generation-webui && python3 server.py --listen --share --trust-remote-
 mongod &
 
 # start personal llm assistant
-cd personal_llm_assistant && python3 gradio_app.py
+cd /personal_llm_assistant && python3 -m llama_cpp.server --model /Llama-3-DARE-8B.IQ3_M.gguf --n_gpu_layers -1 --chat_format chatml &
+cd /personal_llm_assistant && python3 gradio_app.py
 
 # when fail do not stop container ( debug )
 tail -f /dev/null
