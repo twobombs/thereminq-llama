@@ -2,7 +2,7 @@ FROM twobombs/thereminq-llama
 # get & set mongodb
 RUN wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc |  gpg --dearmor | tee /usr/share/keyrings/mongodb.gpg > /dev/null
 RUN echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-6.0.list
-RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y mongodb-org && apt clean
+RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y mongodb-org links && apt clean
 RUN mkdir data && mkdir data/db
 
 # HF pip dependancies
@@ -19,10 +19,14 @@ RUN chmod 744 /root/.nvm/nvm.sh && cd /root/.nvm && ./nvm.sh install 20
 # && node --version 
 RUN apt update && apt install -y gnupg git-lfs && apt clean
 
-# get chat ui webgui
+# get chat ui webgui with voice and web rag
 RUN git clone --depth=1 https://github.com/oobabooga/text-generation-webui.git
 RUN cp -r /text-generation-webui /text-generation-webui-cpu
 RUN cd text-generation-webui && pip3 install --ignore-installed -r requirements.txt
+RUN cd text-generation-webui/extensions/ && git clone https://github.com/minemo/text-generation-webui-barktts bark_tts/ && pip3 install -r bark_tts/requirements.txt
+RUN cd text-generation-webui/extensions/ && git clone https://github.com/Anglebrackets/web_rag.git && pip3 install -r web_rag/requirements.txt
+
+# cpu only
 RUN cd text-generation-webui-cpu && pip3 install --ignore-installed -r requirements_cpu_only.txt
 
 # install CopperAI
