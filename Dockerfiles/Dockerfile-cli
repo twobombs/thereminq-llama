@@ -20,13 +20,13 @@ RUN cd llama-openblas && cmake . && make LLAMA_OPENBLAS=1 all
 RUN cd llama-cublas && cmake -DGGML_CUBLAS=ON . && make LLAMA_CUBLAS=1 all
 RUN cd llama-clblast && cmake -DGGML_CLBLAST=ON . && make LLAMA_CLBLAST=1 all
 
-RUN ln -s wizardmath-7b-v1.1.Q2_K.gguf /llama.cpp/models/wizardmath-7b-v1.1.Q2_K.gguf
-RUN ln -s wizardmath-7b-v1.1.Q2_K.gguf /llama-cublas/models/wizardmath-7b-v1.1.Q2_K.gguf
-RUN ln -s wizardmath-7b-v1.1.Q2_K.gguf /llama-clblast/models/wizardmath-7b-v1.1.Q2_K.gguf
-RUN ln -s wizardmath-7b-v1.1.Q2_K.gguf /llama-openblas/models/wizardmath-7b-v1.1.Q2_K.gguf
+RUN ln -s Llama-3-DARE-8B.IQ3_M.gguf /llama.cpp/models/Llama-3-DARE-8B.IQ3_M.gguf
+RUN ln -s Llama-3-DARE-8B.IQ3_M.gguf /llama-cublas/models/Llama-3-DARE-8B.IQ3_M.gguf
+RUN ln -s Llama-3-DARE-8B.IQ3_M.gguf /llama-clblast/models/Llama-3-DARE-8B.IQ3_M.gguf
+RUN ln -s Llama-3-DARE-8B.IQ3_M.gguf /llama-openblas/models/Llama-3-DARE-8B.IQ3_M.gguf
 
 # test build
-# RUN cd llama.cpp && ./main -m /llama.cpp/models/wizardmath-7b-v1.1.Q2_K.gguf -p "explain in detail the negative energy spike when teleporting a qubit according to ER=EPR and devise a strategy to execute this thesis on a quantum computer to prove quantum gravity" -n 512
+# RUN cd llama.cpp && ./main -m /llama.cpp/models/Llama-3-DARE-8B.IQ3_M.gguf -p "explain in detail the negative energy spike when teleporting a qubit according to ER=EPR and devise a strategy to execute this thesis on a quantum computer to prove quantum gravity" -n 512
 
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
