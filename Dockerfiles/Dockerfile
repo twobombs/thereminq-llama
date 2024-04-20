@@ -10,17 +10,13 @@ RUN git clone --depth=1 --recursive -j8 https://github.com/abetlen/llama-cpp-pyt
 RUN python3 -m pip install --upgrade langchain mlflow
 
 # fetch and unpack qrack QFT/QNN patterns
-RUN git clone https://github.com/twobombs/thereminq-bonsai.git && cd thereminq-bonsai/miscfiles && tar xfz *.tar.gz
+RUN git clone https://github.com/twobombs/thereminq-bonsai.git && cd thereminq-bonsai/miscfiles && tar -xfz *.tar.gz
 
 # fetch autogenstudio, crewai
 RUN pip3 install autogenstudio crewai[tools]
 
 #load default model
 RUN wget https://huggingface.co/mradermacher/Llama-3-DARE-8B-GGUF/resolve/main/Llama-3-DARE-8B.IQ3_M.gguf
-
-# fetch Qrack/Sycamore measured results and SDRP/fidelity scores
-# RUN git clone --depth=1 https://github.com/twobombs/thereminq
-RUN git clone --depth=1 https://github.com/twobombs/thereminq-bonsai
 
 #copy run file
 COPY /runfiles/run-* /root
