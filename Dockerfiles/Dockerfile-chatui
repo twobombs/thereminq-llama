@@ -1,8 +1,9 @@
 FROM twobombs/thereminq-llama
-# get mongodb
+# get & set mongodb
 RUN wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc |  gpg --dearmor | tee /usr/share/keyrings/mongodb.gpg > /dev/null
 RUN echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-6.0.list
 RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y mongodb-org && apt clean
+RUN mkdir data && mkdir data/db
 
 # HF pip dependancies
 RUN apt install -y python3-pip npm && apt clean
