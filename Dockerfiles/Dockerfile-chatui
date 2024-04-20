@@ -25,15 +25,15 @@ RUN cp -r /text-generation-webui /text-generation-webui-cpu
 RUN cd text-generation-webui && pip3 install --ignore-installed -r requirements.txt
 RUN cd text-generation-webui/extensions/ && git clone https://github.com/minemo/text-generation-webui-barktts bark_tts/ && pip3 install -r bark_tts/requirements.txt
 RUN cd text-generation-webui/extensions/ && git clone https://github.com/Anglebrackets/web_rag.git && pip3 install -r web_rag/requirements.txt
-
+RUN cd text-generation-webui/extensions/coqui_tts && pip3 install -r requirements.txt
 # cpu only
 RUN cd text-generation-webui-cpu && pip3 install --ignore-installed -r requirements_cpu_only.txt
 
 # install CopperAI
-RUN git clone https://github.com/athrael-soju/CopperAI.git
-COPY /misc/copperai.env /CopperAI/.env
-RUN cd CopperAI && npm install
-
+# RUN git clone https://github.com/athrael-soju/CopperAI.git
+# COPY /misc/copperai.env /CopperAI/.env
+# RUN cd CopperAI && npm install
+ 
 # install personal llm assistant
 RUN git clone https://github.com/amirarsalan90/personal_llm_assistant && cd personal_llm_assistant && chmod install.sh 755 && ./install.sh
 RUN cd personal_llm_assistant && mkdir .models && ln -s /Llama-3-DARE-8B.IQ3_M.gguf /personal_llm_assistant/.models/Llama-3-DARE-8B.IQ3_M.gguf && npm install
