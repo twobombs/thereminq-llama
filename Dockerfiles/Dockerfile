@@ -13,7 +13,7 @@ RUN python3 -m pip install --upgrade langchain mlflow
 RUN pip3 install autogenstudio crewai[tools]
 
 #load default model
-RUN wget https://huggingface.co/mradermacher/Llama-3-DARE-8B-GGUF/blob/main/Llama-3-DARE-8B.IQ3_M.gguf
+RUN wget https://huggingface.co/mradermacher/Llama-3-DARE-8B-GGUF/resolve/main/Llama-3-DARE-8B.IQ3_M.gguf
 
 # fetch Qrack/Sycamore measured results and SDRP/fidelity scores
 # RUN git clone --depth=1 https://github.com/twobombs/thereminq
