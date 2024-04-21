@@ -11,7 +11,7 @@ RUN python3 -m pip install --upgrade langchain mlflow
 
 # fetch and unpack qrack QFT/QNN patterns
 RUN git clone https://github.com/twobombs/thereminq-bonsai.git
-# && cd thereminq-bonsai/miscfiles && tar -xfz *.tar.gz
+RUN cd thereminq-bonsai/miscfiles && for file in *.tar.gz; do tar -xzf "$file"; done
 
 # fetch autogenstudio, crewai
 RUN pip3 install autogenstudio crewai[tools]
