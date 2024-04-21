@@ -26,7 +26,7 @@ RUN ln -s Llama-3-DARE-8B.IQ3_M.gguf /llama-clblast/models/Llama-3-DARE-8B.IQ3_M
 RUN ln -s Llama-3-DARE-8B.IQ3_M.gguf /llama-openblas/models/Llama-3-DARE-8B.IQ3_M.gguf
 
 # test build
-# RUN cd llama.cpp && ./main -m /llama.cpp/models/Llama-3-DARE-8B.IQ3_M.gguf -p "explain in detail the negative energy spike when teleporting a qubit according to ER=EPR and devise a strategy to execute this thesis on a quantum computer to prove that ER=EPR is an example of quantum gravity" -n 512
+# RUN cd llama.cpp && ./main -m /llama.cpp/models/Llama-3-DARE-8B.IQ3_M.gguf -p "make a proof read of the negative energy spike when teleporting a qubit according to ER=EPR and devise a strategy to execute the thesis on a quantum computer to show that ER=EPR is an example of quantum gravity" -n 512
 
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
