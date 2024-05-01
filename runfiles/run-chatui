@@ -3,10 +3,10 @@
 # qrack_cl_precompile
 /qrack/_build/qrack_cl_precompile
 
-# start webui
-cd  /text-generation-webui && python3 server.py --listen --share --trust-remote-code --gradio-auth thereminq:00000000 &
-# start API
-cd  /text-generation-webui && python3 server.py --listen --api &
+# start webui + API
+cd  /text-generation-webui && python3 server.py --listen --share --api --trust-remote-code --gradio-auth thereminq:00000000 &
+# start only API
+# cd  /text-generation-webui && python3 server.py --listen --api &
 
 # start mongod
 mongod &
