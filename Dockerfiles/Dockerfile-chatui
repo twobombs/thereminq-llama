@@ -27,6 +27,7 @@ RUN cd text-generation-webui/extensions/ && git clone https://github.com/minemo/
 RUN cd text-generation-webui/extensions/ && git clone https://github.com/Anglebrackets/web_rag.git && pip3 install -r web_rag/requirements.txt
 RUN cd text-generation-webui/extensions/coqui_tts && pip3 install -r requirements.txt
 RUN cd text-generation-webui/extensions/whisper_stt && pip3 install -r requirements.txt
+RUN ln -s /Llama-3-DARE-8B.IQ3_M.gguf /text-generation-webui/models/Llama-3-DARE-8B.IQ3_M.gguf
 # cpu only
 # RUN cd text-generation-webui-cpu && pip3 install --ignore-installed -r requirements_cpu_only.txt
 
