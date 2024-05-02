@@ -10,15 +10,6 @@ RUN apt install -y python3-pip npm ipython3 ffmpeg python3-venv libgl1 libglib2.
 RUN pip3 install --upgrade pip
 RUN pip3 install huggingface_hub[hf_transfer]
 
-# install npm, reqs
-# RUN echo "deb http://security.ubuntu.com/ubuntu jammy-security main" | tee /etc/apt/sources.list.d/jammy-security.list
-# RUN curl -fsSL https://deb.nodesource.com/setup_current.x | bash -
-
-# RUN curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash 
-# RUN chmod 744 /root/.nvm/nvm.sh && cd /root/.nvm && ./nvm.sh install 20 
-# && node --version 
-# RUN apt update && apt install -y gnupg git-lfs && apt clean
-
 # get chat ui webgui with voice and web rag
 RUN git clone --depth=1 https://github.com/oobabooga/text-generation-webui.git
 RUN cp -r /text-generation-webui /text-generation-webui-cpu
@@ -31,17 +22,8 @@ RUN ln -s /Llama-3-DARE-8B.IQ3_M.gguf /text-generation-webui/models/Llama-3-DARE
 # cpu only
 # RUN cd text-generation-webui-cpu && pip3 install --ignore-installed -r requirements_cpu_only.txt
 
-# install CopperAI
-# RUN git clone https://github.com/athrael-soju/CopperAI.git
-# COPY /misc/copperai.env /CopperAI/.env
-# RUN cd CopperAI && npm install
-
 # install AUTOMATIC1111
 # RUN mkdir AUTOMATIC1111 && cd AUTOMATIC1111 && wget -q https://raw.githubusercontent.com/AUTOMATIC1111/stable-diffusion-webui/master/webui.sh && chmod 755 webui.sh
-
-# install personal llm assistant
-# RUN git clone https://github.com/amirarsalan90/personal_llm_assistant && cd personal_llm_assistant && chmod install.sh 755 && ./install.sh
-# RUN cd personal_llm_assistant && mkdir .models && ln -s /Llama-3-DARE-8B.IQ3_M.gguf /personal_llm_assistant/.models/Llama-3-DARE-8B.IQ3_M.gguf && npm install
 
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
