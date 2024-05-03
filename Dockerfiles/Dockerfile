@@ -14,7 +14,7 @@ RUN git clone https://github.com/twobombs/thereminq-bonsai.git
 RUN cd thereminq-bonsai/miscfiles && for file in *.tar.gz; do tar -xzf "$file"; done
 
 # fetch autogenstudio, crewai
-RUN pip3 install autogenstudio crewai[tools]
+RUN pip3 install autogenstudio crewai[tools] open-interpreter
 
 #load default model
 RUN wget https://huggingface.co/mradermacher/Llama-3-DARE-8B-GGUF/resolve/main/Llama-3-DARE-8B.IQ3_M.gguf
