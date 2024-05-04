@@ -23,12 +23,6 @@ Work in progress
 
 --------
 
-Look ma, no K8s
-
-- `orchestrate` for orchestration of several container images through docker socket link ( todos )
-
---------
-
 Optional
 - Download a ton of hugging face bin files through [fetch-bins.sh](https://github.com/twobombs/thereminq-llama/blob/main/misc/fetch-bins.sh)
 
