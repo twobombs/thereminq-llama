@@ -12,7 +12,7 @@ cd  /text-generation-webui && python3 server.py --listen --share --api --trust-r
 mongod &
 
 #start ollama
-OLLAMA_HOST=0.0.0.0:8080 ollama serve &
+OLLAMA_HOST=0.0.0.0 ollama serve &
 
 # start open-interpreter with webui
 cd /OpenInterpreterUI && streamlit run app.py --server.port 8501 &
