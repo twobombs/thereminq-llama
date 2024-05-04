@@ -11,8 +11,11 @@ cd  /text-generation-webui && python3 server.py --listen --share --api --trust-r
 # start mongod
 mongod &
 
+# start open-interpreter with webui
+cd /OpenInterpreterUI && streamlit run app.py --server.port 8501 &
+
 # start open-interpreter with openai local api
-interpreter -y --api_base "http://localhost:5000/v1" --api_key "fake_key" &
+interpreter -y --api_base "http://localhost:5000/v1" --api_key "fake_key"
 
 # start personal llm assistant
 # cd /personal_llm_assistant && python3 -m llama_cpp.server --model /Llama-3-DARE-8B.IQ3_M.gguf --n_gpu_layers -1 --chat_format chatml &
