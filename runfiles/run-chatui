@@ -11,6 +11,9 @@ cd  /text-generation-webui && python3 server.py --listen --share --api --trust-r
 # start mongod
 mongod &
 
+#start ollama
+ollama serve &
+
 # start open-interpreter with webui
 cd /OpenInterpreterUI && streamlit run app.py --server.port 8501 &
 
