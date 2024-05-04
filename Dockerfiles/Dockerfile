@@ -6,8 +6,8 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y git py
 # fetch llama-cpp-python
 RUN git clone --depth=1 --recursive -j8 https://github.com/abetlen/llama-cpp-python.git
 
-# langchain and mlflow
-RUN python3 -m pip install --upgrade langchain mlflow && pip cache purge
+# fetch ollama
+RUN curl -fsSL https://ollama.com/install.sh | sh
 
 # fetch and unpack qrack QFT/QNN patterns
 RUN git clone https://github.com/twobombs/thereminq-bonsai.git
