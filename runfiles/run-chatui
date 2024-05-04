@@ -14,7 +14,7 @@ mongod &
 # start open-interpreter with webui
 cd /OpenInterpreterUI && streamlit run app.py --server.port 8501 &
 
-# start open-interpreter with openai local api
+# start open-interpreter with openai local api ( CLI input when the container is run on tty - not forked )
 interpreter -y --api_base "http://localhost:5000/v1" --api_key "fake_key"
 
 # start personal llm assistant
