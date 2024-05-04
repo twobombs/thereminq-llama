@@ -10,6 +10,10 @@ RUN apt install -y python3-pip npm ipython3 ffmpeg python3-venv libgl1 libglib2.
 RUN pip3 install --upgrade pip
 RUN pip3 install huggingface_hub[hf_transfer] && pip cache purge
 
+# install open-interpreter web UI
+RUN git clone --depth=1 https://github.com/blazzbyte/OpenInterpreterUI.git
+RUN cd OpenInterpreterUI && pip3 install -r requirements.txt && pip cache purge
+
 # get chat ui webgui with voice and web rag
 RUN git clone --depth=1 https://github.com/oobabooga/text-generation-webui.git
 RUN cp -r /text-generation-webui /text-generation-webui-cpu
