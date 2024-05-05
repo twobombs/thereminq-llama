@@ -1,5 +1,16 @@
 FROM twobombs/thereminq-llama
 
+# agent will require quantum dependancies so we
+# install pyqrack + couplings, runtime requirements
+# to speed up the agent process
+RUN pip3 install --upgrade qiskit-metal pyqrack
+# Install IBM QC connector
+RUN pip3 install -U IBMQuantumExperience
+# Install Qiskit libaries
+RUN pip3 install qiskit[visualization] qiskit-qrack-provider qiskit-aqua
+# install IQM connectors and libary
+RUN pip3 install qiskit-iqm 
+
 # HF pip dependancies
 RUN apt install -y python3-pip npm ipython3 python-is-python3 ffmpeg python3-venv libgl1 libglib2.0-0 && apt clean
 RUN pip3 install --upgrade pip
