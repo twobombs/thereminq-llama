@@ -5,26 +5,9 @@
 
 # start webui + API
 cd  /text-generation-webui && python3 server.py --listen --share --api --trust-remote-code --gradio-auth thereminq:00000000 &
-# start only API
-# cd  /text-generation-webui && python3 server.py --listen --api &
 
 # start mongod
 mongod &
-
-#start ollama pull llama 3
-OLLAMA_HOST=0.0.0.0 ollama serve &
-sleep 3
-ollama pull llama3 &
-
-# start open-interpreter with webui
-cd /OpenInterpreterUI && streamlit run app.py --server.port 8501 &
-
-# start open-interpreter with openai local api ( CLI input when the container is run on tty - not forked )
-interpreter -y --api_base "http://localhost:5000/v1" --api_key "fake_key"
-
-# start personal llm assistant
-# cd /personal_llm_assistant && python3 -m llama_cpp.server --model /Llama-3-DARE-8B.IQ3_M.gguf --n_gpu_layers -1 --chat_format chatml &
-# cd /personal_llm_assistant && python3 gradio_app.py
 
 # when fail do not stop container ( debug )
 tail -f /dev/null
