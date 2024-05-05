@@ -20,7 +20,7 @@ RUN pip3 install qiskit-iqm
 RUN pip3 install cirq mitiq
 
 # HF and Open-interpreter dependancies
-RUN apt install -y python3-pip npm ipython3 python-is-python3 ffmpeg python3-venv libgl1 libglib2.0-0 && apt clean
+RUN export DEBIAN_FRONTEND=noninteractive && apt install -y python3-pip npm ipython3 python-is-python3 ffmpeg python3-venv libgl1 libglib2.0-0 && apt clean
 RUN pip3 install huggingface_hub[hf_transfer] open-interpreter && pip cache purge
 
 # install open-interpreter web UI
