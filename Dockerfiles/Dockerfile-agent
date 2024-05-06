@@ -5,19 +5,19 @@ FROM twobombs/thereminq-llama
 # install runtime requirements
 # to speed up the agent process
 RUN pip3 install --upgrade pip
-RUN pip3 install pyqrack
+RUN pip3 install pyqrack  && pip cache purge
 
 # Install Qiskit libaries
-RUN pip3 install qiskit[visualization] qiskit-qrack-provider qiskit-aqua
+RUN pip3 install qiskit[all] qiskit-qrack-provider && pip cache purge
 
 # Install IBM QC connector
-RUN pip3 install -U IBMQuantumExperience
+RUN pip3 install -U IBMQuantumExperience && pip cache purge
 
 # install IQM connectors and libary
-RUN pip3 install qiskit-iqm 
+RUN pip3 install qiskit-iqm && pip cache purge
 
 # install cirq and mitiq
-RUN pip3 install cirq mitiq
+RUN pip3 install cirq[all] mitiq[all] && pip cache purge
 
 # HF and Open-interpreter dependancies
 RUN export DEBIAN_FRONTEND=noninteractive && apt install -y python3-pip npm ipython3 python-is-python3 ffmpeg python3-venv libgl1 libglib2.0-0 && apt clean
