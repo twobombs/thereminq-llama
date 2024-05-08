@@ -3,11 +3,12 @@
 # qrack_cl_precompile
 /qrack/_build/qrack_cl_precompile
 
-# start webui + API
+# link to default model and start webui + API
+ln -s /Llama-3-DARE-8B.IQ3_M.gguf /text-generation-webui/models/Llama-3-DARE-8B.IQ3_M.gguf
 cd  /text-generation-webui && python3 server.py --listen --share --api --trust-remote-code --gradio-auth thereminq:00000000 &
 
 # start mongod
-mongod &
+# mongod &
 
 # when fail do not stop container ( debug )
 tail -f /dev/null
