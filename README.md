@@ -1,4 +1,4 @@
-# ThereminQ-LLaMa : baking a Quantum layer caek
+# ThereminQ-llama : baking a Quantum layer caek
 
 This repo is alpha and dedicated to extending `GGUF` LLaMa LLMs with QC data on Agent steriods
 
