@@ -12,7 +12,7 @@ This repo is alpha and dedicated to extending `GGUF` llama LLMs with QC data on 
 docker run --gpus all [-v /path-to-/models:/text-generation-webui/models] [-p 7860:7860] [-p 5173:5173] [-p 5601:5601] [-p 9200:9200] -d twobombs/thereminq-llama[:tag] 
 ````
 
-- `latest` includes dependancies and a LLama2 4bit model including mlflow, autogenstudio and crewai
+- `latest` includes QC/AI dependancies and a LLama3 model
 - `cli` LLama.cpp compiled versions for direct CLI interaction such as model [conversion](https://github.com/ggerganov/llama.cpp?tab=readme-ov-file#prepare-and-quantize)
 - `chatui` for web based LLM interfaces & huggingface URL tunnel
 - `agent` for OpenInterpreterUI/CLI with Ollama3 integration
