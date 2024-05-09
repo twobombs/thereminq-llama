@@ -12,7 +12,7 @@ RUN cp -r llama.cpp llama-clblast
 
 #CUDA integration default
 RUN CMAKE_ARGS="-DLLAMA_CUBLAS=on" FORCE_CMAKE=1 pip install llama-cpp-python --force-reinstall --upgrade --no-cache-dir
-RUN python3 -m pip install --upgrade pip pytest cmake scikit-build setuptools fastapi uvicorn sse-starlette pydantic-settings 
+RUN python3 -m pip install --upgrade pip pytest cmake scikit-build setuptools fastapi uvicorn sse-starlette pydantic-settings && pip cache purge
 
 # build all versions
 RUN cd llama.cpp && make -j
@@ -26,7 +26,7 @@ RUN ln -s Llama-3-DARE-8B.IQ3_M.gguf /llama-clblast/models/Llama-3-DARE-8B.IQ3_M
 RUN ln -s Llama-3-DARE-8B.IQ3_M.gguf /llama-openblas/models/Llama-3-DARE-8B.IQ3_M.gguf
 
 # install llama.cpp conversion dependancies
-RUN pip3 install torch sentencepiece transformers 
+RUN pip3 install torch sentencepiece transformers && pip cache purge
 
 # test build
 # RUN cd llama.cpp && ./main -m /llama.cpp/models/Llama-3-DARE-8B.IQ3_M.gguf -p "make a proof read of the negative energy spike when teleporting a qubit according to ER=EPR and devise a strategy to execute the thesis on a quantum computer that shows that ER=EPR is an example of quantum gravity" -n 512
