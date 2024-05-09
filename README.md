@@ -21,7 +21,7 @@ docker run --gpus all [-v /path-to-/models:/text-generation-webui/models] [-p 78
 
 Work in progress 
 
-![QCAI-chat drawio](https://github.com/twobombs/thereminq-llama/assets/12692227/1421f71c-b1cc-4562-a59c-c0d9448be562)
+![QCAI-chat drawio](https://github.com/twobombs/thereminq-llama/assets/12692227/53d15ddb-1599-4787-bc0e-962672d81cf1)
 
 
 --------
