@@ -13,7 +13,7 @@ docker run --gpus all [-v /path-to-/models:/text-generation-webui/models] [-p 78
 ````
 
 - `latest` includes dependancies and a LLama2 4bit model including mlflow, autogenstudio and crewai
-- `cli` LLama.cpp compiled versions for direct CLI interaction such as model conversion 
+- `cli` LLama.cpp compiled versions for direct CLI interaction such as model [conversion](https://github.com/ggerganov/llama.cpp?tab=readme-ov-file#prepare-and-quantize)
 - `chatui` for web based LLM interfaces & huggingface URL tunnel
 - `agent` for OpenInterpreterUI/CLI with Ollama3 integration
   
