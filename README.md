@@ -31,11 +31,13 @@ Optional
 
 --------
 
-Credits for Qrack and LLaMa.cpp go to
+Credits for Qrack, LLaMa.cpp and Open Interpreter go to
 
 Dan Strano https://github.com/unitaryfund/qrack
 
 Georgi Gerganov https://github.com/ggerganov/llama.cpp
+
+Open Interpreter project https://www.openinterpreter.com/
 
 ... and their respective contributers
 
