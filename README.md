@@ -6,7 +6,7 @@ This repo is alpha and dedicated to extending `GGUF` llama LLMs with QC data on 
 
 --------
 
-`Qrackmin:POCL` + `LLaMa.cpp` integrated container image
+`Qrackmin` + `llama.cpp` + `open-interpreter` integrated container image stack
 
 ```bash
 docker run --gpus all [-v /path-to-/models:/text-generation-webui/models] [-p 7860:7860] [-p 5173:5173] [-p 5601:5601] [-p 9200:9200] -d twobombs/thereminq-llama[:tag] 
