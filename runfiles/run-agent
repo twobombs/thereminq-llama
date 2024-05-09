@@ -6,10 +6,10 @@
 # start ollama with llama 3
 # start open-interpreter with webui
 OLLAMA_HOST=0.0.0.0 ollama serve &
-ollama pull llama3 && cd /OpenInterpreterUI && streamlit run app.py --server.port 8501 &
+cd /OpenInterpreterUI && streamlit run app.py --server.port 8501 &
 
-# start open-interpreter with openai local api ( CLI input when the container is run on tty - not forked )
-interpreter -y --model ollama/llama3
+# start open-interpreter with local api ( CLI input when the container is run on tty - not forked )
+ollama pull llama3 && interpreter -y --model ollama/llama3
 
 # when fail do not stop container ( debug )
 tail -f /dev/null
