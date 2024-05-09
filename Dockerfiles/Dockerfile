@@ -4,7 +4,7 @@ FROM twobombs/qrackmin
 RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y git python3-pip mc sudo wget libopenblas-dev libclblast-dev mysql-server && apt clean all
 
 # HF and Open-interpreter dependancies
-RUN export DEBIAN_FRONTEND=noninteractive && apt install -y python3-pip npm ipython3 python-is-python3 ffmpeg python3-venv gitlfs libgl1 libglib2.0-0 && apt clean all
+RUN export DEBIAN_FRONTEND=noninteractive && apt install -y python3-pip npm ipython3 python-is-python3 ffmpeg python3-venv git-lfs libgl1 libglib2.0-0 && apt clean all
 RUN pip3 install huggingface_hub[hf_transfer] open-interpreter && pip cache purge
 
 # fetch llama-cpp-python
