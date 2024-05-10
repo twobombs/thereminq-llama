@@ -7,18 +7,18 @@ RUN cp -r llama.cpp llama-cublas
 RUN cp -r llama.cpp llama-clblast
 
 #OpenCL integration 
-#RUN CMAKE_ARGS="-DLLAMA_CLBLAST=on" FORCE_CMAKE=1 pip install llama-cpp-python --force-reinstall --upgrade --no-cache-dir
-#RUN python3 -m pip install --upgrade pip pytest cmake scikit-build setuptools fastapi uvicorn sse-starlette pydantic-settings
+#RUN CMAKE_ARGS="-DLLAMA_CLBLAST=on" FORCE_CMAKE=1 pip install llama-cpp-python --force-reinstall --upgrade --no-cache-dir && pip cache purge
+#RUN python3 -m pip install --upgrade pip pytest cmake scikit-build setuptools fastapi uvicorn sse-starlette pydantic-settings && pip cache purge
 
 #CUDA integration default
-RUN CMAKE_ARGS="-DLLAMA_CUBLAS=on" FORCE_CMAKE=1 pip install llama-cpp-python --force-reinstall --upgrade --no-cache-dir
+RUN CMAKE_ARGS="-DLLAMA_CUBLAS=on" FORCE_CMAKE=1 pip install llama-cpp-python --force-reinstall --upgrade --no-cache-dir && pip cache purge
 RUN python3 -m pip install --upgrade pip pytest cmake scikit-build setuptools fastapi uvicorn sse-starlette pydantic-settings && pip cache purge
 
 # build all versions
-RUN cd llama.cpp && make -j
-RUN cd llama-openblas && cmake . && make LLAMA_OPENBLAS=1 all
-RUN cd llama-cublas && cmake -DGGML_CUBLAS=ON . && make LLAMA_CUBLAS=1 all
-RUN cd llama-clblast && cmake -DGGML_CLBLAST=ON . && make LLAMA_CLBLAST=1 all
+RUN cd llama.cpp && make -j $(grep -c ^processor /proc/cpuinfo) all
+RUN cd llama-openblas && cmake . && make LLAMA_OPENBLAS=1 -j $(grep -c ^processor /proc/cpuinfo) all
+RUN cd llama-cublas && cmake -DGGML_CUBLAS=ON . && make LLAMA_CUBLAS=1 -j $(grep -c ^processor /proc/cpuinfo) all
+RUN cd llama-clblast && cmake -DGGML_CLBLAST=ON . && make LLAMA_CLBLAST=1 -j $(grep -c ^processor /proc/cpuinfo) all
 
 RUN ln -s Llama-3-DARE-8B.IQ3_M.gguf /llama.cpp/models/Llama-3-DARE-8B.IQ3_M.gguf
 RUN ln -s Llama-3-DARE-8B.IQ3_M.gguf /llama-cublas/models/Llama-3-DARE-8B.IQ3_M.gguf
