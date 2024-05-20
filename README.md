@@ -1,6 +1,11 @@
 # ThereminQ-llama : baking a Quantum layer caek
 
 This repo is alpha and dedicated to extending `GGUF` llama LLMs with QC data on Agent steriods
+- new features will pop up in other ThereminQ repos
+- this repo currently serves to test functionality 
+
+Functionality added so far
+- agency to ThereminQ-tensors
 
 ![2a40063099465fee941a701289810666](https://github.com/twobombs/thereminq-llama/assets/12692227/6097d5e2-92fa-4bff-9297-c26d98f31d84)
 
