@@ -6,6 +6,8 @@
 # start ollama with llama 3
 # start open-interpreter with webui
 OLLAMA_HOST=0.0.0.0 ollama serve &
+sleep 5
+
 cd /OpenInterpreterUI && streamlit run app.py --server.port 8501 &
 
 # start open-interpreter with local api ( CLI input when the container is run on tty - not forked )
