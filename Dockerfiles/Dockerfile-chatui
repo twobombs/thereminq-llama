@@ -14,7 +14,7 @@ RUN pip3 install huggingface_hub[hf_transfer] && pip cache purge
 # get chat ui webgui with voice and web rag
 RUN git clone --depth=1 https://github.com/oobabooga/text-generation-webui.git
 RUN cp -r /text-generation-webui /text-generation-webui-cpu
-RUN cd text-generation-webui && pip3 install --ignore-installed -r requirements.txt && pip cache purge
+RUN cd text-generation-webui && pip3 install -r requirements.txt && pip cache purge
 RUN cd text-generation-webui/extensions/ && git clone https://github.com/minemo/text-generation-webui-barktts bark_tts/ && pip3 install -r bark_tts/requirements.txt && pip cache purge
 RUN cd text-generation-webui/extensions/ && git clone https://github.com/Anglebrackets/web_rag.git && pip3 install -r web_rag/requirements.txt && pip cache purge
 RUN cd text-generation-webui/extensions/coqui_tts && pip3 install -r requirements.txt && pip cache purge
