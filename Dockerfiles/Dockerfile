@@ -21,7 +21,7 @@ RUN cd thereminq-bonsai/miscfiles && for file in *.tar.gz; do tar -xzf "$file"; 
 # RUN pip3 install autogenstudio crewai[tools] open-interpreter && pip cache purge
 
 #load default model
-RUN wget https://huggingface.co/mradermacher/Llama-3-DARE-8B-GGUF/resolve/main/Llama-3-DARE-8B.IQ3_M.gguf
+# RUN wget https://huggingface.co/mradermacher/Llama-3-DARE-8B-GGUF/resolve/main/Llama-3-DARE-8B.IQ3_M.gguf
 
 #copy run file
 COPY /runfiles/run-* /root
