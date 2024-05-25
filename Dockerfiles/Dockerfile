@@ -1,4 +1,5 @@
-FROM nvidia/cuda:12.2.2-devel-ubuntu22.04
+FROM twobombs/qrackmin
+# FROM nvidia/cuda:12.2.2-devel-ubuntu22.04
 LABEL com.nvidia.volumes.needed="nvidia_driver"
 
 ENV PATH /usr/local/nvidia/bin:${PATH}
