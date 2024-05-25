@@ -16,9 +16,6 @@ RUN pip3 install huggingface_hub[hf_transfer] open-interpreter && pip cache purg
 # fetch llama-cpp-python
 RUN git clone --depth=1 --recursive -j8 https://github.com/abetlen/llama-cpp-python.git
 
-# fetch ollama
-RUN curl -fsSL https://ollama.com/install.sh | sh && apt clean all
-
 # fetch and unpack qrack QFT/QNN patterns
 RUN git clone --depth=1 https://github.com/twobombs/thereminq-bonsai.git
 RUN cd thereminq-bonsai/miscfiles && for file in *.tar.gz; do tar -xzf "$file"; done
