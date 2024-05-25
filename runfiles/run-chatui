@@ -7,11 +7,11 @@
 ln -s /Llama-3-DARE-8B.IQ3_M.gguf /text-generation-webui/models/Llama-3-DARE-8B.IQ3_M.gguf
 cd  /text-generation-webui && python3 server.py --listen --share --api --trust-remote-code --gradio-auth thereminq:00000000 &
 
+#fetch model
+rm Llama-3-DARE-8B.IQ3_M.gguf && wget https://huggingface.co/mradermacher/Llama-3-DARE-8B-GGUF/resolve/main/Llama-3-DARE-8B.IQ3_M.gguf &
+
 # start open interpreter UI 
 cd /OpenInterpreterUI && streamlit run app.py --server.port 8501 &
-
-# start mongod
-# mongod &
 
 # when fail do not stop container ( debug )
 tail -f /dev/null
