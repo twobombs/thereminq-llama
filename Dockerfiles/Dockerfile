@@ -1,7 +1,13 @@
-FROM twobombs/qrackmin
+FROM nvidia/cuda:12.2.2-devel-ubuntu22.04
+LABEL com.nvidia.volumes.needed="nvidia_driver"
 
-# fetch dependancies
-RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y git python3-pip mc sudo wget libopenblas-dev libclblast-dev mysql-server && apt clean all
+ENV PATH /usr/local/nvidia/bin:${PATH}
+ENV LD_LIBRARY_PATH /usr/local/nvidia/lib:/usr/local/nvidia/lib64:${LD_LIBRARY_PATH}
+
+# fetch qrack-dev deb package
+RUN apt update && apt install -y software-properties-common && apt clean
+RUN add-apt-repository -y ppa:wrathfulspatula/vm6502q && apt clean
+RUN apt install -y libqrack-dev
 
 # HF and Open-interpreter dependancies
 RUN export DEBIAN_FRONTEND=noninteractive && apt install -y python3-pip npm ipython3 python-is-python3 ffmpeg python3-venv git-lfs libgl1 libglib2.0-0 && apt clean all
