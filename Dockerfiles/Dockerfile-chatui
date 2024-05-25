@@ -12,6 +12,7 @@ RUN pip3 install --upgrade pip && pip cache purge
 RUN pip3 install huggingface_hub[hf_transfer] && pip cache purge
 
 # get chat ui webgui with voice and web rag
+RUN touch Llama-3-DARE-8B.IQ3_M.gguf
 RUN git clone --depth=1 https://github.com/oobabooga/text-generation-webui.git
 RUN cp -r /text-generation-webui /text-generation-webui-cpu
 RUN cd text-generation-webui && pip3 install -r requirements.txt && pip cache purge
@@ -32,6 +33,12 @@ RUN cd OpenInterpreterUI && pip3 install -r requirements.txt && pip cache purge
 # get AgentGPT - optional UI - in development 
 RUN git clone --depth=1 https://github.com/reworkd/AgentGPT.git
 
+#copy run file
+COPY /runfiles/run-* /root
+RUN chmod 744 /root/run*
+
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
+ENV HOST 0.0.0.0
+
 ENTRYPOINT /root/run-chatui
