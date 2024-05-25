@@ -7,7 +7,7 @@ FROM nvidia/cuda:12.2.2-devel-ubuntu22.04
 #RUN mkdir data && mkdir data/db
 
 # HF pip dependancies
-RUN apt install -y python3-pip npm ipython3 ffmpeg python3-venv libgl1 libglib2.0-0 && apt clean all
+RUN export DEBIAN_FRONTEND=noninteractive && apt update && install -y python3-pip npm ipython3 ffmpeg python3-venv libgl1 libglib2.0-0 && apt clean all
 RUN pip3 install --upgrade pip && pip cache purge
 RUN pip3 install huggingface_hub[hf_transfer] && pip cache purge
 
