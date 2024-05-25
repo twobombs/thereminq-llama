@@ -7,10 +7,11 @@ FROM nvidia/cuda:12.2.2-devel-ubuntu22.04
 #RUN mkdir data && mkdir data/db
 
 # HF pip dependancies
-RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y python3-pip npm ipython3 ffmpeg python3-venv libgl1 libglib2.0-0 && apt clean all
-RUN pip3 install --upgrade pip && pip cache purge
-RUN pip3 install huggingface_hub[hf_transfer] && pip cache purge
+#RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y python3-pip npm ipython3 ffmpeg python3-venv libgl1 libglib2.0-0 && apt clean all
+#RUN pip3 install --upgrade pip && pip cache purge
+#RUN pip3 install huggingface_hub[hf_transfer] && pip cache purge
 
+RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y python3-pip && apt clean all
 # get chat ui webgui with voice and web rag
 RUN touch Llama-3-DARE-8B.IQ3_M.gguf
 RUN git clone --depth=1 https://github.com/oobabooga/text-generation-webui.git
