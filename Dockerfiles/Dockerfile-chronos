@@ -1,6 +1,10 @@
 FROM twobombs/thereminq-llama
 
+# include amazon chronos
 RUN pip3 install git+https://github.com/amazon-science/chronos-forecasting.git && pip cache purge
+
+#fetch IBM timeseries
+RUN git clone --depth=1 https://github.com/ibm-granite/granite-tsfm.git
 
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
