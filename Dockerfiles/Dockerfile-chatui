@@ -17,7 +17,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y python
 RUN touch Llama-3-DARE-8B.IQ3_M.gguf
 RUN git clone --depth=1 https://github.com/oobabooga/text-generation-webui.git
 # RUN cp -r /text-generation-webui /text-generation-webui-cpu
-RUN cd text-generation-webui && pip3 install -r requirements.txt && pip cache purge
+RUN cd text-generation-webui && pip3 install --ignore-installed -r requirements.txt && pip cache purge
 RUN cd text-generation-webui/extensions/ && git clone https://github.com/minemo/text-generation-webui-barktts bark_tts/ && pip3 install -r bark_tts/requirements.txt && pip cache purge
 RUN cd text-generation-webui/extensions/ && git clone https://github.com/Anglebrackets/web_rag.git && pip3 install -r web_rag/requirements.txt && pip cache purge
 RUN cd text-generation-webui/extensions/coqui_tts && pip3 install -r requirements.txt && pip cache purge
