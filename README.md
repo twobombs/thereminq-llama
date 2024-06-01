@@ -11,17 +11,27 @@ Functionality added so far
 
 --------
 
-`Qrackmin` + `llama.cpp` + `open-interpreter` integrated container image stack
+`Qrackmin` + `llama.cpp` + `open-interpreter` + `` integrated container image stack
 
 ```bash
-docker run --gpus all [-v /path-to-/models:/text-generation-webui/models] [-p 7860:7860] [-p 5173:5173] [-p 5601:5601] [-p 9200:9200] -d twobombs/thereminq-llama[:tag] 
+docker run --gpus all [-v /path-to-/models:/text-generation-webui/models] [-p 7860:7860] [-p 5173:5173] [-p 5601:5601] [-p 8501:8501] -d twobombs/thereminq-llama[:tag] 
 ````
 
-- `latest` includes QC/AI dependancies and a LLama3 model
+- `latest` includes QC/AI dependancies and downloads a LLama3 model
 - `cli` LLama.cpp compiled versions for direct CLI interaction such as model [conversion](https://github.com/ggerganov/llama.cpp?tab=readme-ov-file#prepare-and-quantize)
 - `chatui` for web based LLM interfaces & huggingface URL tunnel
 - `agent` for OpenInterpreterUI/CLI with Ollama3 integration
-  
+- `big-agency` Autogen Studio integrated with Ollama UI
+
+--------
+
+![Screenshot from 2024-06-01 10-15-20](https://github.com/twobombs/thereminq-llama/assets/12692227/4c5ddfea-74fc-4251-ae21-776642f2de0f)
+
+![Screenshot from 2024-06-01 10-20-29](https://github.com/twobombs/thereminq-llama/assets/12692227/cdf5e11d-c7a1-484b-926c-b25bb262ecb6)
+
+![Screenshot from 2024-06-01 10-24-37](https://github.com/twobombs/thereminq-llama/assets/12692227/5c0b52a0-92bd-4f5e-8ff0-5fb008ad15db)
+
+
 --------
 
 Work in progress 
@@ -43,6 +53,8 @@ Dan Strano https://github.com/unitaryfund/qrack
 Georgi Gerganov https://github.com/ggerganov/llama.cpp
 
 Open Interpreter project https://www.openinterpreter.com/
+
+AutoGen Studio https://autogen-studio.com/
 
 ... and their respective contributers
 
