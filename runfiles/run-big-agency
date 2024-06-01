@@ -9,7 +9,7 @@ OLLAMA_HOST=0.0.0.0 ollama serve &
 sleep 5
 cd /OpenInterpreterUI && streamlit run app.py --server.port 8501 &
 
-autogenstudio ui &
+autogenstudio ui --host 0.0.0.0 --port 8081 &
 
 # start open-interpreter with local api ( CLI input when the container is run on tty - not forked )
 ollama pull llama3:70b &
