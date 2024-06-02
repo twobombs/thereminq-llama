@@ -26,6 +26,11 @@ RUN curl -fsSL https://ollama.com/install.sh | sh && apt clean all
 RUN git clone --depth=1 https://github.com/blazzbyte/OpenInterpreterUI.git
 RUN cd OpenInterpreterUI && pip3 install -r requirements.txt && pip cache purge
 
+# install typing mind UI
+RUN got clone --depth=1 https://github.com/TypingMind/typingmind.git
+RUN cd typingmind && 
+# npm/yarn install
+
 # get AgentGPT - optional UI - in development 
 RUN git clone --depth=1 https://github.com/reworkd/AgentGPT.git
 
