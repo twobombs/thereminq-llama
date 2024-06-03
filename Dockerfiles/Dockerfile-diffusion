@@ -1,5 +1,7 @@
 FROM twobombs/thereminq-llama
 
+RUN apt install -y wget git python3 python3-venv libgl1 libglib2.0-0 && apt clean all
+
 RUN git clone --depth=1 https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
 WORKDIR /stable-diffusion-webui
 RUN ./webui.sh --skip-torch-cuda-test --no-download-sd-model
