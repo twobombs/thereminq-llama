@@ -1,0 +1,8 @@
+FROM twobombs/thereminq-llama
+
+RUN git clone --depth=1 https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
+WORKDIR /stable-diffusion-webui
+RUN ./webui.sh --skip-torch-cuda-test --no-download-sd-model
+
+ENV NVIDIA_VISIBLE_DEVICES all
+ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
