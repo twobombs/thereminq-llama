@@ -27,6 +27,7 @@ RUN git clone --depth=1 https://github.com/blazzbyte/OpenInterpreterUI.git
 RUN cd OpenInterpreterUI && pip3 install -r requirements.txt && pip cache purge
 
 # install typing mind UI
+RUN apt install -y npm && apt clean all
 RUN git clone --depth=1 https://github.com/TypingMind/typingmind.git
 RUN cd typingmind && npm install
 # npm/yarn install
