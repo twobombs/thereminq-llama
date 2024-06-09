@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# show system config in logs
+nvidia-smi
+ifconfig
+
+./webui.sh -f --skip-torch-cuda-test --no-download-sd-model &
+
+sleep 10
+
+# precompile qrack kernels
+./qrack/_build/qrack_cl_precompile
+
+tail -f /dev/null
