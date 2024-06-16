@@ -25,7 +25,7 @@ cd /OpenInterpreterUI && streamlit run app.py --server.port 8501 &
 # start typingmind
 cd TypingMind && npm run start &
 
-export DISPLAY=:0 && google-chrome-stable --disable-fre --no-default-browser-check --no-first-run --no-sandbox --password-store=basic http://127.0.0.1:3000 &
+export DISPLAY=:0 && google-chrome-stable --disable-fre --no-default-browser-check --no-first-run --no-sandbox --password-store=basic http://localhost:3000 &
 
 # start open-interpreter with local api ( CLI input when the container is run on tty - not forked )
 ollama pull llama3 && interpreter -y --model ollama/llama3
