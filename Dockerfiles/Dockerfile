@@ -1,4 +1,4 @@
-FROM FROM twobombs/cudacluster:dev
+FROM twobombs/cudacluster:dev
 # FROM twobombs/qrackmin
 # FROM nvidia/cuda:12.2.2-devel-ubuntu22.04
 LABEL com.nvidia.volumes.needed="nvidia_driver"
