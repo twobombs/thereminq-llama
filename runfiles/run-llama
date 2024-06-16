@@ -1,11 +1,26 @@
 #!/bin/bash
 
+# X-run script
+rm /tmp/.X0-lock
+Xvfb :0 -screen 0 1920x1080x24+32 -ac &
+export DISPLAY=:0&&startxfce4 &
+sleep 10
+x0vncserver -display :0 -passwordfile ~/.vnc/passwd &
+/usr/share/novnc/utils/launch.sh --vnc localhost:5900 &
+service xrdp start && xrdp &
+
+export DISPLAY=:0&&xterm -e "xset s off" &
+export DISPLAY=:0&&xterm -e "neofetch && tail -f /dev/null" &
+
+#fetch model
+rm Llama-3-DARE-8B.IQ3_M.gguf && wget https://huggingface.co/mradermacher/Llama-3-DARE-8B-GGUF/resolve/main/Llama-3-DARE-8B.IQ3_M.gguf &
+
 # show system config in logs
 nvidia-smi
 ifconfig
 
 # start OpenAI API simulator
-python3 -m llama_cpp.server --model /wizardmath-7b-v1.0.Q2_K.gguf &
+# python3 -m llama_cpp.server --model /Llama-3-DARE-8B.IQ3_M.gguf &
 
 sleep 10
 
