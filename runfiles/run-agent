@@ -22,6 +22,9 @@ sleep 5
 
 cd /OpenInterpreterUI && streamlit run app.py --server.port 8501 &
 
+# start typingmind
+cd TypingMind && npm run start &
+
 # start open-interpreter with local api ( CLI input when the container is run on tty - not forked )
 ollama pull llama3 && interpreter -y --model ollama/llama3
 
