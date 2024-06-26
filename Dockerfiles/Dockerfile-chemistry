@@ -3,7 +3,7 @@ FROM twobombs/thereminq-llama
 RUN apt update && apt install git-lfs && apt clean all
 
 # RUN git clone --depth=1 https://huggingface.co/EvolutionaryScale/esm3-sm-open-v1
-RUN git clone --depth-1 https://github.com/evolutionaryscale/esm
+RUN git clone --depth=1 https://github.com/evolutionaryscale/esm
 
 RUN pip3 install esm && pip cache purge
 
