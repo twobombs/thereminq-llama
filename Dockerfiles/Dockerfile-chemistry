@@ -10,4 +10,4 @@ RUN pip3 install esm qiskit qiskit-nature && pip cache purge
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
 
-ENTRYPOINT /root/run-hydrogen.py
+ENTRYPOINT python3 /root/run-hydrogen.py
