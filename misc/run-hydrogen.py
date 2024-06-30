@@ -1,4 +1,8 @@
-from qiskit import Aer, execute
+#
+# this python code was created by AI to simulate a Hydrogen atom in Qiskit
+# 
+
+from qiskit.providers.qrack import Qrack
 from qiskit.circuit.library import TwoLocal
 from qiskit.algorithms import VQE
 from qiskit.algorithms.optimizers import SLSQP
@@ -9,6 +13,9 @@ from qiskit_nature.converters.second_quantization import QubitConverter
 from qiskit_nature.mappers.second_quantization import JordanWignerMapper
 from qiskit_nature.drivers.second_quantization import PySCFDriver
 from qiskit_nature.units import DistanceUnit
+
+# qrack as backend
+backend = Qrack.get_backend('qasm_simulator')
 
 # Define molecular parameters
 molecule = "H .0 .0 .0; H .0 .0 0.735"
