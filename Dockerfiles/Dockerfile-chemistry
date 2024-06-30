@@ -5,7 +5,7 @@ RUN apt update && apt install git-lfs && apt clean all
 # RUN git clone --depth=1 https://huggingface.co/EvolutionaryScale/esm3-sm-open-v1
 RUN git clone --depth=1 https://github.com/evolutionaryscale/esm
 
-RUN pip3 install esm qiskit qiskit-nature && pip cache purge
+RUN pip3 install esm qiskit qiskit-nature qiskit-aer  && pip cache purge
 
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
