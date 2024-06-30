@@ -6,6 +6,7 @@ RUN apt update && apt install git-lfs && apt clean all
 RUN git clone --depth=1 https://github.com/evolutionaryscale/esm
 
 RUN pip3 install esm qiskit[all] qiskit-nature qiskit-qrack-provider && pip cache purge
+RUN git clone --depth=1 https://github.com/qiskit-community/qiskit-nature
 
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
