@@ -13,5 +13,10 @@ rm Llama-3-DARE-8B.IQ3_M.gguf && wget https://huggingface.co/mradermacher/Llama-
 # start open interpreter UI 
 cd /OpenInterpreterUI && streamlit run app.py --server.port 8501 &
 
+# clean desktop & info
+export DISPLAY=:0&&xterm -e "xset s off" &
+export DISPLAY=:0&&xterm -e "neofetch && tail -f /dev/null" &
+export DISPLAY=:0&&xterm -e "./LM_Studio-0.2.27.AppImage" &
+
 # when fail do not stop container ( debug )
 tail -f /dev/null
