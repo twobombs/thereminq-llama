@@ -35,6 +35,10 @@ RUN cd OpenInterpreterUI && pip3 install -r requirements.txt && pip cache purge
 # get AgentGPT - optional UI - in development 
 RUN git clone --depth=1 https://github.com/reworkd/AgentGPT.git
 
+# install FUSA for LLM-Studio
+RUN apt update && apt install fuse
+RUN wget https://releases.lmstudio.ai/linux/x86/0.2.27/beta/LM_Studio-0.2.27.AppImage
+
 #copy run file
 COPY /runfiles/run-* /root
 RUN chmod 744 /root/run*
