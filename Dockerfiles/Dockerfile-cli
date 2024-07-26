@@ -28,6 +28,9 @@ RUN ln -s Llama-3-DARE-8B.IQ3_M.gguf /llama-openblas/models/Llama-3-DARE-8B.IQ3_
 # install llama.cpp conversion dependancies
 RUN pip3 install torch sentencepiece transformers && pip cache purge
 
+# install mergekit for llm merging
+RUN pip3 install mergekit && pip cache purge
+
 # test build
 # RUN cd llama.cpp && ./main -m /llama.cpp/models/Llama-3-DARE-8B.IQ3_M.gguf -p "make a proof read of the negative energy spike when teleporting a qubit according to ER=EPR and devise a strategy to execute the thesis on a quantum computer that shows that ER=EPR is an example of quantum gravity" -n 512
 
