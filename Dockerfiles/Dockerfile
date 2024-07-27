@@ -22,8 +22,9 @@ RUN git clone --depth=1 --recursive -j8 https://github.com/abetlen/llama-cpp-pyt
 RUN git clone --depth=1 https://github.com/twobombs/thereminq-bonsai.git
 RUN cd thereminq-bonsai/miscfiles && for file in *.tar.gz; do tar -xzf "$file"; done
 
-# fetch gptscript
+# fetch gptscript, clio
 RUN curl https://get.gptscript.ai/install.sh | sh
+RUN git clone https://github.com/gptscript-ai/clio.git && cd clio && make build
 
 # fetch autogenstudio, crewai
 # RUN pip3 install autogenstudio crewai[tools] open-interpreter && pip cache purge
