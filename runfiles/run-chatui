@@ -16,11 +16,11 @@ export DISPLAY=:0&&xterm -e "neofetch && tail -f /dev/null" &
 /qrack/_build/qrack_cl_precompile
 
 # link to default model and start webui + API
-ln -s /Llama-3-DARE-8B.IQ3_M.gguf /text-generation-webui/models/Llama-3-DARE-8B.IQ3_M.gguf
+ln -s /Meta-Llama-3.1-8B-q4_k_s.gguf /text-generation-webui/models/Meta-Llama-3.1-8B-q4_k_s.gguf
 cd  /text-generation-webui && python3 server.py --listen --share --api --trust-remote-code --gradio-auth thereminq:00000000 &
 
 #fetch model
-rm Llama-3-DARE-8B.IQ3_M.gguf && wget https://huggingface.co/mradermacher/Llama-3-DARE-8B-GGUF/resolve/main/Llama-3-DARE-8B.IQ3_M.gguf &
+rm Meta-Llama-3.1-8B-q4_k_s.gguf && wget https://huggingface.co/Twobombs/llama31-8B/resolve/main/Meta-Llama-3.1-8B-q4_k_s.gguf &
 
 # start open interpreter UI 
 cd /OpenInterpreterUI && streamlit run app.py --server.port 8501 &
