@@ -26,6 +26,7 @@ RUN cd thereminq-bonsai/miscfiles && for file in *.tar.gz; do tar -xzf "$file"; 
 RUN curl -fsSL https://ollama.com/install.sh | sh
 
 # fetch gptscript, clio
+RUN apt install -y golang && apt clean all
 RUN curl https://get.gptscript.ai/install.sh | sh
 RUN git clone https://github.com/gptscript-ai/clio.git && cd clio && make build
 
