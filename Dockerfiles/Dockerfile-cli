@@ -20,10 +20,10 @@ RUN cd llama-openblas && cmake . && make LLAMA_OPENBLAS=1 -j $(grep -c ^processo
 RUN cd llama-cublas && cmake -DGGML_CUDA=ON . && make GGML_CUDA=1 -j $(grep -c ^processor /proc/cpuinfo) all
 RUN cd llama-clblast && cmake -DGGML_CLBLAST=ON . && make LLAMA_CLBLAST=1 -j $(grep -c ^processor /proc/cpuinfo) all
 
-RUN ln -s Llama-3-DARE-8B.IQ3_M.gguf /llama.cpp/models/Llama-3-DARE-8B.IQ3_M.gguf
-RUN ln -s Llama-3-DARE-8B.IQ3_M.gguf /llama-cublas/models/Llama-3-DARE-8B.IQ3_M.gguf
-RUN ln -s Llama-3-DARE-8B.IQ3_M.gguf /llama-clblast/models/Llama-3-DARE-8B.IQ3_M.gguf
-RUN ln -s Llama-3-DARE-8B.IQ3_M.gguf /llama-openblas/models/Llama-3-DARE-8B.IQ3_M.gguf
+RUN ln -s Meta-Llama-3.1-8B-q4_k_s.gguf /llama.cpp/models/Meta-Llama-3.1-8B-q4_k_s.gguf
+RUN ln -s Meta-Llama-3.1-8B-q4_k_s.gguf /llama-cublas/models/Meta-Llama-3.1-8B-q4_k_s.gguf
+RUN ln -s Meta-Llama-3.1-8B-q4_k_s.gguf /llama-clblast/models/Meta-Llama-3.1-8B-q4_k_s.gguf
+RUN ln -s Meta-Llama-3.1-8B-q4_k_s.gguf /llama-openblas/models/Meta-Llama-3.1-8B-q4_k_s.gguf
 
 # install llama.cpp conversion dependancies
 RUN pip3 install torch sentencepiece transformers && pip cache purge
@@ -32,7 +32,7 @@ RUN pip3 install torch sentencepiece transformers && pip cache purge
 RUN pip3 install mergekit && pip cache purge
 
 # test build
-# RUN cd llama.cpp && ./main -m /llama.cpp/models/Llama-3-DARE-8B.IQ3_M.gguf -p "make a proof read of the negative energy spike when teleporting a qubit according to ER=EPR and devise a strategy to execute the thesis on a quantum computer that shows that ER=EPR is an example of quantum gravity" -n 512
+# RUN cd llama.cpp && ./main -m /llama.cpp/models/Meta-Llama-3.1-8B-q4_k_s.gguf -p "make a proof read of the negative energy spike when teleporting a qubit according to ER=EPR and devise a strategy to execute the thesis on a quantum computer that shows that ER=EPR is an example of quantum gravity" -n 512
 
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
