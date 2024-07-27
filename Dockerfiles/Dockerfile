@@ -33,8 +33,7 @@ RUN git clone https://github.com/gptscript-ai/clio.git && cd clio && make build
 # RUN pip3 install autogenstudio crewai[tools] open-interpreter && pip cache purge
 
 #load default model
-# RUN wget https://huggingface.co/mradermacher/Llama-3-DARE-8B-GGUF/resolve/main/Llama-3-DARE-8B.IQ3_M.gguf
-RUN touch Llama-3-DARE-8B.IQ3_M.gguf
+RUN touch Meta-Llama-3.1-8B-q4_k_s.gguf
 
 #copy run file
 COPY /runfiles/run-* /root
