@@ -27,4 +27,7 @@ sleep 10
 # precompile qrack kernels
 ./qrack/_build/qrack_cl_precompile
 
+# start ollama service
+./usr/bin/ollama serve &
+
 tail -f /dev/null
