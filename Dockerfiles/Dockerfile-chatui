@@ -10,7 +10,7 @@ FROM twobombs/thereminq-llama
 # HF pip dependancies
 RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y python3-pip npm ipython3 ffmpeg python3-venv libgl1 libglib2.0-0 && apt clean all
 RUN pip3 install --upgrade pip && pip cache purge
-RUN pip3 install huggingface_hub[hf_transfer] && pip cache purge
+RUN pip3 install --break-system-packages huggingface_hub[hf_transfer] && pip cache purge
 
 RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y python3-pip git && apt clean all
 
@@ -20,12 +20,12 @@ RUN git clone --depth=1 https://github.com/oobabooga/text-generation-webui.git
 
 # RUN cp -r /text-generation-webui /text-generation-webui-cpu
 RUN cd text-generation-webui && pip3 install --ignore-installed -r requirements.txt && pip cache purge
-RUN cd text-generation-webui/extensions/ && git clone https://github.com/minemo/text-generation-webui-barktts bark_tts/ && pip3 install -r bark_tts/requirements.txt && pip cache purge
-RUN cd text-generation-webui/extensions/ && git clone https://github.com/Anglebrackets/web_rag.git && pip3 install -r web_rag/requirements.txt && pip cache purge
-RUN cd text-generation-webui/extensions/coqui_tts && pip3 install -r requirements.txt && pip cache purge
-RUN cd text-generation-webui/extensions/whisper_stt && pip3 install -r requirements.txt && pip cache purge
+RUN cd text-generation-webui/extensions/ && git clone https://github.com/minemo/text-generation-webui-barktts bark_tts/ && pip3 install --break-system-packages -r bark_tts/requirements.txt && pip cache purge
+RUN cd text-generation-webui/extensions/ && git clone https://github.com/Anglebrackets/web_rag.git && pip3 install --break-system-packages -r web_rag/requirements.txt && pip cache purge
+RUN cd text-generation-webui/extensions/coqui_tts && pip3 install --break-system-packages -r requirements.txt && pip cache purge
+RUN cd text-generation-webui/extensions/whisper_stt && pip3 install --break-system-packages -r requirements.txt && pip cache purge
 # cpu only
-# RUN cd text-generation-webui-cpu && pip3 install --ignore-installed -r requirements_cpu_only.txt
+# RUN cd text-generation-webui-cpu && pip3 install --ignore-installed --break-system-packages -r requirements_cpu_only.txt
 
 # install AUTOMATIC1111
 # RUN mkdir AUTOMATIC1111 && cd AUTOMATIC1111 && wget -q https://raw.githubusercontent.com/AUTOMATIC1111/stable-diffusion-webui/master/webui.sh && chmod 755 webui.sh
