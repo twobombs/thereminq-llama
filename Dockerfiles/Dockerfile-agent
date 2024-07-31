@@ -8,23 +8,23 @@ RUN pip3 install --upgrade pip
 RUN pip3 install pyqrack  && pip cache purge
 
 # Install Qiskit libaries
-RUN pip3 install qiskit[all] qiskit-qrack-provider && pip cache purge
+RUN pip3 install --break-system-packages qiskit[all] qiskit-qrack-provider && pip cache purge
 
 # Install IBM QC connector
-RUN pip3 install -U IBMQuantumExperience && pip cache purge
+RUN pip3 install --break-system-packages -U IBMQuantumExperience && pip cache purge
 
 # install IQM connectors and libary
-RUN pip3 install qiskit-iqm && pip cache purge
+RUN pip3 install --break-system-packages qiskit-iqm && pip cache purge
 
 # install cirq and mitiq
-RUN pip3 install cirq[all] mitiq[all] && pip cache purge
+RUN pip3 install --break-system-packages cirq[all] mitiq[all] && pip cache purge
 
 # fetch ollama
 RUN curl -fsSL https://ollama.com/install.sh | sh && apt clean all
 
 # install open-interpreter web UI
 RUN git clone --depth=1 https://github.com/blazzbyte/OpenInterpreterUI.git
-RUN cd OpenInterpreterUI && pip3 install -r requirements.txt && pip cache purge
+RUN cd OpenInterpreterUI && pip3 install --break-system-packages -r requirements.txt && pip cache purge
 
 # install typing mind UI
 RUN apt install -y npm && apt clean all
