@@ -13,7 +13,7 @@ RUN apt install -y libqrack-dev
 
 # HF and Open-interpreter dependancies
 RUN export DEBIAN_FRONTEND=noninteractive && apt install -y python3-pip npm ipython3 python-is-python3 ffmpeg python3-venv git-lfs libgl1 libglib2.0-0 && apt clean all
-RUN pip3 install huggingface_hub[hf_transfer] open-interpreter && pip cache purge
+RUN pip3 install --break-system-packages huggingface_hub[hf_transfer] open-interpreter && pip cache purge
 
 # fetch llama-cpp-python
 RUN git clone --depth=1 --recursive -j8 https://github.com/abetlen/llama-cpp-python.git
