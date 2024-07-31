@@ -1,6 +1,6 @@
 FROM twobombs/thereminq-llama:agent
 
-RUN pip3 install autogenstudio && pip cache purge
+RUN pip3 install --break-system-packages autogenstudio && pip cache purge
 
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
