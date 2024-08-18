@@ -35,6 +35,11 @@ RUN cd typingmind && npm install
 # get AgentGPT - optional UI - in development 
 RUN git clone --depth=1 https://github.com/reworkd/AgentGPT.git
 
+# AI scientist
+RUN apt-get install -y texlive-full && apt clean all
+RUN git clone --depth=1 https://github.com/SakanaAI/AI-Scientist.git
+RUN cd AI-Scientist && pip install -r requirements.txt && pip cache purge
+
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
 ENTRYPOINT /root/run-agent
