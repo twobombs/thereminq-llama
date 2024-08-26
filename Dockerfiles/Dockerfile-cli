@@ -7,12 +7,12 @@ RUN cp -r llama.cpp llama-cublas
 RUN cp -r llama.cpp llama-clblast
 
 #OpenCL integration 
-#RUN CMAKE_ARGS="-DLLAMA_CLBLAST=on" FORCE_CMAKE=1 pip install --break-system-packages llama-cpp-python --force-reinstall --upgrade --no-cache-dir && pip cache purge
-#RUN python3 -m pip install --upgrade --break-system-packages pip pytest cmake scikit-build setuptools fastapi uvicorn sse-starlette pydantic-settings && pip cache purge
+#RUN CMAKE_ARGS="-DLLAMA_CLBLAST=on" FORCE_CMAKE=1 pip install llama-cpp-python --force-reinstall --upgrade --no-cache-dir && pip cache purge
+#RUN python3 -m pip install --upgrade pip pytest cmake scikit-build setuptools fastapi uvicorn sse-starlette pydantic-settings && pip cache purge
 
 #CUDA integration default
 RUN CMAKE_ARGS="-DGGML_CUDA=on" FORCE_CMAKE=1 pip install llama-cpp-python --force-reinstall --upgrade --no-cache-dir && pip cache purge
-RUN python3 -m pip install --break-system-packages --upgrade pip pytest cmake scikit-build setuptools fastapi uvicorn sse-starlette pydantic-settings && pip cache purge
+RUN python3 -m pip install --upgrade pip pytest cmake scikit-build setuptools fastapi uvicorn sse-starlette pydantic-settings && pip cache purge
 
 # build all versions
 RUN cd llama.cpp && make -j $(grep -c ^processor /proc/cpuinfo) all
@@ -26,10 +26,10 @@ RUN ln -s Meta-Llama-3.1-8B-q4_k_s.gguf /llama-clblast/models/Meta-Llama-3.1-8B-
 RUN ln -s Meta-Llama-3.1-8B-q4_k_s.gguf /llama-openblas/models/Meta-Llama-3.1-8B-q4_k_s.gguf
 
 # install llama.cpp conversion dependancies
-RUN pip3 install --break-system-packages torch sentencepiece transformers && pip cache purge
+RUN pip3 install torch sentencepiece transformers && pip cache purge
 
 # install mergekit for llm merging
-RUN pip3 install --break-system-packages mergekit && pip cache purge
+RUN pip3 install mergekit && pip cache purge
 
 # test build
 # RUN cd llama.cpp && ./main -m /llama.cpp/models/Meta-Llama-3.1-8B-q4_k_s.gguf -p "make a proof read of the negative energy spike when teleporting a qubit according to ER=EPR and devise a strategy to execute the thesis on a quantum computer that shows that ER=EPR is an example of quantum gravity" -n 512
