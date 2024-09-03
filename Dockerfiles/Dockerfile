@@ -33,6 +33,9 @@ RUN curl -fsSL https://ollama.com/install.sh | sh
 # fetch autogenstudio, crewai
 # RUN pip3 install autogenstudio crewai[tools] open-interpreter && pip cache purge
 
+# fetch codecarbon
+RUN pip install codecarbon && pip cache purge
+
 #load default model
 RUN touch Meta-Llama-3.1-8B-q4_k_s.gguf
 
