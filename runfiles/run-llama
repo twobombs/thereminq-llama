@@ -31,7 +31,7 @@ sleep 10
 ./usr/bin/ollama serve &
 
 # start codecarbon service 
-echo '[codecarbon] log_level = DEBUG save_to_api = True experiment_id =' > carbon.cfg
+echo '[codecarbon] log_level = DEBUG save_to_api = True experiment_id =' > .codecarbon.config
 ! codecarbon init >> .codecarbon.config
 codecarbon monitor
 
