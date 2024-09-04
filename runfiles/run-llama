@@ -32,7 +32,7 @@ sleep 10
 
 # start codecarbon service 
 echo '[codecarbon] log_level = DEBUG save_to_api = True experiment_id =' > .codecarbon.config
-! codecarbon init >> .codecarbon.config
+codecarbon init >> .codecarbon.config
 codecarbon monitor
 
 tail -f /dev/null
