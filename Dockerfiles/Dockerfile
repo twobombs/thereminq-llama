@@ -34,6 +34,7 @@ RUN curl -fsSL https://ollama.com/install.sh | sh
 # RUN pip3 install autogenstudio crewai[tools] open-interpreter && pip cache purge
 
 # fetch codecarbon
+RUN git clone --depth=1 https://github.com/mlco2/codecarbon.git
 RUN pip install codecarbon && pip cache purge
 
 #load default model
