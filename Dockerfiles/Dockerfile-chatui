@@ -1,11 +1,4 @@
-FROM twobombs/thereminq-llama
-# FROM nvidia/cuda:12.2.2-base-ubuntu22.04
-
-# get & set mongodb
-#RUN wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc |  gpg --dearmor | tee /usr/share/keyrings/mongodb.gpg > /dev/null
-#RUN echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-6.0.list
-#RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y mongodb-org links && apt clean all
-#RUN mkdir data && mkdir data/db
+FROM nvidia/cuda:12.2.2-base-ubuntu22.04
 
 # HF pip dependancies
 RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y python3-pip npm ipython3 ffmpeg python3-venv libgl1 libglib2.0-0 && apt clean all
@@ -30,23 +23,12 @@ RUN cd text-generation-webui/extensions/whisper_stt && pip3 install -r requireme
 # install AUTOMATIC1111
 # RUN mkdir AUTOMATIC1111 && cd AUTOMATIC1111 && wget -q https://raw.githubusercontent.com/AUTOMATIC1111/stable-diffusion-webui/master/webui.sh && chmod 755 webui.sh
 
-# install open-interpreter web UI
-RUN git clone --depth=1 https://github.com/blazzbyte/OpenInterpreterUI.git
-RUN cd OpenInterpreterUI && pip3 install -r requirements.txt && pip cache purge
-
-# get AgentGPT - optional UI - in development 
-RUN git clone --depth=1 https://github.com/reworkd/AgentGPT.git
-
-# install FUSA for LLM-Studio
-RUN apt update && apt install -y fuse
-RUN wget https://releases.lmstudio.ai/linux/x86/0.2.27/beta/LM_Studio-0.2.27.AppImage
-
 #copy run file
 COPY /runfiles/run-* /root
 RUN chmod 744 /root/run*
 
 # combo container fix
-RUN pip install flash_attn -U --force-reinstall
+# RUN pip install flash_attn -U --force-reinstall
 
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
