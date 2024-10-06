@@ -45,6 +45,9 @@ RUN wget https://releases.lmstudio.ai/linux/x86/0.2.27/beta/LM_Studio-0.2.27.App
 COPY /runfiles/run-* /root
 RUN chmod 744 /root/run*
 
+# combo container fix
+RUN pip install flash_attn -U --force-reinstall
+
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
 ENV HOST 0.0.0.0
