@@ -2,10 +2,10 @@ FROM twobombs/thereminq-llama
 
 # agent will require quantum dependancies
 
-# install runtime requirements
-# to speed up the agent process
+# install QC runtime requirements
+# multihost inferencing to speed up the agent process
 RUN pip3 install --upgrade pip
-RUN pip3 install pyqrack  && pip cache purge
+RUN pip3 install pyqrack vllm && pip cache purge
 
 # Install Qiskit libaries
 RUN pip3 install --break-system-packages qiskit[all] qiskit-qrack-provider && pip cache purge
