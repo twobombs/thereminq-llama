@@ -26,7 +26,7 @@ RUN ln -s Meta-Llama-3.1-8B-q4_k_s.gguf /llama-clblast/models/Meta-Llama-3.1-8B-
 RUN ln -s Meta-Llama-3.1-8B-q4_k_s.gguf /llama-openblas/models/Meta-Llama-3.1-8B-q4_k_s.gguf
 
 # install llama.cpp conversion dependancies
-RUN pip3 install torch sentencepiece transformers && pip cache purge
+RUN pip3 install --ignore-installed torch sentencepiece transformers && pip cache purge
 
 # install mergekit for llm merging
 RUN pip3 install mergekit && pip cache purge
