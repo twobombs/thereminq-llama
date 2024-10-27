@@ -22,7 +22,7 @@ RUN cd text-generation-webui/extensions/ && git clone https://github.com/Anglebr
 # cpu only
 # RUN cd text-generation-webui-cpu && pip3 install --ignore-installed --break-system-packages -r requirements_cpu_only.txt
 
-# install AUTOMATIC1111
+# fetch AUTOMATIC1111
 RUN apt install -y google-perftools && git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui 
 
 #copy run file
