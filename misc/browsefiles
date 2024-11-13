@@ -1,0 +1,2 @@
+#!/bin/bash
+find -type f -exec echo {} \; | grep -v ".git" 
