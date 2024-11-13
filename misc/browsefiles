@@ -1,2 +1,20 @@
 #!/bin/bash
-find -type f -exec echo {} \; | grep -v ".git" 
+
+# place this file in a repo that you want to scan
+# compile llama.cpp with you settings
+
+find -type f -exec echo {} \; | grep -v ".git" > filenames.txt
+
+cd /llama.cpp
+
+# Loop through each filename in the list and display its contents
+while IFS= read -r filename; do
+    if [[ -f "$filename" ]]; then
+        echo "Contents of $filename:"
+	      cat $filename > file
+        cat file | ./llama-cli -m /llama.cpp/models/Meta-Llama-3.1-8B-q4_k_s.gguf -p "analyse this code: $1" 
+        echo # Blank line for separation between file outputs
+    else
+        echo "File '$filename' does not exist."
+    fi
+done < filenames.txt
