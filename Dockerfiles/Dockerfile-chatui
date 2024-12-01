@@ -24,6 +24,8 @@ RUN cd text-generation-webui/extensions/ && git clone https://github.com/Anglebr
 
 # fetch AUTOMATIC1111
 RUN apt install -y google-perftools && git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui 
+# fetch alloy
+RUN git clone https://github.com/svpino/alloy-voice-assistant.git && cd alloy-voice-assistant && pip install -r requirements.txt && pip cache purge
 
 #copy run file
 COPY /runfiles/run-* /root
