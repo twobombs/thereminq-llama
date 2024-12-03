@@ -19,7 +19,7 @@ docker run --gpus all -v /path-to-/models:/text-generation-webui/models  -p 5000
 
 - `latest` includes QC/AI dependancies and downloads a LLama3 model
 - `cli` LLama.cpp compiled versions for direct CLI interaction such as model [conversion](https://github.com/ggerganov/llama.cpp?tab=readme-ov-file#prepare-and-quantize)
-- `chatui` for web based LLM interfaces & huggingface URL tunnel
+- `chatui` for web based LLM and SD interfaces & huggingface URL tunnel
 - `agent` for OpenInterpreterUI/CLI with Ollama3 integration
 - `big-agency` Autogen Studio integrated with Ollama UI
 
