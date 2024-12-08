@@ -8,6 +8,9 @@ RUN cp -r llama.cpp llama-openblas
 RUN cp -r llama.cpp llama-cublas
 RUN cp -r llama.cpp llama-clblast
 
+#setup
+RUN pip install --upgrade pip setuptools
+
 #OpenCL integration 
 #RUN CMAKE_ARGS="-DLLAMA_CLBLAST=on" FORCE_CMAKE=1 pip install llama-cpp-python --force-reinstall --upgrade --no-cache-dir && pip cache purge
 #RUN python3 -m pip install --upgrade pip pytest cmake scikit-build setuptools fastapi uvicorn sse-starlette pydantic-settings && pip cache purge
