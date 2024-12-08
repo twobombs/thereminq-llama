@@ -26,7 +26,6 @@ RUN cd llama-cublas && cmake -B build -DGGML_CUDA=ON && cmake --build build --co
 
 RUN ln -s Meta-Llama-3.1-8B-q4_k_s.gguf /llama.cpp/models/Meta-Llama-3.1-8B-q4_k_s.gguf
 RUN ln -s Meta-Llama-3.1-8B-q4_k_s.gguf /llama-cublas/models/Meta-Llama-3.1-8B-q4_k_s.gguf
-RUN ln -s Meta-Llama-3.1-8B-q4_k_s.gguf /llama-clblast/models/Meta-Llama-3.1-8B-q4_k_s.gguf
 RUN ln -s Meta-Llama-3.1-8B-q4_k_s.gguf /llama-openblas/models/Meta-Llama-3.1-8B-q4_k_s.gguf
 
 # install llama.cpp conversion dependancies
