@@ -6,24 +6,23 @@ RUN git clone https://github.com/twobombs/thereminq-llama
 RUN git clone --depth=1 https://github.com/ggerganov/llama.cpp
 RUN cp -r llama.cpp llama-openblas
 RUN cp -r llama.cpp llama-cublas
-RUN cp -r llama.cpp llama-clblast
 
 #setup
-RUN pip install --upgrade pip setuptools
-
-#OpenCL integration 
-#RUN CMAKE_ARGS="-DLLAMA_CLBLAST=on" FORCE_CMAKE=1 pip install llama-cpp-python --force-reinstall --upgrade --no-cache-dir && pip cache purge
-#RUN python3 -m pip install --upgrade pip pytest cmake scikit-build setuptools fastapi uvicorn sse-starlette pydantic-settings && pip cache purge
+RUN pip install --upgrade pip setuptools && pip cache purge
 
 #CUDA integration default
 RUN CMAKE_ARGS="-DGGML_CUDA=on" FORCE_CMAKE=1 pip install llama-cpp-python --force-reinstall --upgrade --no-cache-dir && pip cache purge
 RUN python3 -m pip install --upgrade pip pytest cmake scikit-build setuptools fastapi uvicorn sse-starlette pydantic-settings && pip cache purge
 
-# build all versions
-RUN cd llama.cpp && make -j $(grep -c ^processor /proc/cpuinfo) all
-RUN cd llama-openblas && cmake . && make LLAMA_OPENBLAS=1 -j $(grep -c ^processor /proc/cpuinfo) all
-RUN cd llama-cublas && cmake -DGGML_CUDA=ON . && make GGML_CUDA=1 -j $(grep -c ^processor /proc/cpuinfo) all
-RUN cd llama-clblast && cmake -DGGML_CLBLAST=ON . && make LLAMA_CLBLAST=1 -j $(grep -c ^processor /proc/cpuinfo) all
+# build all versions [deprecated]
+#RUN cd llama.cpp && make -j $(grep -c ^processor /proc/cpuinfo) all
+#RUN cd llama-openblas && cmake . && make LLAMA_OPENBLAS=1 -j $(grep -c ^processor /proc/cpuinfo) all
+#RUN cd llama-cublas && cmake -DGGML_CUDA=ON . && make GGML_CUDA=1 -j $(grep -c ^processor /proc/cpuinfo) all
+
+#cmake version
+RUN cd llama.cpp && cmake -B build && cmake --build build --config Release -j $(grep -c ^processor /proc/cpuinfo)
+RUN cd llama-openblas && cmake -B build -DGGML_BLAS_VENDOR=OpenBLAS && cmake --build build --config Release -j $(grep -c ^processor /proc/cpuinfo)
+RUN cd llama-cublas && cmake -B build -DGGML_CUDA=ON && cmake --build build --config Release -j $(grep -c ^processor /proc/cpuinfo)
 
 RUN ln -s Meta-Llama-3.1-8B-q4_k_s.gguf /llama.cpp/models/Meta-Llama-3.1-8B-q4_k_s.gguf
 RUN ln -s Meta-Llama-3.1-8B-q4_k_s.gguf /llama-cublas/models/Meta-Llama-3.1-8B-q4_k_s.gguf
