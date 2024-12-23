@@ -14,7 +14,7 @@ export DISPLAY=:0&&xterm -e "neofetch && tail -f /dev/null" &
 export DISPLAY=:0&&exo-open --launch TerminalEmulator &
 
 #fetch model
-rm Meta-Llama-3.1-8B-q4_k_s.gguf && wget https://huggingface.co/Twobombs/llama31-8B/resolve/main/Meta-Llama-3.1-8B-q4_k_s.gguf &
+#rm Meta-Llama-3.1-8B-q4_k_s.gguf && wget https://huggingface.co/Twobombs/llama31-8B/resolve/main/Meta-Llama-3.1-8B-q4_k_s.gguf &
 
 # show system config in logs
 nvidia-smi
