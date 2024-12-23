@@ -2,7 +2,7 @@
 
 # link to default model and start webui + API
 ln -s /Meta-Llama-3.1-8B-q4_k_s.gguf /text-generation-webui/models/Meta-Llama-3.1-8B-q4_k_s.gguf
-rm Meta-Llama-3.1-8B-q4_k_s.gguf && wget https://huggingface.co/Twobombs/llama31-8B/resolve/main/Meta-Llama-3.1-8B-q4_k_s.gguf &
+#rm Meta-Llama-3.1-8B-q4_k_s.gguf && wget https://huggingface.co/Twobombs/llama31-8B/resolve/main/Meta-Llama-3.1-8B-q4_k_s.gguf &
 
 cd  /text-generation-webui && python3 server.py --listen --share --api --trust-remote-code --gradio-auth thereminq:00000000 &
 
