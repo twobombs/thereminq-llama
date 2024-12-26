@@ -29,6 +29,7 @@ RUN apt install -y portaudio19-dev && apt clean all && git clone https://github.
 
 # fetch easy diffusion
 RUN wget https://github.com/easydiffusion/easydiffusion/releases/download/v3.0.9/Easy-Diffusion-Linux.zip && unzip Easy-Diffusion-Linux.zip
+COPY /misc/config.yaml /easy-diffusion/scripts
 
 #copy run file
 COPY /runfiles/run-* /root
