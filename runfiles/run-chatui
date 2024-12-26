@@ -6,6 +6,8 @@ ln -s /Meta-Llama-3.1-8B-q4_k_s.gguf /text-generation-webui/models/Meta-Llama-3.
 
 cd  /text-generation-webui && python3 server.py --listen --share --api --trust-remote-code --gradio-auth thereminq:00000000 &
 
-cd /stable-diffusion-webui && chmod 755 webui.sh && bash ./webui.sh -f --listen --enable-insecure-extension-access
+cd /stable-diffusion-webui && chmod 755 webui.sh && bash ./webui.sh -f --listen --enable-insecure-extension-access &
+
+cd /easy-diffusion && ./start.sh &
 
 tail -f /dev/null
