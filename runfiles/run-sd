@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cd /stable-diffusion-webui && chmod 755 webui.sh && bash ./webui.sh -f --listen --enable-insecure-extension-access &
+
+cd /easy-diffusion && ./start.sh &
+
+tail -f /dev/null
