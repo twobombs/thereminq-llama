@@ -40,6 +40,13 @@ RUN echo | apt-get install -y texlive-full && apt clean all
 RUN git clone --depth=1 https://github.com/SakanaAI/AI-Scientist.git
 RUN cd AI-Scientist && pip install -r requirements.txt && pip cache purge
 
+# google agent dev kit
+RUN pip3 install google-adk && pip cache purge
+
+# MCP SecOPS
+RUN pip3 install uw && pip cache purge
+RUN git clone --depth=1 https://github.com/invariantlabs-ai/mcp-scan.git && cd mcp-scan && uv run pip install -e .
+
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
 ENTRYPOINT /root/run-agent
