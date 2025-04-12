@@ -44,7 +44,7 @@ RUN git clone --depth=1 https://github.com/reworkd/AgentGPT.git
 RUN pip3 install google-adk && pip cache purge
 
 # MCP SecOPS
-RUN pip3 install uw && pip cache purge
+RUN pip3 install uv && pip cache purge
 RUN git clone --depth=1 https://github.com/invariantlabs-ai/mcp-scan.git && cd mcp-scan && uv run pip install -e .
 
 ENV NVIDIA_VISIBLE_DEVICES all
