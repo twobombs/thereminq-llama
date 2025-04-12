@@ -36,9 +36,9 @@ RUN cd typingmind && npm install
 RUN git clone --depth=1 https://github.com/reworkd/AgentGPT.git
 
 # AI scientist
-RUN echo | apt-get install -y texlive-full && apt clean all
-RUN git clone --depth=1 https://github.com/SakanaAI/AI-Scientist.git
-RUN cd AI-Scientist && pip install -r requirements.txt && pip cache purge
+#RUN echo | apt-get install -y texlive-full && apt clean all
+#RUN git clone --depth=1 https://github.com/SakanaAI/AI-Scientist.git
+#RUN cd AI-Scientist && pip install -r requirements.txt && pip cache purge
 
 # google agent dev kit
 RUN pip3 install google-adk && pip cache purge
