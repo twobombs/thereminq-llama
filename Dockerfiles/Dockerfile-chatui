@@ -25,7 +25,7 @@ RUN cd text-generation-webui/extensions/ && git clone https://github.com/Anglebr
 # fetch AUTOMATIC1111
 RUN apt install -y google-perftools && git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui 
 # fetch alloy
-RUN apt install -y portaudio19-dev && apt clean all && git clone https://github.com/svpino/alloy-voice-assistant.git && cd alloy-voice-assistant && pip install -r requirements.txt && pip cache purge
+# RUN apt install -y portaudio19-dev && apt clean all && git clone https://github.com/svpino/alloy-voice-assistant.git && cd alloy-voice-assistant && pip install -r requirements.txt && pip cache purge
 
 # fetch easy diffusion
 RUN wget https://github.com/easydiffusion/easydiffusion/releases/download/v3.0.9/Easy-Diffusion-Linux.zip && unzip Easy-Diffusion-Linux.zip
