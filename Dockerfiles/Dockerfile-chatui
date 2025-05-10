@@ -12,7 +12,7 @@ RUN touch Meta-Llama-3.1-8B-q4_k_s.gguf
 RUN git clone --depth=1 https://github.com/oobabooga/text-generation-webui.git
 
 # buld env
-RUN cd text-generation-webui/requirements/full/ && pip3 install --ignore-installed -r requirements.txt && pip cache purge
+RUN cd text-generation-webui/requirements/portable/ && pip3 install --ignore-installed -r requirements.txt && pip cache purge
 RUN cd text-generation-webui/extensions/ && git clone https://github.com/minemo/text-generation-webui-barktts bark_tts/ && pip3 install -r bark_tts/requirements.txt && pip cache purge
 RUN cd text-generation-webui/extensions/ && git clone https://github.com/Anglebrackets/web_rag.git && pip3 install -r web_rag/requirements.txt && pip cache purge
 
