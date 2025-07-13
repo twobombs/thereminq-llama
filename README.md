@@ -14,7 +14,7 @@ Functionality added to the ThereminQ stack so far
 `Qrackmin` + `llama.cpp` + `open-interpreter` + `` integrated container image stack
 
 ```bash
-docker run --gpus all -v /path-to-/models:/text-generation-webui/models  -p 5000:5000 -p 5173:5173 -p 5601:5601 -p 6080:6080 -p 7860:7860 -p 7861:7861 -p 8501:8501 -p 8081:8081 -p 9000:9000 -d twobombs/thereminq-llama[:tag] 
+docker run --gpus all --device=/dev/kfd --device=/dev/dri:/dev/dri -v /path-to-/models:/text-generation-webui/models  -p 5000:5000 -p 5173:5173 -p 5601:5601 -p 6080:6080 -p 7860:7860 -p 7861:7861 -p 8501:8501 -p 8081:8081 -p 9000:9000 -d twobombs/thereminq-llama[:tag] 
 ````
 
 - `latest` includes QC/AI dependancies and downloads a LLama3 model
