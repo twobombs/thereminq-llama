@@ -10,7 +10,7 @@ RUN git clone --depth=1 https://github.com/qiskit-community/qiskit-nature
 
 # additional service for chemps2 qc/pyqrackising qchemistry
 RUN git clone --depth=1 https://github.com/sebwouters/chemps2
-RUN cd chemps2 && mkdir _build && cd _build && CXX=option1 cmake .. -DMKL=option2 -DCMAKE_INSTALL_PREFIX=/option3 -DWITH_MPI=option4 && make && make install
+# RUN cd chemps2 && mkdir _build && cd _build && CXX=option1 cmake .. -DMKL=option2 -DCMAKE_INSTALL_PREFIX=/option3 -DWITH_MPI=option4 && make && make install
 
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
