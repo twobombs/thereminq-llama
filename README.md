@@ -1,3 +1,6 @@
+<img width="5978" height="1578" alt="468390747-272a9fdc-d924-4771-850c-d100f23562f6" src="https://github.com/user-attachments/assets/b13533ea-ae39-4f5a-977e-dce2c596f615" />
+
+
 # ThereminQ-llama : baking a Quantum layer caek
 
 This repo is alpha and dedicated to extending `GGUF` llama LLMs with QC data on Agent steriods
