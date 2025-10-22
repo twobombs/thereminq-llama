@@ -4,4 +4,6 @@
 
 cd  /text-generation-webui && python3 server.py --listen --share --api --trust-remote-code --gradio-auth thereminq:00000000 &
 
+cd /root && export DISPLAY=:0&& ./koboldcpp
+
 tail -f /dev/null
