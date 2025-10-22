@@ -1,4 +1,5 @@
-FROM nvidia/cuda:12.2.2-base-ubuntu22.04
+FROM twobombs/cudacluster:2204dev
+#FROM nvidia/cuda:12.2.2-base-ubuntu22.04
 
 # HF pip dependancies
 RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y unzip python3-pip ipython3 ffmpeg python3-venv libgl1 libglib2.0-0 wget && apt clean all
