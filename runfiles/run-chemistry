@@ -10,7 +10,7 @@ x0vncserver -display :0 -passwordfile ~/.vnc/passwd &
 service xrdp start && xrdp &
 
 export DISPLAY=:0&&xterm -e "xset s off" &
-export DISPLAY=:0&&xterm -e "neofetch && tail -f /dev/null" &
+export DISPLAY=:0&&xterm -bg black -fg white -e "neofetch && tail -f /dev/null" &
 
 export DISPLAY=:0&&xterm -e "python3 /root/run-hydrogen.py && tail -f /dev/null" &
 export DISPLAY=:0&&exo-open --launch TerminalEmulator &
