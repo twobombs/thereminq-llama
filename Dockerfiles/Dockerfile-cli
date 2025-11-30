@@ -25,6 +25,10 @@ RUN cd llama.cpp && cmake -B build && cmake --build build --config Release -j $(
 RUN cd llama-openblas && cmake -B build -DGGML_BLAS_VENDOR=OpenBLAS && cmake --build build --config Release -j $(grep -c ^processor /proc/cpuinfo)
 RUN cd llama-cublas && cmake -B build -DGGML_CUDA=ON && cmake --build build --config Release -j $(grep -c ^processor /proc/cpuinfo)
 
+# fetch nanochat for factory framwork
+RUN git clone https://github.com/karpathy/nanochat.git
+
+# dummy ln links for placeholder LLMs
 RUN ln -s Meta-Llama-3.1-8B-q4_k_s.gguf /llama.cpp/models/Meta-Llama-3.1-8B-q4_k_s.gguf
 RUN ln -s Meta-Llama-3.1-8B-q4_k_s.gguf /llama-cublas/models/Meta-Llama-3.1-8B-q4_k_s.gguf
 RUN ln -s Meta-Llama-3.1-8B-q4_k_s.gguf /llama-openblas/models/Meta-Llama-3.1-8B-q4_k_s.gguf
