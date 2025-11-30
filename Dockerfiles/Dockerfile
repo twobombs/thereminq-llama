@@ -28,19 +28,11 @@ RUN cd thereminq-bonsai/miscfiles && for file in *.tar.gz; do tar -xzf "$file"; 
 # fetch ollama
 RUN curl -fsSL https://ollama.com/install.sh | sh
 
-# fetch gptscript, clio
-# RUN apt install -y golang && apt clean all
-# RUN curl https://get.gptscript.ai/install.sh | sh
-# RUN git clone https://github.com/gptscript-ai/clio.git && cd clio && make build
-
-# fetch autogenstudio, crewai
-# RUN pip3 install autogenstudio crewai[tools] open-interpreter && pip cache purge
-
 # fetch codecarbon
 RUN git clone --depth=1 https://github.com/mlco2/codecarbon.git
 RUN pip install codecarbon && pip cache purge
 
-#load default model
+#touch dummy default model
 RUN touch Meta-Llama-3.1-8B-q4_k_s.gguf
 
 #copy run file
@@ -51,5 +43,5 @@ ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
 ENV HOST 0.0.0.0
 
-EXPOSE 80 3000 5173 7680 7861 8000 8081 8501 8080 11434
+EXPOSE 80 3000 5173 6080 7680 7861 8000 8081 8501 8080 11434
 ENTRYPOINT /root/run-llama
