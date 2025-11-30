@@ -3,8 +3,8 @@ FROM twobombs/cudacluster:2204dev
 # FROM nvidia/cuda:12.2.2-devel-ubuntu22.04
 LABEL com.nvidia.volumes.needed="nvidia_driver"
 
-ENV PATH /usr/local/nvidia/bin:${PATH}
-ENV LD_LIBRARY_PATH /usr/local/nvidia/lib:/usr/local/nvidia/lib64:${LD_LIBRARY_PATH}
+ENV PATH=/usr/local/nvidia/bin:${PATH}
+ENV LD_LIBRARY_PATH=/usr/local/nvidia/lib:/usr/local/nvidia/lib64:${LD_LIBRARY_PATH}
 
 # fetch qrack-dev deb package
 RUN apt update && apt install -y software-properties-common && apt clean
@@ -39,9 +39,9 @@ RUN touch Meta-Llama-3.1-8B-q4_k_s.gguf
 COPY /runfiles/run-* /root
 RUN chmod 744 /root/run*
 
-ENV NVIDIA_VISIBLE_DEVICES all
-ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
-ENV HOST 0.0.0.0
+ENV NVIDIA_VISIBLE_DEVICES=all
+ENV NVIDIA_DRIVER_CAPABILITIES=graphics,utility,compute
+ENV HOST=0.0.0.0
 
 EXPOSE 80 3000 5173 6080 7680 7861 8000 8081 8501 8080 11434
 ENTRYPOINT /root/run-llama
