@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# X-run script
+rm /tmp/.X0-lock
+Xvfb :0 -screen 0 2560x1440x24+32 -ac &
+export DISPLAY=:0&&startxfce4 &
+sleep 10
+x0vncserver -display :0 -passwordfile ~/.vnc/passwd &
+/usr/share/novnc/utils/launch.sh --vnc localhost:5900 &
+service xrdp start && xrdp &
+
+export DISPLAY=:0&&xterm -e "xset s off" &
+export DISPLAY=:0&&xterm -bg black -fg white -e "neofetch && tail -f /dev/null" &
+
+# qrack_cl_precompile
+/qrack/_build/qrack_cl_precompile
+
+export DISPLAY=:0 && google-chrome-stable --disable-fre --no-default-browser-check --no-first-run --no-sandbox --password-store=basic http://localhost:3000 &
+export DISPLAY=:0 && falkon --disable-fre --no-default-browser-check --no-first-run --no-sandbox --password-store=basic http://localhost:3000 &
+export DISPLAY=:0&&exo-open --launch TerminalEmulator &
+
+# start llama-server cuda version with gpt20b ( amd/hip version also avaliable )
+/llama-cublas/build/bin/llama-server -hf ggml-org/gpt-oss-20b-GGUF --jinja -c 0 --host 0.0.0.0 --port 8033
+
+# when fail do not stop container ( debug )
+tail -f /dev/null

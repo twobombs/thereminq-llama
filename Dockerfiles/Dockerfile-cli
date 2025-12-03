@@ -6,6 +6,7 @@ RUN git clone https://github.com/twobombs/thereminq-llama
 RUN git clone --depth=1 https://github.com/ggerganov/llama.cpp
 RUN cp -r llama.cpp llama-openblas
 RUN cp -r llama.cpp llama-cublas
+RUN cp -r llama.cpp llama.hip
 
 #setup
 RUN pip install --upgrade pip setuptools && pip cache purge
@@ -15,15 +16,11 @@ RUN apt update && apt install -y libcurl4-gnutls-dev && apt clean all
 RUN CMAKE_ARGS="-DGGML_CUDA=on" FORCE_CMAKE=1 pip install llama-cpp-python --force-reinstall --upgrade --no-cache-dir && pip cache purge
 RUN python3 -m pip install --upgrade pip pytest cmake scikit-build setuptools fastapi uvicorn sse-starlette pydantic-settings && pip cache purge
 
-# build all versions [deprecated]
-#RUN cd llama.cpp && make -j $(grep -c ^processor /proc/cpuinfo) all
-#RUN cd llama-openblas && cmake . && make LLAMA_OPENBLAS=1 -j $(grep -c ^processor /proc/cpuinfo) all
-#RUN cd llama-cublas && cmake -DGGML_CUDA=ON . && make GGML_CUDA=1 -j $(grep -c ^processor /proc/cpuinfo) all
-
-#cmake version
+# build all versions - cmake version
 RUN cd llama.cpp && cmake -B build && cmake --build build --config Release -j $(grep -c ^processor /proc/cpuinfo)
 RUN cd llama-openblas && cmake -B build -DGGML_BLAS_VENDOR=OpenBLAS && cmake --build build --config Release -j $(grep -c ^processor /proc/cpuinfo)
 RUN cd llama-cublas && cmake -B build -DGGML_CUDA=ON && cmake --build build --config Release -j $(grep -c ^processor /proc/cpuinfo)
+RUN cd llama.hip && HIPCXX="$(hipconfig -l)/clang" HIP_PATH="$(hipconfig -R)" cmake -S . -B build -DGGML_HIP=ON -DGPU_TARGETS=gfx906 -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release -j $(grep -c ^processor /proc/cpuinfo)
 
 # fetch nanochat for factory framework
 RUN pip install "click<8.1.0" huggingface_hub[cli]
