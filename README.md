@@ -1,4 +1,4 @@
-<img width="5978" height="1578" alt="468390747-272a9fdc-d924-4771-850c-d100f23562f6" src="https://github.com/user-attachments/assets/b13533ea-ae39-4f5a-977e-dce2c596f615" />
+<img width="1536" height="1024" alt="ChatGPT Image Jan 1, 2026, 12_55_47 PM" src="https://github.com/user-attachments/assets/64036380-01d8-4b3a-9152-eff641577d4c" />
 
 # ThereminQ-llama: Baking a Quantum Layer Cake
 
