@@ -7,7 +7,7 @@ ENV PATH=/usr/local/nvidia/bin:${PATH}
 ENV LD_LIBRARY_PATH=/usr/local/nvidia/lib:/usr/local/nvidia/lib64:${LD_LIBRARY_PATH}
 
 # fetch qrack-dev deb package
-RUN apt update && apt install -y software-properties-common && apt clean
+RUN apt update && apt install -y software-properties-common zstd && apt clean
 RUN add-apt-repository -y ppa:wrathfulspatula/vm6502q && apt clean
 RUN apt install -y libqrack-dev
 
