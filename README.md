@@ -42,7 +42,7 @@ To get started with ThereminQ-llama, you will need to have Docker installed on y
 3. **Run the Docker Container:** Run the Docker container using the following command. This command maps the necessary ports and mounts a volume for your models.
 
    ```bash
-   docker run --gpus all --device=/dev/kfd --device=/dev/dri:/dev/dri -v /path-to-/models:/text-generation-webui/models -p 5000:5000 -p 5173:5173 -p 5601:5601 -p 6080:6080 -p 7860:7860 -p 7861:7861 -p 8501:8501 -p 8081:8081 -p 9000:9000 -d twobombs/thereminq-llama[:tag]
+   docker run --gpus all --device=/dev/kfd --device=/dev/dri:/dev/dri -v /path-to-/models:/text-generation-webui/models -p 5000:5000 -p 5173:5173 -p 5601:5601 -p 6080:6080 -p 7860:7860 -p 7861:7861 -p 8033:8033 -p 8501:8501 -p 8081:8081 -p 9000:9000 -d twobombs/thereminq-llama[:tag]
    ```
 
 ## Usage
