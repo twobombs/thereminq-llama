@@ -1,21 +1,17 @@
-FROM twobombs/cudacluster:2204dev
-#FROM nvidia/cuda:12.2.2-base-ubuntu22.04
+FROM twobombs/thereminq-desktop
 
 # HF pip dependancies
 RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y unzip python3-pip ipython3 ffmpeg python3-venv libgl1 libglib2.0-0 wget && apt clean all
-RUN pip3 install --upgrade pip && pip cache purge
 RUN pip3 install --break-system-packages huggingface_hub[hf_transfer] links && pip cache purge
-
-RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y python3-pip git && apt clean all
 
 # get chat ui webgui with voice and web rag
 RUN touch Meta-Llama-3.1-8B-q4_k_s.gguf
 RUN git clone --depth=1 https://github.com/oobabooga/text-generation-webui.git
 
 # buld env
-RUN cd text-generation-webui/requirements/portable/ && pip3 install --ignore-installed -r requirements.txt && pip cache purge
-# RUN cd text-generation-webui/extensions/ && git clone https://github.com/minemo/text-generation-webui-barktts bark_tts/ && pip3 install -r bark_tts/requirements.txt && pip cache purge
-RUN cd text-generation-webui/extensions/ && git clone https://github.com/Anglebrackets/web_rag.git && pip3 install -r web_rag/requirements.txt && pip cache purge
+RUN cd text-generation-webui/requirements/portable/ && pip3 install --break-system-packages --ignore-installed -r requirements.txt && pip cache purge
+# RUN cd text-generation-webui/extensions/ && git clone https://github.com/minemo/text-generation-webui-barktts bark_tts/ && pip3 install --break-system-packages -r bark_tts/requirements.txt && pip cache purge
+RUN cd text-generation-webui/extensions/ && git clone https://github.com/Anglebrackets/web_rag.git && pip3 install --break-system-packages -r web_rag/requirements.txt && pip cache purge
 
 # RUN cd text-generation-webui/extensions/coqui_tts && pip3 install -r requirements.txt && pip cache purge
 # RUN cd text-generation-webui/extensions/whisper_stt && pip3 install -r requirements.txt && pip cache purge
@@ -25,8 +21,6 @@ RUN cd text-generation-webui/extensions/ && git clone https://github.com/Anglebr
 
 # fetch AUTOMATIC1111
 RUN apt install -y google-perftools && git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui 
-# fetch alloy
-# RUN apt install -y portaudio19-dev && apt clean all && git clone https://github.com/svpino/alloy-voice-assistant.git && cd alloy-voice-assistant && pip install -r requirements.txt && pip cache purge
 
 # fetch easy diffusion
 RUN wget https://github.com/easydiffusion/easydiffusion/releases/download/v3.0.9/Easy-Diffusion-Linux.zip && unzip Easy-Diffusion-Linux.zip
@@ -34,15 +28,6 @@ COPY /misc/config.yaml /easy-diffusion/scripts/config.yaml.sample
 
 #copy run file
 COPY /runfiles/run-* /root
-RUN chmod 744 /root/run*
-
-# combo container fix
-# RUN pip install flash_attn -U --force-reinstall
-
-ENV NVIDIA_VISIBLE_DEVICES all
-ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
-ENV HOST 0.0.0.0
-
-EXPOSE 80 3000 5000 5173 7680 7861 8000 8081 8501 8080 9000 11434
+RUN chmod 755 /root/run*
 
 ENTRYPOINT /root/run-chatui

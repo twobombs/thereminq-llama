@@ -5,45 +5,32 @@ RUN git clone https://github.com/twobombs/thereminq-llama
 #fetch llama.cpp
 RUN git clone --depth=1 https://github.com/ggerganov/llama.cpp
 RUN cp -r llama.cpp llama-openblas
-RUN cp -r llama.cpp llama-cublas
 RUN cp -r llama.cpp llama.hip
+RUN cp -r llama.cpp llama-vulkan
 
 #fetch local deep research agency
 RUN git clone --depth=1 https://github.com/LearningCircuit/local-deep-research
 
 #setup
-RUN pip install --upgrade pip setuptools && pip cache purge
-RUN apt update && apt install -y libcurl4-gnutls-dev && apt clean all
+RUN pip install --break-system-packages --upgrade setuptools && pip cache purge
+RUN apt update && apt install -y libvulkan-dev glslc libcurl4-gnutls-dev cmake build-essential && apt clean all
 
-#CUDA integration default
-RUN CMAKE_ARGS="-DGGML_CUDA=on" FORCE_CMAKE=1 pip install llama-cpp-python --force-reinstall --upgrade --no-cache-dir && pip cache purge
-RUN python3 -m pip install --upgrade pip pytest cmake scikit-build setuptools fastapi uvicorn sse-starlette pydantic-settings && pip cache purge
-
-# build all versions - cmake version
+# build versions via cmake
 RUN cd llama.cpp && cmake -B build && cmake --build build --config Release -j $(grep -c ^processor /proc/cpuinfo)
 RUN cd llama-openblas && cmake -B build -DGGML_BLAS_VENDOR=OpenBLAS && cmake --build build --config Release -j $(grep -c ^processor /proc/cpuinfo)
-RUN cd llama-cublas && cmake -B build -DGGML_CUDA=ON && cmake --build build --config Release -j $(grep -c ^processor /proc/cpuinfo)
-RUN cd llama.hip && HIPCXX="$(hipconfig -l)/clang" HIP_PATH="$(hipconfig -R)" cmake -S . -B build -DGGML_HIP=ON -DGPU_TARGETS=gfx906 -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release -j $(grep -c ^processor /proc/cpuinfo)
+RUN cd llama-vulkan && cmake -B build -DGGML_VULKAN=1 && cmake --build build --config Release -j $(grep -c ^processor /proc/cpuinfo)
 
 # fetch nanochat for factory framework
-RUN pip install "click<8.1.0" huggingface_hub[cli]
+RUN pip install --break-system-packages huggingface_hub[cli]
 RUN git clone https://github.com/karpathy/nanochat.git
-RUN hf download karpathy/nanochat-d34 --local-dir nanochat-d34
 
-# dummy ln links for placeholder LLMs
-RUN ln -s Meta-Llama-3.1-8B-q4_k_s.gguf /llama.cpp/models/Meta-Llama-3.1-8B-q4_k_s.gguf
-RUN ln -s Meta-Llama-3.1-8B-q4_k_s.gguf /llama-cublas/models/Meta-Llama-3.1-8B-q4_k_s.gguf
-RUN ln -s Meta-Llama-3.1-8B-q4_k_s.gguf /llama-openblas/models/Meta-Llama-3.1-8B-q4_k_s.gguf
-
+# RUN hf download karpathy/nanochat-d34 --local-dir nanochat-d34
 # install llama.cpp conversion dependancies
-RUN pip3 install --ignore-installed torch sentencepiece transformers && pip cache purge
-
+# RUN pip3 install --break-system-packages --ignore-installed torch sentencepiece transformers && pip cache purge
 # install mergekit for llm merging
-RUN pip3 install mergekit && pip cache purge
+# RUN pip3 install --break-system-packages mergekit && pip cache purge
 
 # test build
 # RUN cd llama.cpp && ./main -m /llama.cpp/models/Meta-Llama-3.1-8B-q4_k_s.gguf -p "make a proof read of the negative energy spike when teleporting a qubit according to ER=EPR and devise a strategy to execute the thesis on a quantum computer that shows that ER=EPR is an example of quantum gravity" -n 512
 
-ENV NVIDIA_VISIBLE_DEVICES all
-ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
 ENTRYPOINT /root/run
