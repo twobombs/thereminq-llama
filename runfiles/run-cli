@@ -20,7 +20,7 @@ export DISPLAY=:0 && falkon --disable-fre --no-default-browser-check --no-first-
 export DISPLAY=:0&&exo-open --launch TerminalEmulator &
 
 # start llama-server cuda version with gpt20b ( amd/hip version also avaliable )
-/llama-cublas/build/bin/llama-server -hf ggml-org/gpt-oss-20b-GGUF --jinja -c 0 --host 0.0.0.0 --port 8033
+/llama-vulkan/build/bin/llama-server -hf ggml-org/gpt-oss-20b-GGUF --jinja -c 0 --host 0.0.0.0 --port 8033
 
 # when fail do not stop container ( debug )
 tail -f /dev/null
