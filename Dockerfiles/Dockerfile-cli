@@ -7,6 +7,7 @@ RUN git clone --depth=1 https://github.com/ggerganov/llama.cpp
 RUN cp -r llama.cpp llama-openblas
 RUN cp -r llama.cpp llama.hip
 RUN cp -r llama.cpp llama-vulkan
+RUN cp -r llama.cpp llama-opencl
 
 #fetch local deep research agency
 RUN git clone --depth=1 https://github.com/LearningCircuit/local-deep-research
@@ -19,6 +20,7 @@ RUN apt update && apt install -y libvulkan-dev glslc libcurl4-gnutls-dev cmake b
 RUN cd llama.cpp && cmake -B build && cmake --build build --config Release -j $(grep -c ^processor /proc/cpuinfo)
 RUN cd llama-openblas && cmake -B build -DGGML_BLAS_VENDOR=OpenBLAS && cmake --build build --config Release -j $(grep -c ^processor /proc/cpuinfo)
 RUN cd llama-vulkan && cmake -B build -DGGML_VULKAN=1 && cmake --build build --config Release -j $(grep -c ^processor /proc/cpuinfo)
+RUN cd llama-opencl && cmake -B build -DGGML_OPENCL=1 && cmake --build build --config Release -j $(grep -c ^processor /proc/cpuinfo)
 
 # fetch nanochat for factory framework
 RUN pip install --break-system-packages huggingface_hub[cli]
