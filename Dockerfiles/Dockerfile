@@ -9,8 +9,9 @@ RUN apt update && apt install -y software-properties-common zstd && apt clean
 RUN export DEBIAN_FRONTEND=noninteractive && apt install -y python3-pip npm cargo ipython3 python-is-python3 ffmpeg python3-venv git-lfs libgl1 libglib2.0-0 && apt clean all
 RUN pip install --break-system-packages --upgrade "tiktoken>=0.8.0" && apt remove -y python3-kiwisolver && pip3 install --break-system-packages huggingface_hub[hf_transfer] && pip cache purge
 
-# build carbonyl
+# build carbonyl en fetch plinys godmode
 RUN npm install --global carbonyl
+RUN git clone https://github.com/twobombs/G0DM0D3.git
 
 # fetch llama-cpp-python
 RUN git clone --depth=1 --recursive -j8 https://github.com/abetlen/llama-cpp-python.git
