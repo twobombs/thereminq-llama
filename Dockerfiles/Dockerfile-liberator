@@ -1,0 +1,6 @@
+FROM twobombs/thereminq-llama:cli
+
+#redteaming classical LLMs
+https://github.com/twobombs/G0DM0D3.git
+
+ENTRYPOINT /root/run
