@@ -1,6 +1,7 @@
 FROM twobombs/thereminq-llama
 
 # agent will require quantum dependancies
+RUN git clone https://github.com/twobombs/claw-code.git
 
 # install QC runtime requirements
 # multihost inferencing to speed up the agent process
