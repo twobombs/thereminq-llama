@@ -21,7 +21,8 @@ RUN git clone --depth=1 https://github.com/LearningCircuit/local-deep-research
 
 #setup
 RUN pip install --break-system-packages --upgrade setuptools && pip cache purge
-RUN apt update && apt install -y libvulkan-dev glslc libcurl4-gnutls-dev cmake build-essential && apt clean all
+RUN apt update && apt install -y libvulkan-dev glslc spirv-headers glslang-tools libcurl4-gnutls-dev cmake build-essential && apt clean all
+
 
 # build versions via cmake
 RUN cd llama.cpp && cmake -B build && cmake --build build --config Release -j $(grep -c ^processor /proc/cpuinfo)
