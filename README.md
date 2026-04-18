@@ -21,8 +21,8 @@ This repository is dedicated to extending GGUF llama Large Language Models (LLMs
 
 ThereminQ-llama integrates several cutting-edge technologies to create a powerful and versatile platform for QC-enhanced AI. The core components of the stack include:
 
-- **Qrackmin:** A library for quantum simulation.
-- **llama.cpp:** A library for running LLMs.
+- **ThereminQ-HPC:** A runtime library for quantum simulation with Qrack
+- **llama.cpp:** A runtime library for running LLMs
 - **Open Interpreter:** A tool for enabling agentic capabilities.
 
 The project is still in its alpha stage, with new features and functionalities being actively developed.
