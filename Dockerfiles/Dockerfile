@@ -27,7 +27,7 @@ RUN git clone --depth=1 https://github.com/twobombs/thereminq-bonsai.git && cd t
 #RUN pip install codecarbon && pip cache purge
 
 #touch dummy default model
-RUN touch Meta-Llama-3.1-8B-q4_k_s.gguf
+RUN touch Qwen3.5-9B-MTP-GGUF
 
 #copy run file
 COPY /runfiles/run-* /root
