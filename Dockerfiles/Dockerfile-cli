@@ -10,10 +10,10 @@ RUN cp -r llama.cpp llama-vulkan
 RUN cp -r llama.cpp llama-opencl
 
 # turboquant fork pretending the PR made it to main 
-RUN git clone https://github.com/TheTom/llama-cpp-turboquant
+# RUN git clone https://github.com/TheTom/llama-cpp-turboquant
 
 # tq vulkan alpha build
-# RUN git clone https://github.com/Titaniumtown/llama-cpp-turboquant.git
+RUN git clone https://github.com/Titaniumtown/llama-cpp-turboquant.git
 # git switch pr/vulkan-tq4-1s
 
 #fetch local deep research agency
