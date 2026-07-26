@@ -1,4 +1,4 @@
-FROM twobombs/thereminq-desktop
+FROM twobombs/deploy-nvidia-desktop
 
 # HF pip dependancies
 RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install -y unzip python3-pip ipython3 ffmpeg python3-venv libgl1 libglib2.0-0 wget && apt clean all
