@@ -30,7 +30,7 @@ RUN git clone --depth=1 https://github.com/twobombs/thereminq-bonsai.git && cd t
 RUN touch Qwen3.5-9B-MTP-GGUF
 
 #copy run file
-COPY /runfiles/run-* /root
+COPY /runfiles/run-* /root/
 RUN chmod 755 /root/run*
 
 EXPOSE 80 3000 5173 6080 7680 7861 8000 8033 8081 8501 8080 11434
