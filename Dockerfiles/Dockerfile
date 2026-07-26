@@ -17,8 +17,7 @@ RUN git clone https://github.com/twobombs/G0DM0D3.git
 RUN git clone --depth=1 --recursive -j8 https://github.com/abetlen/llama-cpp-python.git
 
 # fetch and unpack qrack QFT/QNN patterns
-RUN git clone --depth=1 https://github.com/twobombs/thereminq-bonsai.git
-RUN cd thereminq-bonsai/miscfiles && for file in *.tar.gz; do tar -xzf "$file"; done
+RUN git clone --depth=1 https://github.com/twobombs/thereminq-bonsai.git && cd thereminq-bonsai/miscfiles && for file in *.tar.gz; do tar -xzf "$file"; done
 
 # fetch ollama
 #RUN curl -fsSL https://ollama.com/install.sh | sh
