@@ -1,7 +1,7 @@
 FROM twobombs/thereminq-desktop
 
 # fetch qrack-dev deb package
-RUN apt update && apt install -y software-properties-common zstd && apt clean
+RUN apt update && apt install -y software-properties-common build-essential zstd && apt clean
 #RUN add-apt-repository -y ppa:wrathfulspatula/vm6502q && apt clean
 #RUN apt install -y libqrack-dev
 
