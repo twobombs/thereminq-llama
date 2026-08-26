@@ -36,13 +36,14 @@ RUN cd llama-cpp-turboquant && cmake -B build -DGGML_VULKAN=1 && cmake --build b
 RUN pip install --break-system-packages huggingface_hub[cli]
 RUN git clone https://github.com/karpathy/nanochat.git
 
+# fetch autoresearch and vscode for agentic container work
+RUN git clone https://github.com/twobombs/thereminq-autoresearch
+RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get install -y wget gpg apt-transport-https ca-certificates && mkdir -p /etc/apt/keyrings && wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor -o /etc/apt/keyrings/packages.microsoft.gpg && echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list && apt-get update && apt-get install -y code
+
 # RUN hf download karpathy/nanochat-d34 --local-dir nanochat-d34
 # install llama.cpp conversion dependancies
 # RUN pip3 install --break-system-packages --ignore-installed torch sentencepiece transformers && pip cache purge
 # install mergekit for llm merging
 # RUN pip3 install --break-system-packages mergekit && pip cache purge
-
-# test build
-# RUN cd llama.cpp && ./main -m /llama.cpp/models/Meta-Llama-3.1-8B-q4_k_s.gguf -p "create a thesis about the negative energy spike that can be observed whilst teleporting a qubit according to ER=EPR and devise a strategy leveraging tooling to execute the thesis on a quantum computer as a proof that ER=EPR is an example of quantum gravity" -n 512
 
 ENTRYPOINT /root/run
