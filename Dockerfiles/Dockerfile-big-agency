@@ -1,8 +1,0 @@
-FROM twobombs/thereminq-llama:agent
-
-RUN pip3 install autogenstudio && pip cache purge
-
-ENV NVIDIA_VISIBLE_DEVICES all
-ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
-
-ENTRYPOINT /root/run-big-agency
