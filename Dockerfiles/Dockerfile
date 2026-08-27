@@ -22,16 +22,6 @@ RUN git clone --depth=1 --recursive -j8 https://github.com/abetlen/llama-cpp-pyt
 # fetch and unpack qrack QFT/QNN patterns
 RUN git clone --depth=1 https://github.com/twobombs/thereminq-bonsai.git && cd thereminq-bonsai/miscfiles && for file in *.tar.gz; do tar -xzf "$file"; done
 
-# fetch ollama
-#RUN curl -fsSL https://ollama.com/install.sh | sh
-
-# fetch codecarbon
-#RUN git clone --depth=1 https://github.com/mlco2/codecarbon.git
-#RUN pip install codecarbon && pip cache purge
-
-#touch dummy default model
-RUN touch Qwen3.5-9B-MTP-GGUF
-
 #copy run file
 COPY /runfiles/run-* /root/
 RUN chmod 755 /root/run*
