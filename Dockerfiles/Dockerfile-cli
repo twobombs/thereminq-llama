@@ -7,30 +7,15 @@ RUN git clone --depth=1 https://github.com/ggerganov/llama.cpp
 RUN cp -r llama.cpp llama-openblas
 RUN cp -r llama.cpp llama.hip
 RUN cp -r llama.cpp llama-vulkan
-RUN cp -r llama.cpp llama-opencl
-
-# turboquant fork pretending the PR made it to main 
-RUN git clone https://github.com/TheTom/llama-cpp-turboquant
-
-# tq vulkan alpha build
-# RUN git clone https://github.com/Titaniumtown/llama-cpp-turboquant.git
-# git switch pr/vulkan-tq4-1s
-
-#fetch local deep research agency
-RUN git clone --depth=1 https://github.com/LearningCircuit/local-deep-research
 
 #setup
 RUN pip install --break-system-packages --upgrade setuptools && pip cache purge
 RUN apt update && apt install -y libvulkan-dev glslc spirv-headers glslang-tools libcurl4-gnutls-dev cmake build-essential && apt clean all
 
-
 # build versions via cmake
 RUN cd llama.cpp && cmake -B build && cmake --build build --config Release -j $(grep -c ^processor /proc/cpuinfo)
 RUN cd llama-openblas && cmake -B build -DGGML_BLAS_VENDOR=OpenBLAS && cmake --build build --config Release -j $(grep -c ^processor /proc/cpuinfo)
 RUN cd llama-vulkan && cmake -B build -DGGML_VULKAN=1 && cmake --build build --config Release -j $(grep -c ^processor /proc/cpuinfo)
-RUN cd llama-opencl && cmake -B build -DGGML_OPENCL=1 && cmake --build build --config Release -j $(grep -c ^processor /proc/cpuinfo)
-# experimental VULKAN TurboQuant 
-RUN cd llama-cpp-turboquant && cmake -B build -DGGML_VULKAN=1 && cmake --build build --config Release -j $(grep -c ^processor /proc/cpuinfo)
 
 # fetch nanochat for factory framework
 RUN pip install --break-system-packages huggingface_hub[cli]
