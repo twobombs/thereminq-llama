@@ -5,13 +5,13 @@ RUN apt update && apt install -y software-properties-common build-essential cmak
 #RUN add-apt-repository -y ppa:wrathfulspatula/vm6502q && apt clean
 #RUN apt install -y libqrack-dev
 
-# HF and Open-interpreter dependancies
+# HF dependancies
 RUN export DEBIAN_FRONTEND=noninteractive && apt install -y python3-pip npm cargo ipython3 python-is-python3 ffmpeg python3-venv git-lfs libgl1 libglib2.0-0 && apt clean all
 RUN pip install --break-system-packages --upgrade "tiktoken>=0.8.0" && apt remove -y python3-kiwisolver && pip3 install --break-system-packages huggingface_hub[hf_transfer] && pip cache purge
 
-# build carbonyl en fetch plinys godmode
+# build carbonyl # fetch plinys godmode
 RUN npm install --global carbonyl
-RUN git clone https://github.com/twobombs/G0DM0D3.git
+# RUN git clone https://github.com/twobombs/G0DM0D3.git
 
 # fetch thereminq-autoresearch 
 RUN got clone https://github.com/twobombs/thereminq-autoresearch
