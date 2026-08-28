@@ -14,7 +14,7 @@ RUN npm install --global carbonyl
 # RUN git clone https://github.com/twobombs/G0DM0D3.git
 
 # fetch thereminq-autoresearch 
-RUN got clone https://github.com/twobombs/thereminq-autoresearch
+RUN git clone https://github.com/twobombs/thereminq-autoresearch
 
 # fetch llama-cpp-python
 RUN git clone --depth=1 --recursive -j8 https://github.com/abetlen/llama-cpp-python.git
