@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-operator
+  namespace: kube-system
+  labels:
+    app: ai-operator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ai-operator
+  template:
+    metadata:
+      labels:
+        app: ai-operator
+    spec:
+      serviceAccountName: ai-operator-sa
+      containers:
+      - name: ai-operator
+        image: your-registry/ai-operator:latest # To be built
+        imagePullPolicy: Always
+        env:
+        - name: LLM_API_BASE
+          value: "http://llama-server.default.svc.cluster.local:8080/v1"
+        - name: LLM_MODEL_NAME
+          value: "llama-3"
+        - name: LLM_API_KEY
+          value: "dummy-key" # Only if required by local server
+        - name: ARGOCD_URL
+          value: "http://argocd-server.argocd.svc.cluster.local"
+        - name: ARGOCD_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: argocd-token-secret
+              key: token
+              optional: true
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "200m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
