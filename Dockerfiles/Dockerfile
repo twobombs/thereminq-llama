@@ -20,7 +20,7 @@ RUN git clone --depth=1 --recursive -j8 https://github.com/abetlen/llama-cpp-pyt
 RUN git clone --depth=1 https://github.com/twobombs/thereminq-bonsai.git && cd thereminq-bonsai/miscfiles && for file in *.tar.gz; do tar -xzf "$file"; done
 
 # pull own repo for agents
-RUN git clone https://github.com/twobombs/thereminq-llama
+# RUN git clone https://github.com/twobombs/thereminq-llama
 
 #copy run file
 COPY /runfiles/run-* /root/
