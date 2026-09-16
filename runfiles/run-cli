@@ -12,7 +12,7 @@ service xrdp start && xrdp &
 pulseaudio -D --system &
 
 export DISPLAY=:0 && xterm -e "xset s off" 
-export DISPLAY=:0 && xterm -bg black -fg white -e "neofetch && tail -f /dev/null" &
+export DISPLAY=:0 && xterm -bg black -fg white -e "fastfetch && tail -f /dev/null" &
 export DISPLAY=:0 && exo-open --launch TerminalEmulator &
 export DISPLAY=:0 && google-chrome-stable --disable-fre --no-default-browser-check --no-first-run --no-sandbox --password-store=basic https://gemini.google.com  https://chat.openai.com https://claude.ai &
 export DISPLAY=:0 && code . --no-sandbox -disable-dev-shm-usage
